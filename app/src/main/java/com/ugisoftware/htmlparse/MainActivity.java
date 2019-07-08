@@ -30,7 +30,7 @@ import java.util.List;
 //as
 //sdsfsd
 //asdasdda
-
+//Yorum
 public class MainActivity extends AppCompatActivity {
 
     private ListView lv;
