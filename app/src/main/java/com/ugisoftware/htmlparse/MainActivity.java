@@ -32,7 +32,7 @@ import java.util.List;
 //asdasdda
 
 public class MainActivity extends AppCompatActivity {
-
+    private ListView asd;
     private ListView lv;
     public ArrayList liste= new ArrayList();
     public ArrayList linkliste= new ArrayList();
