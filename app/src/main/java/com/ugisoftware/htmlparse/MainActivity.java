@@ -27,12 +27,10 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-<<<<<<< HEAD
 //as
 //sdsfsd
-=======
 //asdasdda
->>>>>>> f7a51e6fab2f818a7d68c360856d0e5b268fcc30
+
 public class MainActivity extends AppCompatActivity {
 
     private ListView lv;
