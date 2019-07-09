@@ -10,10 +10,10 @@
         android:icon="@drawable/kosgeb"
         android:title="Kosgeb" />
     <item
-        android:id="@+id/action_profil"
+        android:id="@+id/action_ist"
         android:title="İstanbul Kalkınma Ajansı" />
     <item
-        android:id="@+id/action_ilanver"
+        android:id="@+id/action_trakya"
         android:title="Trakya Kalkınma Ajansı" />
     <item android:title="Güney Marmara Kalkınma Ajansı" />
     <item android:title="İzmir Kalkınma Ajansı" />

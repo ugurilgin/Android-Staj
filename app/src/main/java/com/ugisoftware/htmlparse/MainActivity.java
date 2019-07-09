@@ -224,6 +224,53 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
+    private class VeriGetirIstkalk extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+
+
+            try {
+                Document doc= Jsoup.connect("http://www.istka.org.tr/duyurular/").timeout(30*1000).get();
+                for (Element adDiv : doc.select("a.link")){
+                        Element duyuruDiv = adDiv.select("a.link").first();
+                        liste.add("İstKA   : "+duyuruDiv.text());
+                        //liste.add( linkA.absUrl("href")) ;
+                        linkliste.add( duyuruDiv.absUrl("href")) ;
+                }
+
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
+
     private class VeriGetirTubitak extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -291,6 +338,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         if (id == R.id.action_kosgeb) {
             new VeriGetirKosgeb().execute();
+            //Aa
+        }
+        if (id == R.id.action_ist) {
+            new VeriGetirIstkalk().execute();
             //Aa
         }
 
