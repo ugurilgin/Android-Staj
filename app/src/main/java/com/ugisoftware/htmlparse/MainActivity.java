@@ -225,7 +225,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             new VeriGetirTubitak().execute();
             //Aa
         }
-        if (id == R.id.action_kosgep) {
+        if (id == R.id.action_kosgeb) {
             new VeriGetirKosgeb().execute();
             //Aa
         }
