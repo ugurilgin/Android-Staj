@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toggle.syncState();
 
         View baslik = nav_view.inflateHeaderView(R.layout.nav_baslik);
+        nav_view.setItemIconTintList(null);
         nav_view.setNavigationItemSelectedListener(MainActivity.this);
         nav_view.inflateMenu(R.menu.nav_menu);
 

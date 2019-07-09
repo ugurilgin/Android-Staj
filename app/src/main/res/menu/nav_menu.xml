@@ -3,15 +3,41 @@
 
     <item
         android:id="@+id/action_tubitak"
+        android:icon="@drawable/tubitaklogo"
         android:title="Tübitak" />
     <item
-        android:id="@+id/action_kosgep"
-        android:title="Kosgep" />
+        android:id="@+id/action_kosgeb"
+        android:icon="@drawable/kosgeb"
+        android:title="Kosgeb" />
     <item
         android:id="@+id/action_profil"
-        android:title="abdestek" />
+        android:title="İstanbul Kalkınma Ajansı" />
     <item
         android:id="@+id/action_ilanver"
-        android:title="asdas" />
+        android:title="Trakya Kalkınma Ajansı" />
+    <item android:title="Güney Marmara Kalkınma Ajansı" />
+    <item android:title="İzmir Kalkınma Ajansı" />
+    <item android:title="Güney Ege Kalkınma Ajansı" />
+    <item android:title="Zafer Kalkınma Ajansı" />
+    <item android:title="Bursa-Eskişehir-Bilecik Kalkınma Ajansı" />
+    <item android:title="Doğu Marmara Kalkınma Ajansı" />
+    <item android:title="Ankara Kalkınma Ajansı" />
+    <item android:title="Mevlana Kalkınma Ajansı" />
+    <item android:title="Batı Akdeniz Kalkınma Ajansı" />
+    <item android:title="Çukurova Kalkınma Ajansı" />
+    <item android:title="Doğu Akdeniz Kalkınma Ajansı" />
+    <item android:title="Ahiler Kalkınma Ajansı" />
+    <item android:title="Orta Anadolu Kalkınma Ajansı" />
+    <item android:title="Batı Karadeniz Kalkınma Ajansı" />
+    <item android:title="Kuzey Anadolu Kalkınma Ajansı" />
+    <item android:title="Orta Karadeniz Kalkınma Ajansı" />
+    <item android:title="Doğu Karadeniz Kalkınma Ajansı" />
+    <item android:title="Kuzey Doğu Anadolu Kalkınma Ajansı" />
+    <item android:title="Serhat Kalkınma Ajansı" />
+    <item android:title="Fırat Kalkınma Ajansı" />
+    <item android:title="Doğu Anadolu Kalkınma Ajansı" />
+    <item android:title="İpek Yolu Kalkınma Ajansı" />
+    <item android:title="Karacadağ Kalkınma Ajansı" />
+    <item android:title="Dicle Kalkınma Ajansı" />
 
 </menu>
