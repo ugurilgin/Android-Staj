@@ -107,7 +107,59 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
 
     }
+    private class VeriGetirKosgeb extends AsyncTask<Void, Void, Void> {
 
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+
+
+            try {
+                Document doc= Jsoup.connect("http://www.kosgeb.gov.tr/site/tr/genel/destekler/6312/girisimcilik-destekleri/").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div.details")){
+
+                        Element duyuruDiv = adDiv.select("div.details").first();
+
+                        liste.add("Kosgeb   : "+duyuruDiv.text() );
+
+
+
+                }
+                for (Element adDiv : doc.select("a.dashboard-stat.dashboard-stat-v2.blue-chambray.shadow")){
+
+                    linkliste.add( adDiv.absUrl("href")) ;
+
+                }
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
     private class VeriGetirTubitak extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -171,6 +223,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.action_tubitak) {
             new VeriGetirTubitak().execute();
+            //Aa
+        }
+        if (id == R.id.action_kosgep) {
+            new VeriGetirKosgeb().execute();
             //Aa
         }
 
