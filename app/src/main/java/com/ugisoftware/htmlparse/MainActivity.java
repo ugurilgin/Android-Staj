@@ -100,14 +100,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
 
-                new VeriGetir().execute();
+                //new VeriGetirTubitak().execute();
 
             }
         });
 
     }
 
-    private class VeriGetir extends AsyncTask<Void, Void, Void> {
+    private class VeriGetirTubitak extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected void onPreExecute() {
@@ -165,6 +165,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         //menüdeki seçeneklerden birine tıklanıldığında ne açılacak onu belirtiyoruz
+
+        int id = menuItem.getItemId();
+
+        if (id == R.id.action_tubitak) {
+            new VeriGetirTubitak().execute();
+        }
+
+
 
         //menüden seçim yaptıktan sonra nav viewin kapalı konuma geçmesini sağlar
 
