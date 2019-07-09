@@ -11,33 +11,83 @@
         android:title="Kosgeb" />
     <item
         android:id="@+id/action_profil"
+        android:icon="@drawable/istanbul"
         android:title="İstanbul Kalkınma Ajansı" />
     <item
         android:id="@+id/action_ilanver"
+        android:icon="@drawable/trakya"
         android:title="Trakya Kalkınma Ajansı" />
-    <item android:title="Güney Marmara Kalkınma Ajansı" />
-    <item android:title="İzmir Kalkınma Ajansı" />
-    <item android:title="Güney Ege Kalkınma Ajansı" />
-    <item android:title="Zafer Kalkınma Ajansı" />
-    <item android:title="Bursa-Eskişehir-Bilecik Kalkınma Ajansı" />
-    <item android:title="Doğu Marmara Kalkınma Ajansı" />
-    <item android:title="Ankara Kalkınma Ajansı" />
-    <item android:title="Mevlana Kalkınma Ajansı" />
-    <item android:title="Batı Akdeniz Kalkınma Ajansı" />
-    <item android:title="Çukurova Kalkınma Ajansı" />
-    <item android:title="Doğu Akdeniz Kalkınma Ajansı" />
-    <item android:title="Ahiler Kalkınma Ajansı" />
-    <item android:title="Orta Anadolu Kalkınma Ajansı" />
-    <item android:title="Batı Karadeniz Kalkınma Ajansı" />
-    <item android:title="Kuzey Anadolu Kalkınma Ajansı" />
-    <item android:title="Orta Karadeniz Kalkınma Ajansı" />
-    <item android:title="Doğu Karadeniz Kalkınma Ajansı" />
-    <item android:title="Kuzey Doğu Anadolu Kalkınma Ajansı" />
-    <item android:title="Serhat Kalkınma Ajansı" />
-    <item android:title="Fırat Kalkınma Ajansı" />
-    <item android:title="Doğu Anadolu Kalkınma Ajansı" />
-    <item android:title="İpek Yolu Kalkınma Ajansı" />
-    <item android:title="Karacadağ Kalkınma Ajansı" />
-    <item android:title="Dicle Kalkınma Ajansı" />
+    <item
+        android:icon="@drawable/guneymarmara"
+        android:title="Güney Marmara Kalkınma Ajansı" />
+    <item
+        android:icon="@drawable/izmir"
+        android:title="İzmir Kalkınma Ajansı" />
+    <item
+        android:icon="@drawable/guneyege"
+        android:title="Güney Ege Kalkınma Ajansı" />
+    <item
+        android:icon="@drawable/zafer"
+        android:title="Zafer Kalkınma Ajansı" />
+    <item
+        android:icon="@drawable/bursaeskisehirbilecik"
+        android:title="Bursa-Eskişehir-Bilecik Kalkınma Ajansı" />
+    <item
+        android:icon="@drawable/dogumarmara"
+        android:title="Doğu Marmara Kalkınma Ajansı" />
+    <item
+        android:icon="@drawable/ankara"
+        android:title="Ankara Kalkınma Ajansı" />
+    <item
+        android:icon="@drawable/mevlana"
+        android:title="Mevlana Kalkınma Ajansı" />
+    <item
+        android:icon="@drawable/batiakdeniz"
+        android:title="Batı Akdeniz Kalkınma Ajansı" />
+    <item
+        android:icon="@drawable/cukurova"
+        android:title="Çukurova Kalkınma Ajansı" />
+    <item
+        android:icon="@drawable/doguakdeniz"
+        android:title="Doğu Akdeniz Kalkınma Ajansı" />
+    <item
+        android:icon="@drawable/ahiler"
+        android:title="Ahiler Kalkınma Ajansı" />
+    <item
+        android:icon="@drawable/ortaanadolu"
+        android:title="Orta Anadolu Kalkınma Ajansı" />
+    <item
+        android:icon="@drawable/batikaradeniz"
+        android:title="Batı Karadeniz Kalkınma Ajansı" />
+    <item
+        android:icon="@drawable/kuzeyanadolu"
+        android:title="Kuzey Anadolu Kalkınma Ajansı" />
+    <item
+        android:icon="@drawable/ortakaradeniz"
+        android:title="Orta Karadeniz Kalkınma Ajansı" />
+    <item
+        android:icon="@drawable/dogukaradeniz"
+        android:title="Doğu Karadeniz Kalkınma Ajansı" />
+    <item
+        android:icon="@drawable/kuzeydoguanadolu"
+        android:title="Kuzey Doğu Anadolu Kalkınma Ajansı" />
+    <item
+        android:icon="@drawable/serhat"
+        android:title="Serhat Kalkınma Ajansı" />
+    <item
+        android:icon="@drawable/firat"
+        android:title="Fırat Kalkınma Ajansı" />
+    <item
+        android:icon="@drawable/doguanadolu"
+        android:title="Doğu Anadolu Kalkınma Ajansı" />
+    <item
+        android:icon="@drawable/ipekyolu"
+        android:title="İpek Yolu Kalkınma Ajansı" />
+    <item
+        android:icon="@drawable/karacadag"
+        android:title="Karacadağ Kalkınma Ajansı" />
+    <item
+        android:icon="@drawable/dicle"
+        android:title="Dicle Kalkınma Ajansı" />
 
 </menu>
