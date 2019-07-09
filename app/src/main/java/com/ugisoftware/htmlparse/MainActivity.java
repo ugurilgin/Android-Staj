@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,liste);
 
-
+        new VeriGetirTubitak().execute();
     }
     private class VeriGetirKosgeb extends AsyncTask<Void, Void, Void> {
 
