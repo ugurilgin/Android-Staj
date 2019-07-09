@@ -91,20 +91,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         nav_view.inflateMenu(R.menu.nav_menu);
 
 
-
-
         adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,liste);
 
-        Button btn=(Button)findViewById(R.id.guncelle);
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                //new VeriGetirTubitak().execute();
-
-            }
-        });
 
     }
     private class VeriGetirKosgeb extends AsyncTask<Void, Void, Void> {
