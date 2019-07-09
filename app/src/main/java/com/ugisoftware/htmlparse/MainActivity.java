@@ -270,7 +270,53 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
+    private class VeriGetirIzkalk extends AsyncTask<Void, Void, Void> {
 
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+
+
+            try {
+                Document doc= Jsoup.connect("https://www.izka.org.tr/duyurular.html").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div.feature__body.boxed.boxed--border.boxed--lg")){
+                    Element duyuruDiv = adDiv.select("div.feature__body.boxed.boxed--border.boxed--lg").first();
+                    liste.add("İzmirKA   : "+duyuruDiv.text());
+                    Element linkA = adDiv.select("a").first();
+                    //liste.add( linkA.absUrl("href")) ;
+                    linkliste.add( linkA.absUrl("href")) ;
+                }
+
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
     private class VeriGetirTubitak extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -403,7 +449,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             new VeriGetirTrakya().execute();
             //Aa
         }
-
+        if (id == R.id.action_izmir) {
+            new VeriGetirIzkalk().execute();
+            //Aa
+        }
 
 
         //menüden seçim yaptıktan sonra nav viewin kapalı konuma geçmesini sağlar
