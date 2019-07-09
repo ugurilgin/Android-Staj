@@ -3,16 +3,20 @@ package com.ugisoftware.htmlparse;
 import android.app.ProgressDialog;
 import android.content.ClipData;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -32,7 +36,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private NavigationView nav_view;
     private Toolbar toolbar;
     private DrawerLayout drawer;
@@ -80,6 +84,10 @@ public class MainActivity extends AppCompatActivity {
         //toggle ı drawer listenera ekledik
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        View baslik = nav_view.inflateHeaderView(R.layout.nav_baslik);
+        nav_view.setNavigationItemSelectedListener(MainActivity.this);
+        nav_view.inflateMenu(R.menu.nav_menu);
 
 
 
@@ -152,4 +160,24 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        //menüdeki seçeneklerden birine tıklanıldığında ne açılacak onu belirtiyoruz
+
+        //menüden seçim yaptıktan sonra nav viewin kapalı konuma geçmesini sağlar
+
+        drawer.closeDrawer(GravityCompat.START);
+
+        return true;
+    }
+
+
+
+
+
+
+
+
 }
