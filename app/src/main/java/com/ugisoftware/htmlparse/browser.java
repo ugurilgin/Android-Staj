@@ -1,8 +1,11 @@
 package com.ugisoftware.htmlparse;
 
+import android.net.http.SslError;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 public class browser extends AppCompatActivity {
 
@@ -14,6 +17,16 @@ public class browser extends AppCompatActivity {
         String a=getIntent().getStringExtra( "sayfa" );
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl(a);
+        //webView.enableJavaScript();
+        webView.getSettings().setDomStorageEnabled(true);
+        webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+        webView.setWebViewClient(new WebViewClient(){
+            @Override
+            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+                // DOT CALL SUPER METHOD
+                super.onReceivedSslError(view, handler, error);
+            }
+        });
 
     }
 }

@@ -325,6 +325,61 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+    private class VeriGetirTrakya extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+
+
+            try {
+                Document doc= Jsoup.connect("https://www.trakyaka.org.tr").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div.duyuru-item")){
+
+                        Element duyuruDiv = adDiv.select("div.duyuru-item").first();
+                    Element aaDiv = duyuruDiv.select("div.t").first();
+                    Element abDiv = aaDiv.select("h5").first();
+                        Element linkA = abDiv.select("a").first();
+                        liste.add("Trakya   : "+duyuruDiv.text());
+                        //liste.add( linkA.absUrl("href")) ;
+                        linkliste.add( linkA.absUrl("href")) ;
+
+
+
+                }
+
+
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -342,6 +397,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         if (id == R.id.action_ist) {
             new VeriGetirIstkalk().execute();
+            //Aa
+        }
+        if (id == R.id.action_trakya) {
+            new VeriGetirTrakya().execute();
             //Aa
         }
 
