@@ -143,6 +143,82 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     linkliste.add( adDiv.absUrl("href")) ;
 
                 }
+                 doc= Jsoup.connect("http://www.kosgeb.gov.tr/site/tr/genel/destekler/6313/arge-teknolojik-uretim-ve-yerlilestirme-destekleri/").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div.details")){
+
+                    Element duyuruDiv = adDiv.select("div.details").first();
+
+                    liste.add("Kosgeb   : "+duyuruDiv.text() );
+
+
+
+                }
+                for (Element adDiv : doc.select("a.dashboard-stat.dashboard-stat-v2.blue-chambray.shadow")){
+
+                    linkliste.add( adDiv.absUrl("href")) ;
+
+                }
+                doc= Jsoup.connect("http://www.kosgeb.gov.tr/site/tr/genel/destekler/6314/isletme-gelistirme-buyume-ve-uluslararasilasma-destekleri/").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div.details")){
+
+                    Element duyuruDiv = adDiv.select("div.details").first();
+
+                    liste.add("Kosgeb   : "+duyuruDiv.text() );
+
+
+
+                }
+                for (Element adDiv : doc.select("a.dashboard-stat.dashboard-stat-v2.blue-chambray.shadow")){
+
+                    linkliste.add( adDiv.absUrl("href")) ;
+
+                }
+                doc= Jsoup.connect("http://www.kosgeb.gov.tr/site/tr/genel/destekler/6315/kobi-finansman-destekleri/").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div.details")){
+
+                    Element duyuruDiv = adDiv.select("div.details").first();
+
+                    liste.add("Kosgeb   : "+duyuruDiv.text() );
+
+
+
+                }
+                for (Element adDiv : doc.select("a.dashboard-stat.dashboard-stat-v2.blue-chambray.shadow")){
+
+                    linkliste.add( adDiv.absUrl("href")) ;
+
+                }
+                doc= Jsoup.connect("http://www.kosgeb.gov.tr/site/tr/genel/destekler/6316/laboratuvar-hizmetleri/").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div.details")){
+
+                    Element duyuruDiv = adDiv.select("div.details").first();
+
+                    liste.add("Kosgeb   : "+duyuruDiv.text() );
+
+
+
+                }
+                for (Element adDiv : doc.select("a.dashboard-stat.dashboard-stat-v2.blue-chambray.shadow")){
+
+                    linkliste.add( adDiv.absUrl("href")) ;
+
+                }
+                doc= Jsoup.connect("http://www.kosgeb.gov.tr/site/tr/genel/destekler/6343/isgemtekmer-programi/").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div.details")){
+
+                    Element duyuruDiv = adDiv.select("div.details").first();
+
+                    liste.add("Kosgeb   : "+duyuruDiv.text() );
+
+
+
+                }
+                for (Element adDiv : doc.select("a.dashboard-stat.dashboard-stat-v2.blue-chambray.shadow")){
+
+                    linkliste.add( adDiv.absUrl("href")) ;
+
+                }
+
             }
             catch (IOException e) {
                 e.printStackTrace();
