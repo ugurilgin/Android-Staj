@@ -170,6 +170,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.action_tubitak) {
             new VeriGetirTubitak().execute();
+            //Aa
         }
 
 
