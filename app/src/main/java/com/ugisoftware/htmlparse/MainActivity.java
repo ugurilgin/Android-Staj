@@ -493,8 +493,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         @Override
         protected Void doInBackground(Void... voids) {
 
-
-            int counter=0;
             try {
                 Document doc= Jsoup.connect("http://www.ankaraka.org.tr/tr/icerik/duyurular_226").timeout(30*1000).get();
                 for (Element adDiv : doc.select("div.news-item")){
@@ -503,7 +501,53 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         liste.add("AnkaraKA   : "+duyuruDiv.text());
                         //liste.add( linkA.absUrl("href")) ;
                         linkliste.add( linkA.absUrl("href")) ;
-                        counter++;
+                }
+
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
+
+    private class VeriGetirAhika extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+
+            try {
+                Document doc= Jsoup.connect("http://www.ahika.gov.tr/duyurular/").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div.item")){
+                    Element duyuruDiv = adDiv.select("div.item").first();
+                    Element linkA = adDiv.select("a").first();
+                    liste.add("AhiKA   : "+duyuruDiv.text());
+                    //liste.add( linkA.absUrl("href")) ;
+                    linkliste.add( linkA.absUrl("href")) ;
                 }
 
             }
@@ -547,7 +591,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             new VeriGetirTrakya().execute();
             //Aa
         }
-<<<<<<< HEAD
         if (id == R.id.action_gmarmara) {
            // new VeriGetirGMarmara().execute();
             //Aa
@@ -556,13 +599,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             new VeriGetirAnkara().execute();
             //Aa
         }
-
-=======
         if (id == R.id.action_izmir) {
             new VeriGetirIzkalk().execute();
             //Aa
         }
->>>>>>> 41ca9805a085509de77ae1b0cbe7236c2f7d32c4
+        if (id == R.id.action_ahiler) {
+            new VeriGetirAhika().execute();
+            //Aa
+        }
 
 
         //menüden seçim yaptıktan sonra nav viewin kapalı konuma geçmesini sağlar
