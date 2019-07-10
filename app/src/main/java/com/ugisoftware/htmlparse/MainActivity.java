@@ -570,7 +570,55 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
+    private class VeriGetirBursa extends AsyncTask<Void, Void, Void> {
 
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+
+
+            try {
+                Document doc= Jsoup.connect("http://www.bebka.org.tr/destekler/acik-destek-programlari-48").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div.content")){
+
+
+                    Element LinkDiv = adDiv.select("a").first();
+                    liste.add("Bursa KA   : "+LinkDiv.text());
+
+                    linkliste.add(LinkDiv.absUrl("href")) ;
+                }
+               // liste.add( "GEKA : Guncel Destekler" );
+               // linkliste.add( "http://geka.gov.tr/3073/guncel-destekler" );
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
     private class VeriGetirAnkara extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -795,7 +843,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             new VeriGetirAnkara().execute();
             //Aa
         }
-
+        if (id == R.id.action_beb) {
+            new VeriGetirBursa().execute();
+            //Aa
+        }
         if (id == R.id.action_izmir) {
             new VeriGetirIzkalk().execute();
             //Aa
