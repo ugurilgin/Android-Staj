@@ -762,7 +762,53 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
+    private class VeriGetirDMarmara extends AsyncTask<Void, Void, Void> {
 
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+
+            try {
+                Document doc= Jsoup.connect("http://www.marka.org.tr/sayfa/351/657/2019-yili-destekleri").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div#divContent")){
+                    Element duyuruDiv = adDiv.select("a").first();
+                    Element linkA = duyuruDiv.select("span").first();
+                    liste.add("Doğu Marmara   : "+linkA.text());
+                    //liste.add( linkA.absUrl("href")) ;
+                    linkliste.add( duyuruDiv.absUrl("href")) ;
+                }
+                liste.add( "2019 Yılı Güncel Destekeler" );
+                linkliste.add( "http://www.marka.org.tr/sayfa/351/657/2019-yili-destekleri" );
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
     private class VeriGetirDicle extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -895,6 +941,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         if (id == R.id.action_beb) {
             new VeriGetirBursa().execute();
+            //Aa
+        }
+        if (id == R.id.action_dmarmara) {
+            new VeriGetirDMarmara().execute();
             //Aa
         }
         if (id == R.id.action_izmir) {
