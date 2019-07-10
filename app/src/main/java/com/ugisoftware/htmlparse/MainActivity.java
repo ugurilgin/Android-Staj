@@ -245,14 +245,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
             try {
-                Document doc= Jsoup.connect("http://www.istka.org.tr/duyurular/").timeout(30*1000).get();
+                Document doc= Jsoup.connect("http://www.istka.org.tr/destekler/destek-turleri/").timeout(30*1000).get();
                 for (Element adDiv : doc.select("a.link")){
                         Element duyuruDiv = adDiv.select("a.link").first();
-                        liste.add("İstKA   : "+duyuruDiv.text());
-                        //liste.add( linkA.absUrl("href")) ;
-                        linkliste.add( duyuruDiv.absUrl("href")) ;
-                }
 
+                        //liste.add( linkA.absUrl("href")) ;
+
+                }
+                linkliste.add( "https://www.istka.org.tr/destekler/acik-destek-programlari/") ;
+                liste.add("İstKA   : 2019 Yılı Fizibilite Desteği Programı ");
             }
             catch (IOException e) {
                 e.printStackTrace();
@@ -291,7 +292,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
             try {
-                Document doc= Jsoup.connect("https://www.izka.org.tr/duyurular.html").timeout(30*1000).get();
+                Document doc= Jsoup.connect("http://www.izka.org.tr/destekler.html").timeout(30*1000).get();
                 for (Element adDiv : doc.select("div.feature__body.boxed.boxed--border.boxed--lg")){
                     Element duyuruDiv = adDiv.select("div.feature__body.boxed.boxed--border.boxed--lg").first();
                     liste.add("İzmirKA   : "+duyuruDiv.text());
@@ -495,16 +496,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
             try {
-                Document doc= Jsoup.connect("https://www.gmka.gov.tr").timeout(30*1000).get();
-                for (Element adDiv : doc.select("div.list-group.announcements")){
+                Document doc= Jsoup.connect("https://www.gmka.gov.tr/ajans-destek-turleri").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div#sidebar1")){
 
-                    Element duyuruDiv = adDiv.select("div.announcement-title").first();
+                    Element duyuruDiv = adDiv.select("div#sidebar1").first();
                     Element LinkDiv = adDiv.select("a").first();
-                    liste.add("GMarmara   : "+duyuruDiv.text() +LinkDiv.text());
 
-                    linkliste.add( LinkDiv.absUrl("href")) ;
                 }
+                liste.add("GMarmara   : Açık Destek Programları ");
 
+                linkliste.add("https://www.gmka.gov.tr/acik-destek-programlari") ;
             }
             catch (IOException e) {
                 e.printStackTrace();
