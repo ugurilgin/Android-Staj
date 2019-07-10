@@ -639,10 +639,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             new VeriGetirTrakya().execute();
             //Aa
         }
-<<<<<<< HEAD
-=======
-
->>>>>>> f38257f169e3ed73123086e1397fc8f7dc8ac7ed
         if (id == R.id.action_gmarmara) {
             new VeriGetirGMarmara().execute();
             //Aa
@@ -651,29 +647,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             new VeriGetirAnkara().execute();
             //Aa
         }
-<<<<<<< HEAD
-=======
 
-
-
->>>>>>> f38257f169e3ed73123086e1397fc8f7dc8ac7ed
         if (id == R.id.action_izmir) {
             new VeriGetirIzkalk().execute();
             //Aa
         }
-<<<<<<< HEAD
-=======
 
->>>>>>> f38257f169e3ed73123086e1397fc8f7dc8ac7ed
         if (id == R.id.action_ahiler) {
             new VeriGetirAhika().execute();
             //Aa
         }
-<<<<<<< HEAD
-=======
-
-
->>>>>>> f38257f169e3ed73123086e1397fc8f7dc8ac7ed
 
         //menüden seçim yaptıktan sonra nav viewin kapalı konuma geçmesini sağlar
 
