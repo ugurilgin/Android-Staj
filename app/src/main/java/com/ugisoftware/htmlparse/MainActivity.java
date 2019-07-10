@@ -811,21 +811,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             //Aa
         }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> b3879cbe8ff3e644b0b9da86f2a64866e5be3773
         if (id == R.id.action_gege) {
             new VeriGetirGEKA().execute();
             //Aa
         }
-<<<<<<< HEAD
-=======
+
         if (id == R.id.action_karacadag) {
             new VeriGetirKaracadag().execute();
             //Aa
         }
->>>>>>> b3879cbe8ff3e644b0b9da86f2a64866e5be3773
+
 
         //menüden seçim yaptıktan sonra nav viewin kapalı konuma geçmesini sağlar
         drawer.closeDrawer(GravityCompat.START);
