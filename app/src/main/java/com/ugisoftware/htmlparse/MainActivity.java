@@ -591,17 +591,67 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
             try {
-                Document doc= Jsoup.connect("http://www.bebka.org.tr/destekler/acik-destek-programlari-48").timeout(30*1000).get();
-                for (Element adDiv : doc.select("div.content")){
+                Document doc= Jsoup.connect("https://www.bebka.org.tr/destekler/acik-destek-programlari-48").timeout(30*1000).get();
+                for (Element adDiv : doc.select("span")){
 
 
                     Element LinkDiv = adDiv.select("a").first();
                     liste.add("Bursa KA   : "+LinkDiv.text());
 
                     linkliste.add(LinkDiv.absUrl("href")) ;
+                    break;
                 }
-               // liste.add( "GEKA : Guncel Destekler" );
-               // linkliste.add( "http://geka.gov.tr/3073/guncel-destekler" );
+                liste.add( " Guncel Destekler" );
+                linkliste.add( "https://www.bebka.org.tr/destekler/acik-destek-programlari-48" );
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
+    private class VeriGetirZafer extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+
+
+            try {
+                Document doc= Jsoup.connect("http://www.zafer.gov.tr/tr-tr/").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div.col-md-3.col-sm-3")){
+
+                   Element duyuruDiv=adDiv.select("div.col-md-3.col-sm-3").first();
+                    Element LinkDiv = adDiv.select("a").first();
+                    liste.add("Zafer KA   : "+duyuruDiv.text());
+
+                    linkliste.add(LinkDiv.absUrl("href")) ;
+
+                }
+
             }
             catch (IOException e) {
                 e.printStackTrace();
@@ -872,7 +922,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             new VeriGetirKaracadag().execute();
             //Aa
         }
-
+        if (id == R.id.action_zafer) {
+            new VeriGetirZafer().execute();
+            //Aa
+        }
 
         //menüden seçim yaptıktan sonra nav viewin kapalı konuma geçmesini sağlar
         drawer.closeDrawer(GravityCompat.START);
