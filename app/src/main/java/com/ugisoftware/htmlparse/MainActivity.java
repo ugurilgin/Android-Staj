@@ -336,23 +336,71 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         protected Void doInBackground(Void... voids) {
 
 
-            int counter=0;
+
             try {
-                Document doc= Jsoup.connect(URL).timeout(30*1000).get();
+                Document doc= Jsoup.connect("http://www.tubitak.gov.tr/tr/destekler/akademik/ulusal-destek-programlari").timeout(30*1000).get();
                 for (Element adDiv : doc.select("div.views-field.views-field-title")){
-                   if(counter<6)
-                   {
+
                     Element duyuruDiv = adDiv.select("div.views-field.views-field-title").first();
                     Element linkA = adDiv.select("a").first();
-                    liste.add("Tübitak   : "+duyuruDiv.text());
+                    liste.add("Tübitak  Akademik  Destekler  : "+duyuruDiv.text());
                     //liste.add( linkA.absUrl("href")) ;
                     linkliste.add( linkA.absUrl("href")) ;
-                   counter++;
-                   }
-                   else break;
 
                 }
 
+
+
+                doc= Jsoup.connect("http://www.tubitak.gov.tr/tr/destekler/sanayi/ulusal-destek-programlari").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div.views-field.views-field-title")){
+
+                    Element duyuruDiv = adDiv.select("div.views-field.views-field-title").first();
+                    Element linkA = adDiv.select("a").first();
+                    liste.add("Tübitak  Sanayi  Destekleri : "+duyuruDiv.text());
+                    //liste.add( linkA.absUrl("href")) ;
+                    linkliste.add( linkA.absUrl("href")) ;
+
+                }
+                doc= Jsoup.connect("http://www.tubitak.gov.tr/tr/destekler/kamu/ulusal-destek-programlari").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div.views-field.views-field-title")){
+
+                    Element duyuruDiv = adDiv.select("div.views-field.views-field-title").first();
+                    Element linkA = adDiv.select("a").first();
+                    liste.add("Tübitak  Kamu  Destekleri : "+duyuruDiv.text());
+                    //liste.add( linkA.absUrl("href")) ;
+                    linkliste.add( linkA.absUrl("href")) ;
+
+                }
+                doc= Jsoup.connect("http://www.tubitak.gov.tr/tr/destekler/girisimcilik/ulusal-destek-programlari").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div.views-field.views-field-title")){
+
+                    Element duyuruDiv = adDiv.select("div.views-field.views-field-title").first();
+                    Element linkA = adDiv.select("a").first();
+                    liste.add("Tübitak  Girişimcilik  Destekleri : "+duyuruDiv.text());
+                    //liste.add( linkA.absUrl("href")) ;
+                    linkliste.add( linkA.absUrl("href")) ;
+
+                }
+                doc= Jsoup.connect("http://www.tubitak.gov.tr/tr/destekler/bilimsel-etkinlik/etkinlik-duzenleme-destekleri").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div.views-field.views-field-title")){
+
+                    Element duyuruDiv = adDiv.select("div.views-field.views-field-title").first();
+                    Element linkA = adDiv.select("a").first();
+                    liste.add("Tübitak  Bilimsel Etkinlik  Destekleri : "+duyuruDiv.text());
+                    //liste.add( linkA.absUrl("href")) ;
+                    linkliste.add( linkA.absUrl("href")) ;
+
+                }
+                doc= Jsoup.connect("http://www.tubitak.gov.tr/tr/destekler/bilim-ve-toplum/ulusal-destek-programlari").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div.views-field.views-field-title")){
+
+                    Element duyuruDiv = adDiv.select("div.views-field.views-field-title").first();
+                    Element linkA = adDiv.select("a").first();
+                    liste.add("Tübitak  Bilim ve Toplum  Destekleri : "+duyuruDiv.text());
+                    //liste.add( linkA.absUrl("href")) ;
+                    linkliste.add( linkA.absUrl("href")) ;
+
+                }
             }
             catch (IOException e) {
                 e.printStackTrace();
@@ -590,6 +638,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             new VeriGetirTrakya().execute();
             //Aa
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> f38257f169e3ed73123086e1397fc8f7dc8ac7ed
         if (id == R.id.action_gmarmara) {
             new VeriGetirGMarmara().execute();
             //Aa
@@ -598,14 +650,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             new VeriGetirAnkara().execute();
             //Aa
         }
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> f38257f169e3ed73123086e1397fc8f7dc8ac7ed
         if (id == R.id.action_izmir) {
             new VeriGetirIzkalk().execute();
             //Aa
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> f38257f169e3ed73123086e1397fc8f7dc8ac7ed
         if (id == R.id.action_ahiler) {
             new VeriGetirAhika().execute();
             //Aa
         }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> f38257f169e3ed73123086e1397fc8f7dc8ac7ed
 
         //menüden seçim yaptıktan sonra nav viewin kapalı konuma geçmesini sağlar
 
