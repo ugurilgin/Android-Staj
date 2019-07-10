@@ -715,6 +715,53 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+    private class VeriGetirKaracadag extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            try {
+                Document doc= Jsoup.connect("http://www.ankaraka.org.tr/tr/2019-yili-teknik-destek-programi_4470.html").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div.page-title")){
+                    Element duyuruDiv = adDiv.select("div.page-title").first();
+                    Element linkA = adDiv.select("a").first();
+
+                }
+                liste.add("Güncel Destekler ");
+                //liste.add( linkA.absUrl("href")) ;
+                linkliste.add( "https://www.karacadag.gov.tr/destekler/") ;
+
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
+
 
 
 
@@ -748,34 +795,31 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             new VeriGetirAnkara().execute();
             //Aa
         }
-<<<<<<< HEAD
-=======
 
->>>>>>> f0b355719aa0016b9cb87c9a2b6ec3f173240aa4
         if (id == R.id.action_izmir) {
             new VeriGetirIzkalk().execute();
             //Aa
         }
-<<<<<<< HEAD
-=======
 
->>>>>>> f0b355719aa0016b9cb87c9a2b6ec3f173240aa4
         if (id == R.id.action_ahiler) {
             new VeriGetirAhika().execute();
             //Aa
         }
-<<<<<<< HEAD
+
         if (id == R.id.action_dicle) {
             new VeriGetirDicle().execute();
             //Aa
         }
 
-=======
         if (id == R.id.action_gege) {
             new VeriGetirGEKA().execute();
             //Aa
         }
->>>>>>> f0b355719aa0016b9cb87c9a2b6ec3f173240aa4
+        if (id == R.id.action_karacadag) {
+            new VeriGetirKaracadag().execute();
+            //Aa
+        }
+
         //menüden seçim yaptıktan sonra nav viewin kapalı konuma geçmesini sağlar
         drawer.closeDrawer(GravityCompat.START);
 
