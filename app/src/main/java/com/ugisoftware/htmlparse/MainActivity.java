@@ -748,34 +748,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             new VeriGetirAnkara().execute();
             //Aa
         }
-<<<<<<< HEAD
-=======
 
->>>>>>> f0b355719aa0016b9cb87c9a2b6ec3f173240aa4
         if (id == R.id.action_izmir) {
             new VeriGetirIzkalk().execute();
             //Aa
         }
-<<<<<<< HEAD
-=======
 
->>>>>>> f0b355719aa0016b9cb87c9a2b6ec3f173240aa4
         if (id == R.id.action_ahiler) {
             new VeriGetirAhika().execute();
             //Aa
         }
-<<<<<<< HEAD
+
         if (id == R.id.action_dicle) {
             new VeriGetirDicle().execute();
             //Aa
         }
 
-=======
+
         if (id == R.id.action_gege) {
             new VeriGetirGEKA().execute();
             //Aa
         }
->>>>>>> f0b355719aa0016b9cb87c9a2b6ec3f173240aa4
+
         //menüden seçim yaptıktan sonra nav viewin kapalı konuma geçmesini sağlar
         drawer.closeDrawer(GravityCompat.START);
 
