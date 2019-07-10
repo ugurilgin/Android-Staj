@@ -380,6 +380,104 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+    /*private class VeriGetirGMarmara extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+
+
+            try {
+                Document doc= Jsoup.connect("https://www.gmka.gov.tr").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div.group-content")){
+
+                    Element duyuruDiv = adDiv.select("div.announcement-title").first();
+                    Element LinkDiv = duyuruDiv.select("a").first();
+                    liste.add("GMarmara   : "+duyuruDiv.text() +LinkDiv.text());
+
+                    //linkliste.add( duyuruDiv.absUrl("href")) ;
+                }
+
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }*/
+
+    private class VeriGetirAnkara extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+
+            int counter=0;
+            try {
+                Document doc= Jsoup.connect("http://www.ankaraka.org.tr/tr/icerik/duyurular_226").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div.news-item")){
+                        Element duyuruDiv = adDiv.select("div.news-item").first();
+                        Element linkA = adDiv.select("a").first();
+                        liste.add("AnkaraKA   : "+duyuruDiv.text());
+                        //liste.add( linkA.absUrl("href")) ;
+                        linkliste.add( linkA.absUrl("href")) ;
+                        counter++;
+                }
+
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -401,6 +499,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         if (id == R.id.action_trakya) {
             new VeriGetirTrakya().execute();
+            //Aa
+        }
+        if (id == R.id.action_gmarmara) {
+           // new VeriGetirGMarmara().execute();
+            //Aa
+        }
+        if (id == R.id.action_ankara) {
+            new VeriGetirAnkara().execute();
             //Aa
         }
 
