@@ -426,7 +426,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    /*private class VeriGetirGMarmara extends AsyncTask<Void, Void, Void> {
+    private class VeriGetirGMarmara extends AsyncTask<Void, Void, Void> {
 
         @Override
         protected void onPreExecute() {
@@ -448,13 +448,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             try {
                 Document doc= Jsoup.connect("https://www.gmka.gov.tr").timeout(30*1000).get();
-                for (Element adDiv : doc.select("div.group-content")){
+                for (Element adDiv : doc.select("div.list-group.announcements")){
 
                     Element duyuruDiv = adDiv.select("div.announcement-title").first();
-                    Element LinkDiv = duyuruDiv.select("a").first();
+                    Element LinkDiv = adDiv.select("a").first();
                     liste.add("GMarmara   : "+duyuruDiv.text() +LinkDiv.text());
 
-                    //linkliste.add( duyuruDiv.absUrl("href")) ;
+                    linkliste.add( LinkDiv.absUrl("href")) ;
                 }
 
             }
@@ -473,7 +473,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             progressDialog.dismiss();
 
         }
-    }*/
+    }
 
     private class VeriGetirAnkara extends AsyncTask<Void, Void, Void> {
 
@@ -591,22 +591,35 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             new VeriGetirTrakya().execute();
             //Aa
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 58eb6bc3022915705e9fba7b5b7e33c11084f26e
         if (id == R.id.action_gmarmara) {
-           // new VeriGetirGMarmara().execute();
+            new VeriGetirGMarmara().execute();
             //Aa
         }
         if (id == R.id.action_ankara) {
             new VeriGetirAnkara().execute();
             //Aa
         }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 58eb6bc3022915705e9fba7b5b7e33c11084f26e
         if (id == R.id.action_izmir) {
             new VeriGetirIzkalk().execute();
             //Aa
         }
+<<<<<<< HEAD
         if (id == R.id.action_ahiler) {
             new VeriGetirAhika().execute();
             //Aa
         }
+=======
+
+>>>>>>> 58eb6bc3022915705e9fba7b5b7e33c11084f26e
 
 
         //menüden seçim yaptıktan sonra nav viewin kapalı konuma geçmesini sağlar
