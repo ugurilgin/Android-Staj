@@ -762,6 +762,54 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
+    private class VeriGetirMevlana extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+
+            try {
+                Document doc= Jsoup.connect("http://www.mevka.org.tr/Pages.asp?Dil=0&kid=536").timeout(30*1000).get();
+                for (Element adDiv : doc.select("table.one")){
+                    Element duyuruDiv = adDiv.select("table.one").first();
+                    Element textDiv = duyuruDiv.select("td").first();
+                    Element linkA = textDiv.select("a").first();
+                    liste.add("Mevlana   : "+textDiv.text());
+                    //liste.add( linkA.absUrl("href")) ;
+                    linkliste.add( linkA.absUrl("href")) ;
+                }
+               liste.add("Güncel Destekler");
+                linkliste.add( "http://www.mevka.org.tr/Pages.asp?Dil=0&kid=536" );
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
     private class VeriGetirDMarmara extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -840,6 +888,58 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 liste.add("2019 YILI FİZİBİLİTE DESTEK PROGRAMI ");
                 //liste.add( linkA.absUrl("href")) ;
                 linkliste.add( "http://www.dika.org.tr/TR/Sayfa/2019_yili_fizibilite_destegi_ilani") ;
+
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
+    private class VeriGetirBatıAkd extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            try {
+                Document doc= Jsoup.connect("http://www.baka.org.tr/mali-destek-programlari-S127.html").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div.page-title")){
+                    Element duyuruDiv = adDiv.select("div.page-title").first();
+                    Element linkA = adDiv.select("a").first();
+
+                }
+                liste.add("Batı Akdeniz KA Mali Destekler ");
+                //liste.add( linkA.absUrl("href")) ;
+                linkliste.add( "http://www.baka.org.tr/mali-destek-programlari-S127.html") ;
+                liste.add("Batı Akdeniz KA Teknik Destekler  ");
+                //liste.add( linkA.absUrl("href")) ;
+                linkliste.add( "http://www.baka.org.tr/teknik-destekler-S123.html") ;
+                liste.add("Batı Akdeniz KA Güncel Destekler  ");
+                //liste.add( linkA.absUrl("href")) ;
+                linkliste.add( "http://www.baka.org.tr/ajans-destekleri-S122.html") ;
 
             }
             catch (IOException e) {
@@ -1067,6 +1167,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             //Aa
         }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 56b958b2983d3853c08efe002fabf7df9677b39c
         if (id == R.id.action_gege) {
             new VeriGetirGEKA().execute();
             //Aa
@@ -1076,16 +1180,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             new VeriGetirKaracadag().execute();
             //Aa
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 56b958b2983d3853c08efe002fabf7df9677b39c
 
         if (id == R.id.action_ipekyolu) {
             new VeriGetirIpekyolu().execute();
         }
         if (id == R.id.action_zafer) {
             new VeriGetirZafer().execute();
+<<<<<<< HEAD
             //Aa
         }
         if (id == R.id.action_danadolu) {
             new VeriGetirDanadolu().execute();
+=======
+
+            //Aa
+        }
+        if (id == R.id.action_mevlana) {
+            new VeriGetirMevlana().execute();
+
+            //Aa
+        }
+        if (id == R.id.action_bakdeniz) {
+            new VeriGetirBatıAkd().execute();
+
+>>>>>>> 56b958b2983d3853c08efe002fabf7df9677b39c
             //Aa
         }
 
