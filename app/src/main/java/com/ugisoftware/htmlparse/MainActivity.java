@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                         Element duyuruDiv = adDiv.select("div.details").first();
 
-                        liste.add("Kosgeb   : "+duyuruDiv.text() );
+                        liste.add(duyuruDiv.text() );
 
 
 
@@ -136,7 +136,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     Element duyuruDiv = adDiv.select("div.details").first();
 
-                    liste.add("Kosgeb   : "+duyuruDiv.text() );
+                    liste.add(duyuruDiv.text() );
 
 
 
@@ -151,7 +151,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     Element duyuruDiv = adDiv.select("div.details").first();
 
-                    liste.add("Kosgeb   : "+duyuruDiv.text() );
+                    liste.add(duyuruDiv.text() );
 
 
 
@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     Element duyuruDiv = adDiv.select("div.details").first();
 
-                    liste.add("Kosgeb   : "+duyuruDiv.text() );
+                    liste.add(duyuruDiv.text() );
 
 
 
@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     Element duyuruDiv = adDiv.select("div.details").first();
 
-                    liste.add("Kosgeb   : "+duyuruDiv.text() );
+                    liste.add(duyuruDiv.text() );
 
 
 
@@ -196,7 +196,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     Element duyuruDiv = adDiv.select("div.details").first();
 
-                    liste.add("Kosgeb   : "+duyuruDiv.text() );
+                    liste.add(duyuruDiv.text() );
 
 
 
@@ -253,7 +253,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 }
                 linkliste.add( "https://www.istka.org.tr/destekler/acik-destek-programlari/") ;
-                liste.add("İstKA   : Fizibilite Desteği Programı ");
+                liste.add("Fizibilite Destek Programı ");
             }
             catch (IOException e) {
                 e.printStackTrace();
@@ -295,7 +295,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Document doc= Jsoup.connect("http://www.izka.org.tr/destekler.html").timeout(30*1000).get();
                 for (Element adDiv : doc.select("div.feature__body.boxed.boxed--border.boxed--lg")){
                     Element duyuruDiv = adDiv.select("div.feature__body.boxed.boxed--border.boxed--lg").first();
-                    liste.add("İzmirKA   : "+duyuruDiv.text());
+                    liste.add(duyuruDiv.text());
                     Element linkA = adDiv.select("a").first();
                     //liste.add( linkA.absUrl("href")) ;
                     linkliste.add( linkA.absUrl("href")) ;
@@ -344,7 +344,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     Element duyuruDiv = adDiv.select("div.views-field.views-field-title").first();
                     Element linkA = adDiv.select("a").first();
-                    liste.add("Tübitak  Akademik  Destekler  : "+duyuruDiv.text());
+                    liste.add("Akademik  Destekler  : "+duyuruDiv.text());
                     //liste.add( linkA.absUrl("href")) ;
                     linkliste.add( linkA.absUrl("href")) ;
 
@@ -357,7 +357,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     Element duyuruDiv = adDiv.select("div.views-field.views-field-title").first();
                     Element linkA = adDiv.select("a").first();
-                    liste.add("Tübitak  Sanayi  Destekleri : "+duyuruDiv.text());
+                    liste.add("Sanayi  Destekleri : "+duyuruDiv.text());
                     //liste.add( linkA.absUrl("href")) ;
                     linkliste.add( linkA.absUrl("href")) ;
 
@@ -367,7 +367,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     Element duyuruDiv = adDiv.select("div.views-field.views-field-title").first();
                     Element linkA = adDiv.select("a").first();
-                    liste.add("Tübitak  Kamu  Destekleri : "+duyuruDiv.text());
+                    liste.add("Kamu  Destekleri : "+duyuruDiv.text());
                     //liste.add( linkA.absUrl("href")) ;
                     linkliste.add( linkA.absUrl("href")) ;
 
@@ -377,7 +377,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     Element duyuruDiv = adDiv.select("div.views-field.views-field-title").first();
                     Element linkA = adDiv.select("a").first();
-                    liste.add("Tübitak  Girişimcilik  Destekleri : "+duyuruDiv.text());
+                    liste.add("Girişimcilik  Destekleri : "+duyuruDiv.text());
                     //liste.add( linkA.absUrl("href")) ;
                     linkliste.add( linkA.absUrl("href")) ;
 
@@ -387,7 +387,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     Element duyuruDiv = adDiv.select("div.views-field.views-field-title").first();
                     Element linkA = adDiv.select("a").first();
-                    liste.add("Tübitak  Bilimsel Etkinlik  Destekleri : "+duyuruDiv.text());
+                    liste.add("Bilimsel Etkinlik  Destekleri : "+duyuruDiv.text());
                     //liste.add( linkA.absUrl("href")) ;
                     linkliste.add( linkA.absUrl("href")) ;
 
@@ -397,7 +397,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     Element duyuruDiv = adDiv.select("div.views-field.views-field-title").first();
                     Element linkA = adDiv.select("a").first();
-                    liste.add("Tübitak  Bilim ve Toplum  Destekleri : "+duyuruDiv.text());
+                    liste.add("Bilim ve Toplum  Destekleri : "+duyuruDiv.text());
                     //liste.add( linkA.absUrl("href")) ;
                     linkliste.add( linkA.absUrl("href")) ;
 
@@ -451,7 +451,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         Element linkA = abDiv.select("a").first();
 
                 }
-                liste.add(" PROJE TEKLİF ÇAĞRISI İLANI ");
+                liste.add(" Proje Teklif Çağrısı");
                 //liste.add( linkA.absUrl("href")) ;
                 linkliste.add( "https://www.trakyaka.org.tr/tr/38750/2019-Yili-Proje-Teklif-Cagrisi") ;
 
@@ -502,7 +502,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     Element LinkDiv = adDiv.select("a").first();
 
                 }
-                liste.add("GMarmara   : Açık Destek Programları ");
+                liste.add("Açık Destek Programları ");
 
                 linkliste.add("https://www.gmka.gov.tr/acik-destek-programlari") ;
             }
@@ -548,11 +548,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     Element duyuruDiv = adDiv.select("li").first();
                     Element LinkDiv = duyuruDiv.select("a").first();
-                    liste.add("GEKA   : "+LinkDiv.text());
+                    liste.add(LinkDiv.text());
 
                     linkliste.add(LinkDiv.absUrl("href")) ;
                 }
-                liste.add( "GEKA : Guncel Destekler" );
+                liste.add( "Guncel Destekler" );
                 linkliste.add( "http://geka.gov.tr/3073/guncel-destekler" );
             }
             catch (IOException e) {
@@ -597,7 +597,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
                     Element LinkDiv = adDiv.select("a").first();
-                    liste.add("Bursa KA   : "+LinkDiv.text());
+                    liste.add(LinkDiv.text());
 
                     linkliste.add(LinkDiv.absUrl("href")) ;
                     break;
@@ -647,7 +647,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                    Element duyuruDiv=adDiv.select("div.col-md-3.col-sm-3").first();
                     Element LinkDiv = adDiv.select("a").first();
-                    liste.add("Zafer KA   : "+duyuruDiv.text());
+                    liste.add(duyuruDiv.text());
 
                     linkliste.add(LinkDiv.absUrl("href")) ;
 
@@ -695,7 +695,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         Element linkA = adDiv.select("a").first();
 
                 }
-                liste.add(" TEKNİK DESTEK PROGRAMI ");
+                liste.add(" Teknik Destek Programı ");
                 //liste.add( linkA.absUrl("href")) ;
                 linkliste.add( "https://www.ankaraka.org.tr/tr/2019-yili-teknik-destek-programi_4470.html") ;
 
@@ -741,7 +741,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 for (Element adDiv : doc.select("div.col1")){
                     Element duyuruDiv = adDiv.select("div.col1").first();
                     Element linkA = adDiv.select("a").first();
-                    liste.add("AhiKA   : "+duyuruDiv.text());
+                    liste.add(duyuruDiv.text());
                     //liste.add( linkA.absUrl("href")) ;
                     linkliste.add( linkA.absUrl("href")) ;
                 }
@@ -788,7 +788,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     Element duyuruDiv = adDiv.select("table.one").first();
                     Element textDiv = duyuruDiv.select("td").first();
                     Element linkA = textDiv.select("a").first();
-                    liste.add("Mevlana   : "+textDiv.text());
+                    liste.add(textDiv.text());
                     //liste.add( linkA.absUrl("href")) ;
                     linkliste.add( linkA.absUrl("href")) ;
                 }
@@ -837,7 +837,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     Element linkA = duyuruDiv.select("span").first();
 
                 }
-                liste.add( " Güncel Destekeler" );
+                liste.add( "Güncel Destekler" );
                 linkliste.add( "https://www.oka.org.tr/okaIcerik.aspx?Id=41" );
             }
             catch (IOException e) {
@@ -880,7 +880,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 for (Element adDiv : doc.select("div#divContent")){
                     Element duyuruDiv = adDiv.select("a").first();
                     Element linkA = duyuruDiv.select("span").first();
-                    liste.add("Doğu Marmara   : "+linkA.text());
+                    liste.add(linkA.text());
                     //liste.add( linkA.absUrl("href")) ;
                     linkliste.add( duyuruDiv.absUrl("href")) ;
                 }
@@ -928,10 +928,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     Element linkA = adDiv.select("a").first();
 
                 }
-                liste.add("TEKNİK DESTEK PROGRAMI ");
+                liste.add("Teknik Destek Programı ");
                 //liste.add( linkA.absUrl("href")) ;
                 linkliste.add( "http://www.dika.org.tr/TR/Sayfa/2019_yili_teknik_destek_programi") ;
-                liste.add("FİZİBİLİTE DESTEK PROGRAMI ");
+                liste.add("Fizibilite Destek Programı ");
                 //liste.add( linkA.absUrl("href")) ;
                 linkliste.add( "http://www.dika.org.tr/TR/Sayfa/2019_yili_fizibilite_destegi_ilani") ;
 
@@ -977,13 +977,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     Element linkA = adDiv.select("a").first();
 
                 }
-                liste.add("Batı Akdeniz KA Mali Destekler ");
+                liste.add("Mali Destekler ");
                 //liste.add( linkA.absUrl("href")) ;
                 linkliste.add( "http://www.baka.org.tr/mali-destek-programlari-S127.html") ;
-                liste.add("Batı Akdeniz KA Teknik Destekler  ");
+                liste.add("Teknik Destekler  ");
                 //liste.add( linkA.absUrl("href")) ;
                 linkliste.add( "http://www.baka.org.tr/teknik-destekler-S123.html") ;
-                liste.add("Batı Akdeniz KA Güncel Destekler  ");
+                liste.add("Güncel Destekler  ");
                 //liste.add( linkA.absUrl("href")) ;
                 linkliste.add( "http://www.baka.org.tr/ajans-destekleri-S122.html") ;
 
@@ -1180,7 +1180,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 for (Element adDiv : doc.select("li.AnaMenu")){
                     Element duyuruDiv = adDiv.select("li.AnaMenu").first();
                     Element linkA = adDiv.select("a").first();
-                    liste.add("Kuzey Anadolu "+duyuruDiv.text());
+                    liste.add(duyuruDiv.text());
 
                     linkliste.add( linkA.absUrl("href")) ;
 
@@ -1229,7 +1229,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Document doc= Jsoup.connect("http://www.oran.org.tr/tr/destekler/mali-destek-programi").timeout(30*1000).get();
                 for (Element adDiv : doc.select("ul.solmenu")){
                     Element linkA=adDiv.select( "a" ).first();
-                    liste.add("Orta Anadolu KA  "+adDiv.text());
+                    liste.add(adDiv.text());
                     //liste.add( linkA.absUrl("href")) ;
                     linkliste.add( linkA.absUrl("href")) ;
                 }
@@ -1273,20 +1273,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             try {
                 Document doc= Jsoup.connect("http://www.dogaka.gov.tr/Destekler.asp?D=24&Destekler=teknik-destek-programi").timeout(30*1000).get();
                 for (Element adDiv : doc.select("a.ListeMenuAlt")){
-                    liste.add("Doğu Akdeniz KA  "+adDiv.text());
+                    liste.add(adDiv.text());
                     //liste.add( linkA.absUrl("href")) ;
                     linkliste.add( adDiv.absUrl("href")) ;
                 }
 
                 doc= Jsoup.connect("http://www.dogaka.gov.tr/Destekler.asp?D=84&Destekler=fizibilite-destegi").timeout(30*1000).get();
                 for (Element adDiv : doc.select("a.ListeMenuAlt")){
-                    liste.add("Doğu Akdeniz KA  "+adDiv.text());
+                    liste.add(adDiv.text());
                     //liste.add( linkA.absUrl("href")) ;
                     linkliste.add( adDiv.absUrl("href")) ;
                 }
                 doc= Jsoup.connect("http://www.dogaka.gov.tr/Destekler.asp?D=11&Destekler=mali-destek-programi").timeout(30*1000).get();
                 for (Element adDiv : doc.select("a.ListeMenuAlt")){
-                    liste.add("Doğu Akdeniz KA  "+adDiv.text());
+                    liste.add(adDiv.text());
                     //liste.add( linkA.absUrl("href")) ;
                     linkliste.add( adDiv.absUrl("href")) ;
                 }
@@ -1333,13 +1333,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
                 }
-                liste.add(" MALİ DESTEK PROGRAMI ");
+                liste.add(" Mali Destek Programı ");
                 //liste.add( linkA.absUrl("href")) ;
                 linkliste.add( "http://www.ika.org.tr/2019-Yili-Mali-Destek-Programlari-icerik-349.html") ;
-                liste.add("FİZİBİLİTE DESTEK PROGRAMI ");
+                liste.add("Fizibilite Destek Programı ");
                 //liste.add( linkA.absUrl("href")) ;
                 linkliste.add( "https://www.ika.org.tr/2019-Yili-Fizibilite-Destegi-Programi-icerik-351.html") ;
-                liste.add("GÜNCEL DESTEKLER");
+                liste.add("Güncel Destekler");
                 //liste.add( linkA.absUrl("href")) ;
                 linkliste.add( "https://www.ika.org.tr/Fizibilite-Destegi-icerik-339.html") ;
 
@@ -1386,11 +1386,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     Element duyuruDi = adDiv.select("div.hkyazi").first();
                     Element duyuruDiv = duyuruDi.select("li").first();
                     Element linkA = adDiv.select("a").first();
-                    liste.add("Dogu anadolu   : "+duyuruDiv.text());
+                    liste.add(duyuruDiv.text());
                     //liste.add( linkA.absUrl("href")) ;
                     linkliste.add( linkA.absUrl("href")) ;
                 }
-                liste.add("GÜNCEL DESTEKLER ");
+                liste.add("Güncel Destekler ");
                 //liste.add( linkA.absUrl("href")) ;
                 linkliste.add( "http://www.daka.org.tr/icerikler/acikdestek") ;
 
@@ -1438,7 +1438,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     Element duyuruDiv = duyuruDi.select("li").first();
                     Element linkA = adDiv.select("a").first();
                 }
-                liste.add("GÜNCEL DESTEKLER ");
+                liste.add("Güncel Destekler ");
                 //liste.add( linkA.absUrl("href")) ;
                 linkliste.add( "http://www.serka.gov.tr/destekler/acik-destek-programlari") ;
 
