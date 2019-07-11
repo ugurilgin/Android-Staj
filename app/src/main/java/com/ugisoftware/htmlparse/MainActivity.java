@@ -420,7 +420,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
-
     private class VeriGetirTrakya extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -473,7 +472,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
-
     private class VeriGetirGMarmara extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -716,7 +714,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
-
     private class VeriGetirAhika extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -1005,7 +1002,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
-
     private class VeriGetirKaracadag extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -1361,7 +1357,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
-
     private class VeriGetirDanadolu extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -1412,7 +1407,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
-
     private class VeriGetirSerhat extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -1460,7 +1454,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
-
     private class VeriGetirKDAnadolu extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -1515,7 +1508,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
-
     private class VeriGetirDKaradeniz extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -1563,11 +1555,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
-
-
-
-
-
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {

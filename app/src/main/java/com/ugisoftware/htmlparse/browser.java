@@ -1,14 +1,18 @@
 package com.ugisoftware.htmlparse;
 
 import android.net.http.SslError;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 public class browser extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
@@ -27,6 +31,5 @@ public class browser extends AppCompatActivity {
                 super.onReceivedSslError(view, handler, error);
             }
         });
-
     }
 }
