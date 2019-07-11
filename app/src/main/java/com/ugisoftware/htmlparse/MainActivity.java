@@ -784,15 +784,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             try {
                 Document doc= Jsoup.connect("http://www.mevka.org.tr/Pages.asp?Dil=0&kid=536").timeout(30*1000).get();
-                for (Element adDiv : doc.select("table.one")){
-                    Element duyuruDiv = adDiv.select("table.one").first();
-                    Element textDiv = duyuruDiv.select("td").first();
-                    Element linkA = textDiv.select("a").first();
-                    liste.add("Mevlana   : "+textDiv.text());
-                    //liste.add( linkA.absUrl("href")) ;
-                    linkliste.add( linkA.absUrl("href")) ;
+                for (Element adDiv : doc.select("div")){
+                    Element duyuruDiv = adDiv.select("div").first();
                 }
-               liste.add("Güncel Destekler");
+                liste.add("Güncel Destekler");
                 linkliste.add( "http://www.mevka.org.tr/Pages.asp?Dil=0&kid=536" );
             }
             catch (IOException e) {
@@ -1632,11 +1627,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             toolbar.setTitle("Dicle Kalkınma Ajansı");
             //Aa
         }
-<<<<<<< HEAD
-        
-=======
-
->>>>>>> 23afcc261a66823503b81018fe89cc3a4d7aa618
         if (id == R.id.action_gege) {
             new VeriGetirGEKA().execute();
             toolbar.setTitle("Güney Ege Kalkınma Ajansı");
@@ -1655,18 +1645,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         if (id == R.id.action_zafer) {
             new VeriGetirZafer().execute();
-<<<<<<< HEAD
-=======
-            toolbar.setTitle("Zafer Kalkınma Ajansı");
->>>>>>> 23afcc261a66823503b81018fe89cc3a4d7aa618
+          toolbar.setTitle("Zafer Kalkınma Ajansı");
+
             //Aa
         }
         if (id == R.id.action_danadolu) {
             new VeriGetirDanadolu().execute();
-<<<<<<< HEAD
-=======
             toolbar.setTitle("Doğu Anadolu Kalkınma Ajansı");
->>>>>>> 23afcc261a66823503b81018fe89cc3a4d7aa618
             //Aa
         }
         if (id == R.id.action_mevlana) {
@@ -1676,10 +1661,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         if (id == R.id.action_bakdeniz) {
             new VeriGetirBatıAkd().execute();
-<<<<<<< HEAD
-=======
             toolbar.setTitle("Batı Akdeniz Kalkınma Ajansı");
->>>>>>> 23afcc261a66823503b81018fe89cc3a4d7aa618
             //Aa
         }
         if (id == R.id.action_serhat) {
@@ -1692,10 +1674,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             //Aa
         }if (id == R.id.action_dkaradeniz) {
             new VeriGetirDKaradeniz().execute();
-<<<<<<< HEAD
-=======
+
             toolbar.setTitle("Doğu Karadeniz Kalkınma Ajansı");
->>>>>>> 23afcc261a66823503b81018fe89cc3a4d7aa618
             //Aa
         }
         if (id == R.id.action_cukurova) {
