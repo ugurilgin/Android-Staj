@@ -762,6 +762,54 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+    private class VeriGetirIpekyolu extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            try {
+                Document doc= Jsoup.connect("http://www.ika.org.tr/hibe.html").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div.icerik")){
+                    Element duyuruDiv = adDiv.select("div.icerik").first();
+                    Element linkA = duyuruDiv.select("a").first();
+                    liste.add("İpekyolu   : "+duyuruDiv.text());
+                    //liste.add( linkA.absUrl("href")) ;
+                    linkliste.add( linkA.absUrl("href")) ;
+
+                }
+
+
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
+
 
 
 
@@ -811,21 +859,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             //Aa
         }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> b3879cbe8ff3e644b0b9da86f2a64866e5be3773
         if (id == R.id.action_gege) {
             new VeriGetirGEKA().execute();
             //Aa
         }
-<<<<<<< HEAD
-=======
+
         if (id == R.id.action_karacadag) {
             new VeriGetirKaracadag().execute();
             //Aa
         }
->>>>>>> b3879cbe8ff3e644b0b9da86f2a64866e5be3773
+
+        if (id == R.id.action_ipekyolu) {
+            new VeriGetirIpekyolu().execute();
+            //Aa
+        }
 
         //menüden seçim yaptıktan sonra nav viewin kapalı konuma geçmesini sağlar
         drawer.closeDrawer(GravityCompat.START);
