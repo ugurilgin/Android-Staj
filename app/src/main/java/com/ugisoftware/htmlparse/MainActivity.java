@@ -252,7 +252,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     //liste.add( linkA.absUrl("href")) ;
 
                 }
-                linkliste.add( "https://www.ab.gov.tr/ab-programlari-hibeleri_101.html/") ;
+                linkliste.add( "http://www.ab.gov.tr/ab-programlari-hibeleri_101.html") ;
                 liste.add("Güncel Destekler ");
             }
             catch (IOException e) {
