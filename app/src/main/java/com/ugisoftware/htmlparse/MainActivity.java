@@ -570,7 +570,105 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
+    private class VeriGetirBursa extends AsyncTask<Void, Void, Void> {
 
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+
+
+            try {
+                Document doc= Jsoup.connect("https://www.bebka.org.tr/destekler/acik-destek-programlari-48").timeout(30*1000).get();
+                for (Element adDiv : doc.select("span")){
+
+
+                    Element LinkDiv = adDiv.select("a").first();
+                    liste.add("Bursa KA   : "+LinkDiv.text());
+
+                    linkliste.add(LinkDiv.absUrl("href")) ;
+                    break;
+                }
+                liste.add( " Guncel Destekler" );
+                linkliste.add( "https://www.bebka.org.tr/destekler/acik-destek-programlari-48" );
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
+    private class VeriGetirZafer extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+
+
+            try {
+                Document doc= Jsoup.connect("http://www.zafer.gov.tr/tr-tr/").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div.col-md-3.col-sm-3")){
+
+                   Element duyuruDiv=adDiv.select("div.col-md-3.col-sm-3").first();
+                    Element LinkDiv = adDiv.select("a").first();
+                    liste.add("Zafer KA   : "+duyuruDiv.text());
+
+                    linkliste.add(LinkDiv.absUrl("href")) ;
+
+                }
+
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
     private class VeriGetirAnkara extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -664,7 +762,53 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
+    private class VeriGetirDMarmara extends AsyncTask<Void, Void, Void> {
 
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+
+            try {
+                Document doc= Jsoup.connect("http://www.marka.org.tr/sayfa/351/657/2019-yili-destekleri").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div#divContent")){
+                    Element duyuruDiv = adDiv.select("a").first();
+                    Element linkA = duyuruDiv.select("span").first();
+                    liste.add("Doğu Marmara   : "+linkA.text());
+                    //liste.add( linkA.absUrl("href")) ;
+                    linkliste.add( duyuruDiv.absUrl("href")) ;
+                }
+                liste.add( "2019 Yılı Güncel Destekeler" );
+                linkliste.add( "http://www.marka.org.tr/sayfa/351/657/2019-yili-destekleri" );
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
     private class VeriGetirDicle extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -843,7 +987,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             new VeriGetirAnkara().execute();
             //Aa
         }
-
+        if (id == R.id.action_beb) {
+            new VeriGetirBursa().execute();
+            //Aa
+        }
+        if (id == R.id.action_dmarmara) {
+            new VeriGetirDMarmara().execute();
+            //Aa
+        }
         if (id == R.id.action_izmir) {
             new VeriGetirIzkalk().execute();
             //Aa
@@ -859,6 +1010,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             //Aa
         }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> babae912e6b70d43d6a619221d58e1c6ed69b330
         if (id == R.id.action_gege) {
             new VeriGetirGEKA().execute();
             //Aa
@@ -868,9 +1023,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             new VeriGetirKaracadag().execute();
             //Aa
         }
+<<<<<<< HEAD
 
         if (id == R.id.action_ipekyolu) {
             new VeriGetirIpekyolu().execute();
+=======
+        if (id == R.id.action_zafer) {
+            new VeriGetirZafer().execute();
+>>>>>>> babae912e6b70d43d6a619221d58e1c6ed69b330
             //Aa
         }
 
