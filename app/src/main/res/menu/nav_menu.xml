@@ -10,6 +10,9 @@
         android:icon="@drawable/kosgeb"
         android:title="Kosgeb" />
     <item
+        android:id="@+id/action_avrupa"
+        android:title="Avrupa Birliği" />
+    <item
         android:id="@+id/action_ist"
         android:icon="@drawable/istanbul"
         android:title="İstanbul Kalkınma Ajansı" />
