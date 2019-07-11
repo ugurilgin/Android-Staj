@@ -11,6 +11,7 @@
         android:title="Kosgeb" />
     <item
         android:id="@+id/action_avrupa"
+        android:icon="@drawable/avrupa"
         android:title="Avrupa Birliği" />
     <item
         android:id="@+id/action_ist"
