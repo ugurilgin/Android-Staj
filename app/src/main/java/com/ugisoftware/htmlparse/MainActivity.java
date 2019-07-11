@@ -1620,10 +1620,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             //Aa
         }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> f3b16ce4e80e46db4358de06328b952b7b4607a3
         if (id == R.id.action_gege) {
             new VeriGetirGEKA().execute();
             //Aa
@@ -1633,29 +1629,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             new VeriGetirKaracadag().execute();
             //Aa
         }
-<<<<<<< HEAD
-=======
-
->>>>>>> f3b16ce4e80e46db4358de06328b952b7b4607a3
 
         if (id == R.id.action_ipekyolu) {
             new VeriGetirIpekyolu().execute();
         }
         if (id == R.id.action_zafer) {
             new VeriGetirZafer().execute();
-<<<<<<< HEAD
-=======
-
->>>>>>> f3b16ce4e80e46db4358de06328b952b7b4607a3
             //Aa
         }
         if (id == R.id.action_danadolu) {
             new VeriGetirDanadolu().execute();
-<<<<<<< HEAD
-=======
-
-
->>>>>>> f3b16ce4e80e46db4358de06328b952b7b4607a3
             //Aa
         }
         if (id == R.id.action_mevlana) {
@@ -1664,7 +1647,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         if (id == R.id.action_bakdeniz) {
             new VeriGetirBatıAkd().execute();
-<<<<<<< HEAD
             //Aa
         }
         if (id == R.id.action_serhat) {
@@ -1675,10 +1657,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             //Aa
         }if (id == R.id.action_dkaradeniz) {
             new VeriGetirDKaradeniz().execute();
-=======
-
-
->>>>>>> f3b16ce4e80e46db4358de06328b952b7b4607a3
             //Aa
         }
         if (id == R.id.action_cukurova) {
