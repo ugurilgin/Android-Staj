@@ -1060,6 +1060,57 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
+    private class VeriGetirBatıKaradeniz extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            try {
+                Document doc= Jsoup.connect("http://www.cka.org.tr/main.aspx?id=419#").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div.page-title")){
+                    Element duyuruDiv = adDiv.select("div.page-title").first();
+                    Element linkA = adDiv.select("a").first();
+
+                }
+
+                liste.add("2019 Yılı Teknik Destekler ");
+
+                linkliste.add( "https://www.bakka.gov.tr/site/sayfa/187/2019-yili-teknik-destek-programi//") ;
+
+                liste.add("Güncel Destekler ");
+                //liste.add( linkA.absUrl("href")) ;
+                linkliste.add( "https://www.bakka.gov.tr/site/sayfa/182/acik-destek-programlari//") ;
+
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
     private class VeriGetirDoguAkdeniz extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -1320,6 +1371,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         if (id == R.id.action_dakdeniz) {
             new VeriGetirDoguAkdeniz().execute();
+
+            //Aa
+        }
+        if (id == R.id.action_bkaradeniz) {
+            new VeriGetirBatıKaradeniz().execute();
 
             //Aa
         }
