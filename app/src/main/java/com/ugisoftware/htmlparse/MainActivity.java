@@ -906,6 +906,58 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
+    private class VeriGetirBatıAkd extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            try {
+                Document doc= Jsoup.connect("http://www.baka.org.tr/mali-destek-programlari-S127.html").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div.page-title")){
+                    Element duyuruDiv = adDiv.select("div.page-title").first();
+                    Element linkA = adDiv.select("a").first();
+
+                }
+                liste.add("Batı Akdeniz KA Mali Destekler ");
+                //liste.add( linkA.absUrl("href")) ;
+                linkliste.add( "http://www.baka.org.tr/mali-destek-programlari-S127.html") ;
+                liste.add("Batı Akdeniz KA Teknik Destekler  ");
+                //liste.add( linkA.absUrl("href")) ;
+                linkliste.add( "http://www.baka.org.tr/teknik-destekler-S123.html") ;
+                liste.add("Batı Akdeniz KA Güncel Destekler  ");
+                //liste.add( linkA.absUrl("href")) ;
+                linkliste.add( "http://www.baka.org.tr/ajans-destekleri-S122.html") ;
+
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
 
     private class VeriGetirKaracadag extends AsyncTask<Void, Void, Void> {
 
@@ -1080,6 +1132,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         if (id == R.id.action_mevlana) {
             new VeriGetirMevlana().execute();
+
+            //Aa
+        }
+        if (id == R.id.action_bakdeniz) {
+            new VeriGetirBatıAkd().execute();
 
             //Aa
         }
