@@ -1111,6 +1111,56 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
+    private class VeriGetirKuzeyAnadolu extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            try {
+                Document doc= Jsoup.connect("https://www.kuzka.gov.tr/destekler-detay.asp?DD=292&DesteklerDetay=acik-mali-destek-programlari").timeout(30*1000).get();
+                for (Element adDiv : doc.select("li.AnaMenu")){
+                    Element duyuruDiv = adDiv.select("li.AnaMenu").first();
+                    Element linkA = adDiv.select("a").first();
+                    liste.add("Kuzey Anadolu "+duyuruDiv.text());
+
+                    linkliste.add( linkA.absUrl("href")) ;
+
+                }
+                liste.add("Güncel Destekler");
+
+                linkliste.add("https://www.kuzka.gov.tr/destekler-detay.asp?DD=292&DesteklerDetay=acik-mali-destek-programlari") ;
+
+
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
     private class VeriGetirDoguAkdeniz extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -1376,6 +1426,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         if (id == R.id.action_bkaradeniz) {
             new VeriGetirBatıKaradeniz().execute();
+
+            //Aa
+        }
+        if (id == R.id.action_kanadolu) {
+            new VeriGetirKuzeyAnadolu().execute();
 
             //Aa
         }
