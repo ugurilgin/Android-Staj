@@ -1576,117 +1576,161 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.action_tubitak) {
             new VeriGetirTubitak().execute();
+            toolbar.setTitle("Tübitak");
+
             //Aa
         }
         if (id == R.id.action_kosgeb) {
             new VeriGetirKosgeb().execute();
+            toolbar.setTitle("Kosgeb");
             //Aa
         }
         if (id == R.id.action_ist) {
             new VeriGetirIstkalk().execute();
+            toolbar.setTitle("İstanbul Kalkınma Ajansı");
             //Aa
         }
         if (id == R.id.action_trakya) {
             new VeriGetirTrakya().execute();
+            toolbar.setTitle("Trakya Kalkınma Ajansı");
             //Aa
         }
         if (id == R.id.action_gmarmara) {
             new VeriGetirGMarmara().execute();
+            toolbar.setTitle("Güney Marmara Kalkınma Ajansı");
             //Aa
         }
         if (id == R.id.action_ankara) {
             new VeriGetirAnkara().execute();
+            toolbar.setTitle("Ankara Kalkınma Ajansı");
             //Aa
         }
         if (id == R.id.action_beb) {
             new VeriGetirBursa().execute();
+            toolbar.setTitle("Bursa-Eskişehir-Bilecik Kalkınma Ajansı");
             //Aa
         }
         if (id == R.id.action_dmarmara) {
             new VeriGetirDMarmara().execute();
+            toolbar.setTitle("Doğu Marmara Kalkınma Ajansı");
             //Aa
         }
         if (id == R.id.action_izmir) {
             new VeriGetirIzkalk().execute();
+            toolbar.setTitle("İzmir Kalkınma Ajansı");
             //Aa
         }
 
         if (id == R.id.action_ahiler) {
             new VeriGetirAhika().execute();
+            toolbar.setTitle("Ahiler Kalkınma Ajansı");
             //Aa
         }
 
         if (id == R.id.action_dicle) {
             new VeriGetirDicle().execute();
+            toolbar.setTitle("Dicle Kalkınma Ajansı");
             //Aa
         }
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 23afcc261a66823503b81018fe89cc3a4d7aa618
         if (id == R.id.action_gege) {
             new VeriGetirGEKA().execute();
+            toolbar.setTitle("Güney Ege Kalkınma Ajansı");
             //Aa
         }
 
         if (id == R.id.action_karacadag) {
             new VeriGetirKaracadag().execute();
+            toolbar.setTitle("Karacadağ Kalkınma Ajansı");
             //Aa
         }
 
         if (id == R.id.action_ipekyolu) {
             new VeriGetirIpekyolu().execute();
+            toolbar.setTitle("İpekyolu Kalkınma Ajansı");
         }
         if (id == R.id.action_zafer) {
             new VeriGetirZafer().execute();
+<<<<<<< HEAD
+=======
+            toolbar.setTitle("Zafer Kalkınma Ajansı");
+>>>>>>> 23afcc261a66823503b81018fe89cc3a4d7aa618
             //Aa
         }
         if (id == R.id.action_danadolu) {
             new VeriGetirDanadolu().execute();
+<<<<<<< HEAD
+=======
+            toolbar.setTitle("Doğu Anadolu Kalkınma Ajansı");
+>>>>>>> 23afcc261a66823503b81018fe89cc3a4d7aa618
             //Aa
         }
         if (id == R.id.action_mevlana) {
             new VeriGetirMevlana().execute();
+            toolbar.setTitle("Mevlana Kalkınma Ajansı");
             //Aa
         }
         if (id == R.id.action_bakdeniz) {
             new VeriGetirBatıAkd().execute();
+<<<<<<< HEAD
+=======
+            toolbar.setTitle("Batı Akdeniz Kalkınma Ajansı");
+>>>>>>> 23afcc261a66823503b81018fe89cc3a4d7aa618
             //Aa
         }
         if (id == R.id.action_serhat) {
             new VeriGetirSerhat().execute();
+            toolbar.setTitle("Serhat Kalkınma Ajansı");
             //Aa
         }if (id == R.id.action_kdanadolu) {
             new VeriGetirKDAnadolu().execute();
+            toolbar.setTitle("Kuzeydoğu Anadolu Kalkınma Ajansı");
             //Aa
         }if (id == R.id.action_dkaradeniz) {
             new VeriGetirDKaradeniz().execute();
+<<<<<<< HEAD
+=======
+            toolbar.setTitle("Doğu Karadeniz Kalkınma Ajansı");
+>>>>>>> 23afcc261a66823503b81018fe89cc3a4d7aa618
             //Aa
         }
         if (id == R.id.action_cukurova) {
             new VeriGetirCukurova().execute();
+            toolbar.setTitle("Çukurova Kalkınma Ajansı");
 
             //Aa
         }
         if (id == R.id.action_dakdeniz) {
             new VeriGetirDoguAkdeniz().execute();
+            toolbar.setTitle("Doğu Akdeniz Kalkınma Ajansı");
 
             //Aa
         }
         if (id == R.id.action_bkaradeniz) {
             new VeriGetirBatıKaradeniz().execute();
+            toolbar.setTitle("Batı Karadeniz Kalkınma Ajansı");
 
             //Aa
         }
         if (id == R.id.action_kanadolu) {
             new VeriGetirKuzeyAnadolu().execute();
+            toolbar.setTitle("Kuzey Anadolu Kalkınma Ajansı");
 
             //Aa
         }
         if (id == R.id.action_okaradeniz) {
             new VeriGetirOrtaKaradeniz().execute();
+            toolbar.setTitle("Orta Karadeniz Kalkınma Ajansı");
 
             //Aa
         }
         if (id == R.id.action_oanadolu) {
             new VeriGetirOrtaAnadolu().execute();
+            toolbar.setTitle("Orta Anadolu Kalkınma Ajansı");
 
             //Aa
         }
