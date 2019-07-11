@@ -1060,7 +1060,61 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
+    private class VeriGetirDoguAkdeniz extends AsyncTask<Void, Void, Void> {
 
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+            try {
+                Document doc= Jsoup.connect("http://www.dogaka.gov.tr/Destekler.asp?D=24&Destekler=teknik-destek-programi").timeout(30*1000).get();
+                for (Element adDiv : doc.select("a.ListeMenuAlt")){
+                    liste.add("Doğu Akdeniz KA  "+adDiv.text());
+                    //liste.add( linkA.absUrl("href")) ;
+                    linkliste.add( adDiv.absUrl("href")) ;
+                }
+
+                doc= Jsoup.connect("http://www.dogaka.gov.tr/Destekler.asp?D=84&Destekler=fizibilite-destegi").timeout(30*1000).get();
+                for (Element adDiv : doc.select("a.ListeMenuAlt")){
+                    liste.add("Doğu Akdeniz KA  "+adDiv.text());
+                    //liste.add( linkA.absUrl("href")) ;
+                    linkliste.add( adDiv.absUrl("href")) ;
+                }
+                doc= Jsoup.connect("http://www.dogaka.gov.tr/Destekler.asp?D=11&Destekler=mali-destek-programi").timeout(30*1000).get();
+                for (Element adDiv : doc.select("a.ListeMenuAlt")){
+                    liste.add("Doğu Akdeniz KA  "+adDiv.text());
+                    //liste.add( linkA.absUrl("href")) ;
+                    linkliste.add( adDiv.absUrl("href")) ;
+                }
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
     private class VeriGetirIpekyolu extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -1261,6 +1315,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         if (id == R.id.action_cukurova) {
             new VeriGetirCukurova().execute();
+
+            //Aa
+        }
+        if (id == R.id.action_dakdeniz) {
+            new VeriGetirDoguAkdeniz().execute();
 
             //Aa
         }
