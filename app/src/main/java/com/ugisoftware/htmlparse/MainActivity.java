@@ -224,6 +224,100 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
+    private class VeriGetirAB extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+
+
+            try {
+                Document doc= Jsoup.connect("http://www.istka.org.tr/destekler/destek-turleri/").timeout(30*1000).get();
+                for (Element adDiv : doc.select("a.link")){
+                    Element duyuruDiv = adDiv.select("a.link").first();
+
+                    //liste.add( linkA.absUrl("href")) ;
+
+                }
+                linkliste.add( "https://www.ab.gov.tr/ab-programlari-hibeleri_101.html/") ;
+                liste.add("Güncel Destekler ");
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
+    private class VeriGetirFırat extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+
+
+            try {
+                Document doc= Jsoup.connect("http://www.istka.org.tr/destekler/destek-turleri/").timeout(30*1000).get();
+                for (Element adDiv : doc.select("a.link")){
+                    Element duyuruDiv = adDiv.select("a.link").first();
+
+                    //liste.add( linkA.absUrl("href")) ;
+
+                }
+                linkliste.add( "https://fka.gov.tr/mali-destekler-detayi-1463574099720/") ;
+                liste.add("Güncel Destekler ");
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
     private class VeriGetirIstkalk extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -420,6 +514,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
+
     private class VeriGetirTrakya extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -472,6 +567,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
+
     private class VeriGetirGMarmara extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -714,6 +810,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
+
     private class VeriGetirAhika extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -1002,6 +1099,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
+
     private class VeriGetirKaracadag extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -1357,6 +1455,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
+
     private class VeriGetirDanadolu extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -1407,6 +1506,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
+
     private class VeriGetirSerhat extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -1454,6 +1554,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
+
     private class VeriGetirKDAnadolu extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -1508,6 +1609,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
+
     private class VeriGetirDKaradeniz extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -1555,6 +1657,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
+
+
+
+
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -1701,9 +1808,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             //Aa
         }
-        if (id == R.id.action_oanadolu) {
-            new VeriGetirOrtaAnadolu().execute();
-            toolbar.setTitle("Orta Anadolu Kalkınma Ajansı");
+        if (id == R.id.action_avrupa) {
+            new VeriGetirAB().execute();
+            toolbar.setTitle("Avrupa Birliği Destek Programı");
+
+            //Aa
+        }
+        if (id == R.id.action_firat) {
+            new VeriGetirFırat().execute();
+            toolbar.setTitle("Fırat Kalkınma Ajansı");
 
             //Aa
         }
