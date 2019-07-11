@@ -115,6 +115,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
             try {
+
                 Document doc= Jsoup.connect("http://www.kosgeb.gov.tr/site/tr/genel/destekler/6312/girisimcilik-destekleri/").timeout(30*1000).get();
                 for (Element adDiv : doc.select("div.details")){
 
@@ -252,7 +253,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 }
                 linkliste.add( "https://www.istka.org.tr/destekler/acik-destek-programlari/") ;
-                liste.add("İstKA   : 2019 Yılı Fizibilite Desteği Programı ");
+                liste.add("İstKA   : Fizibilite Desteği Programı ");
             }
             catch (IOException e) {
                 e.printStackTrace();
@@ -450,7 +451,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         Element linkA = abDiv.select("a").first();
 
                 }
-                liste.add("2019 YILI PROJE TEKLİF ÇAĞRISI İLANI ");
+                liste.add(" PROJE TEKLİF ÇAĞRISI İLANI ");
                 //liste.add( linkA.absUrl("href")) ;
                 linkliste.add( "https://www.trakyaka.org.tr/tr/38750/2019-Yili-Proje-Teklif-Cagrisi") ;
 
@@ -694,7 +695,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         Element linkA = adDiv.select("a").first();
 
                 }
-                liste.add("2019 YILI TEKNİK DESTEK PROGRAMI ");
+                liste.add(" TEKNİK DESTEK PROGRAMI ");
                 //liste.add( linkA.absUrl("href")) ;
                 linkliste.add( "https://www.ankaraka.org.tr/tr/2019-yili-teknik-destek-programi_4470.html") ;
 
@@ -883,7 +884,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     //liste.add( linkA.absUrl("href")) ;
                     linkliste.add( duyuruDiv.absUrl("href")) ;
                 }
-                liste.add( "2019 Yılı Güncel Destekeler" );
+                liste.add( "Güncel Destekeler" );
                 linkliste.add( "http://www.marka.org.tr/sayfa/351/657/2019-yili-destekleri" );
             }
             catch (IOException e) {
@@ -927,10 +928,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     Element linkA = adDiv.select("a").first();
 
                 }
-                liste.add("2019 YILI TEKNİK DESTEK PROGRAMI ");
+                liste.add("TEKNİK DESTEK PROGRAMI ");
                 //liste.add( linkA.absUrl("href")) ;
                 linkliste.add( "http://www.dika.org.tr/TR/Sayfa/2019_yili_teknik_destek_programi") ;
-                liste.add("2019 YILI FİZİBİLİTE DESTEK PROGRAMI ");
+                liste.add("FİZİBİLİTE DESTEK PROGRAMI ");
                 //liste.add( linkA.absUrl("href")) ;
                 linkliste.add( "http://www.dika.org.tr/TR/Sayfa/2019_yili_fizibilite_destegi_ilani") ;
 
@@ -1075,13 +1076,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     Element linkA = adDiv.select("a").first();
 
                 }
-                liste.add("2019 Yılı Mali Destekler ");
+                liste.add("Mali Destekler ");
                 //liste.add( linkA.absUrl("href")) ;
                 linkliste.add( "http://www.cka.org.tr/main.aspx?id=419") ;
-                liste.add("2019 Yılı Teknik Destekler ");
+                liste.add("Teknik Destekler ");
                 //liste.add( linkA.absUrl("href")) ;
                 linkliste.add( "http://www.cka.org.tr/main.aspx?id=421/") ;
-                liste.add("2019 Yılı Fizibilite Destekleri");
+                liste.add("Fizibilite Destekleri");
                 //liste.add( linkA.absUrl("href")) ;
                 linkliste.add( "http://www.cka.org.tr/main.aspx?id=420") ;
                 liste.add("Güncel Destekler ");
@@ -1131,7 +1132,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 }
 
-                liste.add("2019 Yılı Teknik Destekler ");
+                liste.add(" Teknik Destekler ");
 
                 linkliste.add( "https://www.bakka.gov.tr/site/sayfa/187/2019-yili-teknik-destek-programi//") ;
 
@@ -1332,10 +1333,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
                 }
-                liste.add("2019 YILI MALİ DESTEK PROGRAMI ");
+                liste.add(" MALİ DESTEK PROGRAMI ");
                 //liste.add( linkA.absUrl("href")) ;
                 linkliste.add( "http://www.ika.org.tr/2019-Yili-Mali-Destek-Programlari-icerik-349.html") ;
-                liste.add("2019 YILI FİZİBİLİTE DESTEK PROGRAMI ");
+                liste.add("FİZİBİLİTE DESTEK PROGRAMI ");
                 //liste.add( linkA.absUrl("href")) ;
                 linkliste.add( "https://www.ika.org.tr/2019-Yili-Fizibilite-Destegi-Programi-icerik-351.html") ;
                 liste.add("GÜNCEL DESTEKLER");
