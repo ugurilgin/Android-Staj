@@ -1819,6 +1819,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             toolbar.setTitle("Fırat Kalkınma Ajansı");
 
             //Aa
+        }if (id == R.id.action_oanadolu) {
+            new VeriGetirOrtaAnadolu().execute();
+            toolbar.setTitle("Orta Anadolu Kalkınma Ajansı");
+
+            //Aa
         }
         //menüden seçim yaptıktan sonra nav viewin kapalı konuma geçmesini sağlar
         drawer.closeDrawer(GravityCompat.START);
