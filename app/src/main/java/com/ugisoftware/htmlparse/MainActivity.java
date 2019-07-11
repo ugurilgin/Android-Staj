@@ -785,6 +785,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             try {
                 Document doc= Jsoup.connect("http://www.mevka.org.tr/Pages.asp?Dil=0&kid=536").timeout(30*1000).get();
                 for (Element adDiv : doc.select("table.one")){
+                    //a
                     Element duyuruDiv = adDiv.select("table.one").first();
                     Element textDiv = duyuruDiv.select("td").first();
                     Element linkA = textDiv.select("a").first();
@@ -792,7 +793,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     //liste.add( linkA.absUrl("href")) ;
                     linkliste.add( linkA.absUrl("href")) ;
                 }
-               liste.add("Güncel Destekler");
+                liste.add("Güncel Destekler");
                 linkliste.add( "http://www.mevka.org.tr/Pages.asp?Dil=0&kid=536" );
             }
             catch (IOException e) {
@@ -1632,7 +1633,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             toolbar.setTitle("Dicle Kalkınma Ajansı");
             //Aa
         }
-
         if (id == R.id.action_gege) {
             new VeriGetirGEKA().execute();
             toolbar.setTitle("Güney Ege Kalkınma Ajansı");
@@ -1651,7 +1651,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         if (id == R.id.action_zafer) {
             new VeriGetirZafer().execute();
-            toolbar.setTitle("Zafer Kalkınma Ajansı");
+          toolbar.setTitle("Zafer Kalkınma Ajansı");
+
             //Aa
         }
         if (id == R.id.action_danadolu) {
@@ -1679,6 +1680,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             //Aa
         }if (id == R.id.action_dkaradeniz) {
             new VeriGetirDKaradeniz().execute();
+
             toolbar.setTitle("Doğu Karadeniz Kalkınma Ajansı");
             //Aa
         }
