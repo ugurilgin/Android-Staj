@@ -762,6 +762,54 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
+    private class VeriGetirMevlana extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+
+            try {
+                Document doc= Jsoup.connect("http://www.mevka.org.tr/Pages.asp?Dil=0&kid=536").timeout(30*1000).get();
+                for (Element adDiv : doc.select("table.one")){
+                    Element duyuruDiv = adDiv.select("table.one").first();
+                    Element textDiv = duyuruDiv.select("td").first();
+                    Element linkA = textDiv.select("a").first();
+                    liste.add("Mevlana   : "+textDiv.text());
+                    //liste.add( linkA.absUrl("href")) ;
+                    linkliste.add( linkA.absUrl("href")) ;
+                }
+               liste.add("Güncel Destekler");
+                linkliste.add( "http://www.mevka.org.tr/Pages.asp?Dil=0&kid=536" );
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
     private class VeriGetirDMarmara extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -1010,10 +1058,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             //Aa
         }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> babae912e6b70d43d6a619221d58e1c6ed69b330
         if (id == R.id.action_gege) {
             new VeriGetirGEKA().execute();
             //Aa
@@ -1023,14 +1068,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             new VeriGetirKaracadag().execute();
             //Aa
         }
-<<<<<<< HEAD
+
 
         if (id == R.id.action_ipekyolu) {
             new VeriGetirIpekyolu().execute();
-=======
+        }
         if (id == R.id.action_zafer) {
             new VeriGetirZafer().execute();
->>>>>>> babae912e6b70d43d6a619221d58e1c6ed69b330
+
+            //Aa
+        }
+        if (id == R.id.action_mevlana) {
+            new VeriGetirMevlana().execute();
+
             //Aa
         }
 
