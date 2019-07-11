@@ -1111,6 +1111,159 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+    private class VeriGetirSerhat extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+
+            try {
+                Document doc= Jsoup.connect("http://www.daka.org.tr/icerikler/acikdestek").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div.hkyazi")){
+                    Element duyuruDi = adDiv.select("div.hkyazi").first();
+                    Element duyuruDiv = duyuruDi.select("li").first();
+                    Element linkA = adDiv.select("a").first();
+                }
+                liste.add("GÜNCEL DESTEKLER ");
+                //liste.add( linkA.absUrl("href")) ;
+                linkliste.add( "http://www.serka.gov.tr/destekler/acik-destek-programlari") ;
+
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
+
+    private class VeriGetirKDAnadolu extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+
+            try {
+                Document doc= Jsoup.connect("http://www.daka.org.tr/icerikler/acikdestek").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div.hkyazi")){
+                    Element duyuruDi = adDiv.select("div.hkyazi").first();
+                    Element duyuruDiv = duyuruDi.select("li").first();
+                    Element linkA = adDiv.select("a").first();
+                }
+                liste.add("Mali Destek Programı ");
+                //liste.add( linkA.absUrl("href")) ;
+                linkliste.add( "http://pyb.kudaka.org.tr/Home/tug2019") ;
+                liste.add("Teknik Destek Programı ");
+                //liste.add( linkA.absUrl("href")) ;
+                linkliste.add( "http://pyb.kudaka.org.tr/Home/teknikdestek2019") ;
+                liste.add("Güncel Destekler ");
+                //liste.add( linkA.absUrl("href")) ;
+                linkliste.add( "http://pyb.kudaka.org.tr") ;
+
+
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
+
+    private class VeriGetirDKaradeniz extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+
+            try {
+                Document doc= Jsoup.connect("http://www.daka.org.tr/icerikler/acikdestek").timeout(30*1000).get();
+                for (Element adDiv : doc.select("div.hkyazi")){
+                    Element duyuruDi = adDiv.select("div.hkyazi").first();
+                    Element duyuruDiv = duyuruDi.select("li").first();
+                    Element linkA = adDiv.select("a").first();
+                }
+                liste.add("Güncel Destekler ");
+                //liste.add( linkA.absUrl("href")) ;
+                linkliste.add( "http://www.doka.org.tr/destekler_Acik-TR.html") ;
+
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
+
+
+
 
 
 
@@ -1167,10 +1320,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             //Aa
         }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 56b958b2983d3853c08efe002fabf7df9677b39c
         if (id == R.id.action_gege) {
             new VeriGetirGEKA().execute();
             //Aa
@@ -1180,34 +1329,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             new VeriGetirKaracadag().execute();
             //Aa
         }
-<<<<<<< HEAD
-=======
-
->>>>>>> 56b958b2983d3853c08efe002fabf7df9677b39c
 
         if (id == R.id.action_ipekyolu) {
             new VeriGetirIpekyolu().execute();
         }
         if (id == R.id.action_zafer) {
             new VeriGetirZafer().execute();
-<<<<<<< HEAD
             //Aa
         }
         if (id == R.id.action_danadolu) {
             new VeriGetirDanadolu().execute();
-=======
-
             //Aa
         }
         if (id == R.id.action_mevlana) {
             new VeriGetirMevlana().execute();
-
             //Aa
         }
         if (id == R.id.action_bakdeniz) {
             new VeriGetirBatıAkd().execute();
-
->>>>>>> 56b958b2983d3853c08efe002fabf7df9677b39c
+            //Aa
+        }
+        if (id == R.id.action_serhat) {
+            new VeriGetirSerhat().execute();
+            //Aa
+        }if (id == R.id.action_kdanadolu) {
+            new VeriGetirKDAnadolu().execute();
+            //Aa
+        }if (id == R.id.action_dkaradeniz) {
+            new VeriGetirDKaradeniz().execute();
             //Aa
         }
 
