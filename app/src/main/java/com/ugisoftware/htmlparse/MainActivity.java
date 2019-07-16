@@ -517,7 +517,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     Element duyuruDiv = adDiv.select("div.views-field.views-field-title").first();
                     Element linkA = adDiv.select("a").first();
-                    liste.add("Akademik  Destekler  : "+duyuruDiv.text());
+                    liste.add(duyuruDiv.text());
                     //liste.add( linkA.absUrl("href")) ;
                     linkliste.add( linkA.absUrl("href")) ;
 
@@ -525,52 +525,257 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
-                doc= Jsoup.connect("http://www.tubitak.gov.tr/tr/destekler/sanayi/ulusal-destek-programlari").timeout(30*1000).get();
+
+
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
+    private class VeriGetirTubitak1 extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+
+
+            try {
+
+
+
+                Document doc= Jsoup.connect("http://www.tubitak.gov.tr/tr/destekler/sanayi/ulusal-destek-programlari").timeout(30*1000).get();
                 for (Element adDiv : doc.select("div.views-field.views-field-title")){
 
                     Element duyuruDiv = adDiv.select("div.views-field.views-field-title").first();
                     Element linkA = adDiv.select("a").first();
-                    liste.add("Sanayi  Destekleri : "+duyuruDiv.text());
+                    liste.add(duyuruDiv.text());
                     //liste.add( linkA.absUrl("href")) ;
                     linkliste.add( linkA.absUrl("href")) ;
 
                 }
-                doc= Jsoup.connect("http://www.tubitak.gov.tr/tr/destekler/kamu/ulusal-destek-programlari").timeout(30*1000).get();
+
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
+    private class VeriGetirTubitak2 extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+
+
+            try {
+
+                Document doc= Jsoup.connect("http://www.tubitak.gov.tr/tr/destekler/kamu/ulusal-destek-programlari").timeout(30*1000).get();
                 for (Element adDiv : doc.select("div.views-field.views-field-title")){
 
                     Element duyuruDiv = adDiv.select("div.views-field.views-field-title").first();
                     Element linkA = adDiv.select("a").first();
-                    liste.add("Kamu  Destekleri : "+duyuruDiv.text());
+                    liste.add(duyuruDiv.text());
                     //liste.add( linkA.absUrl("href")) ;
                     linkliste.add( linkA.absUrl("href")) ;
 
                 }
-                doc= Jsoup.connect("http://www.tubitak.gov.tr/tr/destekler/girisimcilik/ulusal-destek-programlari").timeout(30*1000).get();
+
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
+    private class VeriGetirTubitak3 extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+
+
+            try {
+
+                Document doc= Jsoup.connect("http://www.tubitak.gov.tr/tr/destekler/girisimcilik/ulusal-destek-programlari").timeout(30*1000).get();
                 for (Element adDiv : doc.select("div.views-field.views-field-title")){
 
                     Element duyuruDiv = adDiv.select("div.views-field.views-field-title").first();
                     Element linkA = adDiv.select("a").first();
-                    liste.add("Girişimcilik  Destekleri : "+duyuruDiv.text());
+                    liste.add(duyuruDiv.text());
                     //liste.add( linkA.absUrl("href")) ;
                     linkliste.add( linkA.absUrl("href")) ;
 
                 }
-                doc= Jsoup.connect("http://www.tubitak.gov.tr/tr/destekler/bilimsel-etkinlik/etkinlik-duzenleme-destekleri").timeout(30*1000).get();
+
+
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
+    private class VeriGetirTubitak4 extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+
+
+            try {
+
+               Document doc= Jsoup.connect("http://www.tubitak.gov.tr/tr/destekler/bilimsel-etkinlik/etkinlik-duzenleme-destekleri").timeout(30*1000).get();
                 for (Element adDiv : doc.select("div.views-field.views-field-title")){
 
                     Element duyuruDiv = adDiv.select("div.views-field.views-field-title").first();
                     Element linkA = adDiv.select("a").first();
-                    liste.add("Bilimsel Etkinlik  Destekleri : "+duyuruDiv.text());
+                    liste.add(duyuruDiv.text());
                     //liste.add( linkA.absUrl("href")) ;
                     linkliste.add( linkA.absUrl("href")) ;
 
                 }
-                doc= Jsoup.connect("http://www.tubitak.gov.tr/tr/destekler/bilim-ve-toplum/ulusal-destek-programlari").timeout(30*1000).get();
+
+
+            }
+            catch (IOException e) {
+                e.printStackTrace();
+                liste.add("Connection Error");
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            lv.setAdapter( adapter );
+            progressDialog.dismiss();
+
+        }
+    }
+    private class VeriGetirTubitak5 extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            liste.clear();
+            linkliste.clear();
+            progressDialog= new ProgressDialog(MainActivity.this);
+            progressDialog.setTitle("Yükleniyor...");
+            progressDialog.setMessage("Lütfen bekleyiniz..");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
+
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+
+
+
+            try {
+
+               Document doc= Jsoup.connect("http://www.tubitak.gov.tr/tr/destekler/bilim-ve-toplum/ulusal-destek-programlari").timeout(30*1000).get();
                 for (Element adDiv : doc.select("div.views-field.views-field-title")){
 
                     Element duyuruDiv = adDiv.select("div.views-field.views-field-title").first();
                     Element linkA = adDiv.select("a").first();
-                    liste.add("Bilim ve Toplum  Destekleri : "+duyuruDiv.text());
+                    liste.add(duyuruDiv.text());
                     //liste.add( linkA.absUrl("href")) ;
                     linkliste.add( linkA.absUrl("href")) ;
 
@@ -1729,16 +1934,49 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7b3387228590778e0a6d4dc36d374bdaadb22eba
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         //menüdeki seçeneklerden birine tıklanıldığında ne açılacak onu belirtiyoruz
 
         int id = menuItem.getItemId();
 
-        if (id == R.id.action_tubitak) {
+        if (id == R.id.id1) {
             new VeriGetirTubitak().execute();
-            toolbar.setTitle("Tübitak");
+            toolbar.setTitle("Tübitak-Akademik Destekler");
+
+            //Aa
+        }
+        if (id == R.id.id2) {
+            new VeriGetirTubitak1().execute();
+            toolbar.setTitle("Tübitak-Sanayi Destekleri");
+
+            //Aa
+        }
+        if (id == R.id.id3) {
+            new VeriGetirTubitak2().execute();
+            toolbar.setTitle("Tübitak-Kamu Destekleri");
+
+            //Aa
+        }
+        if (id == R.id.id4) {
+            new VeriGetirTubitak3().execute();
+            toolbar.setTitle("Tübitak-Girişimcilik Destekleri");
+
+            //Aa
+        }
+        if (id == R.id.id5) {
+            new VeriGetirTubitak4().execute();
+            toolbar.setTitle("Tübitak-Bilimsel Etkinlik Destekleri");
+
+            //Aa
+        }
+        if (id == R.id.id6) {
+            new VeriGetirTubitak5().execute();
+            toolbar.setTitle("Tübitak-Bilim ve Toplum Destekleri");
 
             //Aa
         }
@@ -1897,12 +2135,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         return true;
     }
-
-
-
-
-
-
-
 
 }
