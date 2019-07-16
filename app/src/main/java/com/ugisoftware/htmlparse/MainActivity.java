@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawer;
     private ArrayList<String > firmalarArrayList = new ArrayList<>();
     private ListView lv;
-    public ArrayList liste= new ArrayList();
+    public ArrayList<String> liste= new ArrayList();
     public ArrayList linkliste= new ArrayList();
     private ArrayAdapter<String> adapter;
     private static String URL="http://www.tubitak.gov.tr/";
@@ -63,9 +63,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 String s =  lv.getItemAtPosition( position ).toString();
                 for(int i=0;i<liste.size();i++)
                 {
-                    if(liste.get(i)==null){
-
-                    }else if(liste.get( i )==s)
+                    if(liste.get( i )==s)
                         {
                             //Intent browserIntent = new Intent( Intent.ACTION_VIEW, Uri.parse( linkliste.get(i ).toString() ) );
                             //startActivity( browserIntent );
@@ -81,7 +79,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         firmalarArrayList.add("Tübitak");
-        firmalarArrayList.add("Kosgep");
+        firmalarArrayList.add("Kosgeb");
         firmalarArrayList.add("Avrupa Birliği");
         firmalarArrayList.add("İstanbul Kalkınma Ajansı");
         firmalarArrayList.add("Trakya Kalkınma Ajansı");
@@ -161,13 +159,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void ilanlarArama(final String ilanId) {
 
         liste.clear();
-        linkliste.clear();
 
         for (String s : firmalarArrayList){
             if(s.contains(ilanId)) {
                 liste.add(s);
             }
         }
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                for (String a : liste){
+                    if (a.equals("Tübitak")){
+                        new VeriGetirTubitak().execute();
+                    }
+                    if (a.equals("Kosgeb")){
+                        new VeriGetirKosgeb().execute();
+                    }
+
+                }
+            }
+        });
 
 
         adapter.notifyDataSetChanged();
@@ -1934,10 +1945,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 7b3387228590778e0a6d4dc36d374bdaadb22eba
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         //menüdeki seçeneklerden birine tıklanıldığında ne açılacak onu belirtiyoruz
