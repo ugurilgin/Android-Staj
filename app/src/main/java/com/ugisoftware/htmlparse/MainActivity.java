@@ -1863,19 +1863,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (id == R.id.id1) {
             new VeriGetirTubitak().execute();
-            toolbar.setTitle("Tübitak");
+            toolbar.setTitle("Tübitak-Akademik Destekler");
 
             //Aa
         }
         if (id == R.id.id2) {
             new VeriGetirTubitak1().execute();
-            toolbar.setTitle("Tübitak-Akademik Destekler");
+            toolbar.setTitle("Tübitak-Sanayi Destekleri");
 
             //Aa
         }
         if (id == R.id.id3) {
             new VeriGetirTubitak2().execute();
-            toolbar.setTitle("Tübitak-Sanayi Destekleri");
+            toolbar.setTitle("Tübitak-Kamu Destekleri");
 
             //Aa
         }
