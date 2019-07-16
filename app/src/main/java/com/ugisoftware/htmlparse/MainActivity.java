@@ -15,7 +15,9 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,10 +38,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,SearchView.OnQueryTextListener {
     private NavigationView nav_view;
     private Toolbar toolbar;
     private DrawerLayout drawer;
+    private ArrayList<String > firmalarArrayList = new ArrayList<>();
     private ListView lv;
     public ArrayList liste= new ArrayList();
     public ArrayList linkliste= new ArrayList();
@@ -60,7 +63,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 String s =  lv.getItemAtPosition( position ).toString();
                 for(int i=0;i<liste.size();i++)
                 {
-                    if(liste.get( i )==s)
+                    if(liste.get(i)==null){
+
+                    }else if(liste.get( i )==s)
                         {
                             //Intent browserIntent = new Intent( Intent.ACTION_VIEW, Uri.parse( linkliste.get(i ).toString() ) );
                             //startActivity( browserIntent );
@@ -72,6 +77,41 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             }
         });
+
+
+
+        firmalarArrayList.add("Tübitak");
+        firmalarArrayList.add("Kosgep");
+        firmalarArrayList.add("Avrupa Birliği");
+        firmalarArrayList.add("İstanbul Kalkınma Ajansı");
+        firmalarArrayList.add("Trakya Kalkınma Ajansı");
+        firmalarArrayList.add("Güney Marmara Kalkınma Ajansı");
+        firmalarArrayList.add("İzmir Kalkınma Ajansı");
+        firmalarArrayList.add("Güney Ege Kalkınma Ajansı");
+        firmalarArrayList.add("Zafer Kalkınma Ajansı");
+        firmalarArrayList.add("Bursa-Eskişehir-Bilecik Kalkınma Ajansı");
+        firmalarArrayList.add("Doğu Marmara Kalkınma Ajansı");
+        firmalarArrayList.add("Ankara Kalkınma Ajansı");
+        firmalarArrayList.add("Mevlana Kalkınma Ajansı");
+        firmalarArrayList.add("Batı Karadeniz Kalkınma Ajansı");
+        firmalarArrayList.add("Çukurova Kalkınma Ajansı");
+        firmalarArrayList.add("Doğu Akdeniz Kalkınma Ajansı");
+        firmalarArrayList.add("Ahiler Kalkınma Ajansı");
+        firmalarArrayList.add("Orta Anadolu Kalkınma Ajansı");
+        firmalarArrayList.add("Batı Karadeniz Kalkınma Ajansı");
+        firmalarArrayList.add("Kuzey Anadolu Kalkınma Ajansı");
+        firmalarArrayList.add("Orta Karadeniz Kalkınma Ajansı");
+        firmalarArrayList.add("Doğu Karadeniz Kalkınma Ajansı");
+        firmalarArrayList.add("Kuzey Doğu Anadolu Kalkınma Ajansı");
+        firmalarArrayList.add("Serhat Kalkınma Ajansı");
+        firmalarArrayList.add("Fırat Kalkınma Ajansı");
+        firmalarArrayList.add("Doğu Anadolu Kalkınma Ajansı");
+        firmalarArrayList.add("İpekyolu Kalkınma Ajansı");
+        firmalarArrayList.add("Karacadağ Kalkınma Ajansı");
+        firmalarArrayList.add("Dicle Kalkınma Ajansı");
+
+
+
 
         nav_view = (NavigationView) findViewById(R.id.nav_view);
         drawer = (DrawerLayout) findViewById(R.id.drawer);
@@ -92,8 +132,47 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,liste);
 
-        new VeriGetirTubitak().execute();
+        //new VeriGetirTubitak().execute();
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //Filtrelemek ve aramak için oluşturduğumuz menümüzün ana sayfa da görünmesini sağladuk
+
+        getMenuInflater().inflate(R.menu.arama,menu);
+
+        MenuItem item = menu.findItem(R.id.action_ara);
+        SearchView searchView = (SearchView) item.getActionView();
+        searchView.setOnQueryTextListener(MainActivity.this);//bu sınıfa bağladık
+        return true;
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        ilanlarArama(newText);
+        return false;
+    }
+
+    public void ilanlarArama(final String ilanId) {
+
+        liste.clear();
+        linkliste.clear();
+
+        for (String s : firmalarArrayList){
+            if(s.contains(ilanId)) {
+                liste.add(s);
+            }
+        }
+
+
+        adapter.notifyDataSetChanged();
+    }
+
     private class VeriGetirKosgeb extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -514,7 +593,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
-
     private class VeriGetirTrakya extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -567,7 +645,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
-
     private class VeriGetirGMarmara extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -810,7 +887,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
-
     private class VeriGetirAhika extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -1099,7 +1175,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
-
     private class VeriGetirKaracadag extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -1455,7 +1530,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
-
     private class VeriGetirDanadolu extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -1506,7 +1580,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
-
     private class VeriGetirSerhat extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -1554,7 +1627,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
-
     private class VeriGetirKDAnadolu extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -1609,7 +1681,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
-
     private class VeriGetirDKaradeniz extends AsyncTask<Void, Void, Void> {
 
         @Override
@@ -1657,10 +1728,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         }
     }
-
-
-
-
 
 
     @Override
