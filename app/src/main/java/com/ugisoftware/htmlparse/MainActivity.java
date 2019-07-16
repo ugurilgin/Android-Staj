@@ -76,20 +76,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-<<<<<<< HEAD
 
 
-        firmalarArrayList.add("Tübitak");
-        firmalarArrayList.add("Kosgeb");
-=======
+
+
         firmalarArrayList.add("Tübitak-Akademik Destekler");
         firmalarArrayList.add("Tübitak-Sanayi Destekleri");
         firmalarArrayList.add("Tübitak-Kamu Destekleri");
         firmalarArrayList.add("Tübitak-Girişimcilik Destekleri");
         firmalarArrayList.add("Tübitak-Bilimsel Etkinlik Destekleri");
         firmalarArrayList.add("Tübitak-Bilim ve Toplum Destekleri");
-        firmalarArrayList.add("Kosgep");
->>>>>>> ca0e793c875a03f7cbd3fafba93057be7978ccc7
+        firmalarArrayList.add("Kosgeb");
         firmalarArrayList.add("Avrupa Birliği");
         firmalarArrayList.add("İstanbul Kalkınma Ajansı");
         firmalarArrayList.add("Trakya Kalkınma Ajansı");
@@ -2153,10 +2150,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> ca0e793c875a03f7cbd3fafba93057be7978ccc7
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         //menüdeki seçeneklerden birine tıklanıldığında ne açılacak onu belirtiyoruz
