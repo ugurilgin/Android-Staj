@@ -76,20 +76,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-<<<<<<< HEAD
-
-
-        firmalarArrayList.add("Tübitak");
+        firmalarArrayList.add("Tubitak Akademik Destekler");
+        firmalarArrayList.add("Tubitak Sanayi Destekleri");
+        firmalarArrayList.add("Tubitak Kamu Destekleri");
+        firmalarArrayList.add("Tubitak Girisimcilik Destekleri");
+        firmalarArrayList.add("Tubitak Bilimsel Etkinlik Destekleri");
+        firmalarArrayList.add("Tubitak Bilim ve Toplum Destekleri");
         firmalarArrayList.add("Kosgeb");
-=======
-        firmalarArrayList.add("Tübitak-Akademik Destekler");
-        firmalarArrayList.add("Tübitak-Sanayi Destekleri");
-        firmalarArrayList.add("Tübitak-Kamu Destekleri");
-        firmalarArrayList.add("Tübitak-Girişimcilik Destekleri");
-        firmalarArrayList.add("Tübitak-Bilimsel Etkinlik Destekleri");
-        firmalarArrayList.add("Tübitak-Bilim ve Toplum Destekleri");
-        firmalarArrayList.add("Kosgep");
->>>>>>> ca0e793c875a03f7cbd3fafba93057be7978ccc7
         firmalarArrayList.add("Avrupa Birliği");
         firmalarArrayList.add("İstanbul Kalkınma Ajansı");
         firmalarArrayList.add("Trakya Kalkınma Ajansı");
@@ -168,220 +161,179 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void ilanlarArama(final String ilanId) {
 
-        liste.clear();
+       liste.clear();
+       linkliste.clear();
 
         for (String s : firmalarArrayList){
             if(s.contains(ilanId)) {
                 liste.add( s );
 
             }
-               /* if ("Tübitak-Akademik Destekler".contains( ilanId )) {
-                    new VeriGetirTubitak().execute();
-                    toolbar.setTitle("Tübitak-Akademik Destekler");
-                    break;
 
-                    //Aa
-                }
-                else if ("Tübitak-Sanayi Destekleri".contains( ilanId )) {
-                    new VeriGetirTubitak1().execute();
-                    toolbar.setTitle("Tübitak-Sanayi Destekleri");
-                    break;
-                    //Aa
-                }
-            else if ("Tübitak-Kamu Destekleri".contains( ilanId )) {
-                    new VeriGetirTubitak2().execute();
-                    toolbar.setTitle("Tübitak-Kamu Destekleri");break;
-
-                    //Aa
-                }
-                else if ("Tübitak-Girişimcilik Destekleri".contains( ilanId )) {
-                    new VeriGetirTubitak3().execute();
-                    toolbar.setTitle("Tübitak-Girişimcilik Destekleri");break;
-
-                    //Aa
-                }
-                else if ( "Tübitak-Bilimsel Etkinlik Destekleri".contains( ilanId )) {
-                    new VeriGetirTubitak4().execute();
-                    toolbar.setTitle("Tübitak-Bilimsel Etkinlik Destekleri");break;
-
-                    //Aa
-                }
-                else if (id =="Tübitak-Bilim ve Toplum Destekleri") {
-                    new VeriGetirTubitak5().execute();
-                    toolbar.setTitle("Tübitak-Bilim ve Toplum Destekleri");break;
-
-                    //Aa
-                }
-            else if (id =="Kosgeb") {
-                    new VeriGetirKosgeb().execute();
-                    toolbar.setTitle("Kosgeb");break;
-                    //Aa
-                }
-                else  if (id == "İstanbul Kalkınma Ajansı") {
-                    new VeriGetirIstkalk().execute();
-                    toolbar.setTitle("İstanbul Kalkınma Ajansı");break;
-                    //Aa
-                }
-                else  if (id =="Trakya Kalkınma Ajansı") {
-                    new VeriGetirTrakya().execute();
-                    toolbar.setTitle("Trakya Kalkınma Ajansı");break;
-                    //Aa
-                }
-                else  if (id =="Güney Marmara Kalkınma Ajansı") {
-                    new VeriGetirGMarmara().execute();
-                    toolbar.setTitle("Güney Marmara Kalkınma Ajansı");break;
-                    //Aa
-                }
-                else  if (id =="Ankara Kalkınma Ajansı") {
-                    new VeriGetirAnkara().execute();
-                    toolbar.setTitle("Ankara Kalkınma Ajansı");break;
-                    //Aa
-                }
-                else if (id =="Bursa-Eskişehir-Bilecik Kalkınma Ajansı") {
-                    new VeriGetirBursa().execute();
-                    toolbar.setTitle("Bursa-Eskişehir-Bilecik Kalkınma Ajansı");break;
-                    //Aa
-                }
-                else if (id == "Doğu Marmara Kalkınma Ajansı") {
-                    new VeriGetirDMarmara().execute();
-                    toolbar.setTitle("Doğu Marmara Kalkınma Ajansı");break;
-                    //Aa
-                }
-            else if (id =="İzmir Kalkınma Ajansı") {
-                    new VeriGetirIzkalk().execute();
-                    toolbar.setTitle("İzmir Kalkınma Ajansı");break;
-                    //Aa
-                }
-
-                else  if (id =="Ahiler Kalkınma Ajansı") {
-                    new VeriGetirAhika().execute();
-                    toolbar.setTitle("Ahiler Kalkınma Ajansı");break;
-                    //Aa
-                }
-
-                else if (id == "Dicle Kalkınma Ajansı") {
-                    new VeriGetirDicle().execute();
-                    toolbar.setTitle("Dicle Kalkınma Ajansı");break;
-                    //Aa
-                }
-                else if (id == "Güney Ege Kalkınma Ajansı") {
-                    new VeriGetirGEKA().execute();
-                    toolbar.setTitle("Güney Ege Kalkınma Ajansı");break;
-                    //Aa
-                }
-
-                else  if (id =="Karacadağ Kalkınma Ajansı") {
-                    new VeriGetirKaracadag().execute();
-                    toolbar.setTitle("Karacadağ Kalkınma Ajansı");break;
-                    //Aa
-                }
-
-                else if (id == "İpekyolu Kalkınma Ajansı") {
-                    new VeriGetirIpekyolu().execute();
-                    toolbar.setTitle("İpekyolu Kalkınma Ajansı");break;
-                }
-                else if (id =="Zafer Kalkınma Ajansı") {
-                    new VeriGetirZafer().execute();
-                    toolbar.setTitle("Zafer Kalkınma Ajansı");
-
-                    //Aa
-                    break;
-                }
-                else if (id =="Doğu Anadolu Kalkınma Ajansı") {
-                    new VeriGetirDanadolu().execute();
-                    toolbar.setTitle("Doğu Anadolu Kalkınma Ajansı");
-                    //Aa
-                    break;
-                }
-            else if (id =="Mevlana Kalkınma Ajansı") {
-                    new VeriGetirMevlana().execute();
-                    toolbar.setTitle("Mevlana Kalkınma Ajansı");
-                    //Aa
-
-                    break;
-                }
-                else  if (id =="Batı Akdeniz Kalkınma Ajansı") {
-                    new VeriGetirBatıAkd().execute();
-                    toolbar.setTitle("Batı Akdeniz Kalkınma Ajansı");
-                    //Aa
-                    break;
-                }
-                else  if (id =="Serhat Kalkınma Ajansı") {
-                    new VeriGetirSerhat().execute();
-                    toolbar.setTitle("Serhat Kalkınma Ajansı");
-                    //Aa
-                    break;
-                }
-            else if (id =="Kuzeydoğu Anadolu Kalkınma Ajansı") {
-                    new VeriGetirKDAnadolu().execute();
-                    toolbar.setTitle("Kuzeydoğu Anadolu Kalkınma Ajansı");
-                    //Aa
-                }
-            else if (id == "Doğu Karadeniz Kalkınma Ajansı") {
-                    new VeriGetirDKaradeniz().execute();
-
-                    toolbar.setTitle("Doğu Karadeniz Kalkınma Ajansı");
-                    //Aa
-                    break;
-                }
-                else if (id =="Çukurova Kalkınma Ajansı") {
-                    new VeriGetirCukurova().execute();
-                    toolbar.setTitle("Çukurova Kalkınma Ajansı");
-                    break;
-                    //Aa
-                }
-            else if (id == "Doğu Akdeniz Kalkınma Ajansı") {
-                    new VeriGetirDoguAkdeniz().execute();
-                    toolbar.setTitle("Doğu Akdeniz Kalkınma Ajansı");
-                    break;
-                    //Aa
-                }
-                else if (id == "Batı Karadeniz Kalkınma Ajansı") {
-                    new VeriGetirBatıKaradeniz().execute();
-                    toolbar.setTitle("Batı Karadeniz Kalkınma Ajansı");
-                    break;
-                    //Aa
-                }
-                else  if (id =="Kuzey Anadolu Kalkınma Ajansı") {
-                    new VeriGetirKuzeyAnadolu().execute();
-                    toolbar.setTitle("Kuzey Anadolu Kalkınma Ajansı");
-                    break;
-                    //Aa
-                }
-                else if (id =="Orta Karadeniz Kalkınma Ajansı") {
-                    new VeriGetirOrtaKaradeniz().execute();
-                    toolbar.setTitle("Orta Karadeniz Kalkınma Ajansı");
-                    break;
-                    //Aa
-                }
-                else if (id =="Avrupa Birliği Destek Programı") {
-                    new VeriGetirAB().execute();
-                    toolbar.setTitle("Avrupa Birliği Destek Programı");
-
-                    //Aa
-                }
-                else  if (id =="Fırat Kalkınma Ajansı") {
-                    new VeriGetirFırat().execute();
-                    toolbar.setTitle("Fırat Kalkınma Ajansı");
-                    break;
-                    //Aa
-                } else if (id =="Orta Anadolu Kalkınma Ajansı") {
-                    new VeriGetirOrtaAnadolu().execute();
-                    toolbar.setTitle("Orta Anadolu Kalkınma Ajansı");
-                    break;
-                    //Aa
-                }*/
 
         }
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 for (String a : liste){
-                    if (a.equals("Tübitak")){
+                    if (a.equals("Tubitak Akademik Destekler")) {
                         new VeriGetirTubitak().execute();
+
                     }
-                    if (a.equals("Kosgeb")){
+                    if (a.equals("Tubitak Sanayi Destekleri")) {
+                        new VeriGetirTubitak1().execute();
+                        //Aa
+                    }
+                    if (a.equals("Tubitak Kamu Destekleri")) {
+                        new VeriGetirTubitak2().execute();
+                        //Aa
+                    }
+                    if (a.equals("Tubitak Girisimcilik Destekleri")) {
+                        new VeriGetirTubitak3().execute();
+                        //Aa
+                    }
+                    if (a.equals("Tubitak Bilimsel Etkinlik Destekleri")) {
+                        new VeriGetirTubitak4().execute();
+                        //Aa
+                    }
+                    if (a.equals("Tubitak Bilim ve Toplum Destekleri")) {
+                        new VeriGetirTubitak5().execute();
+                        //Aa
+                    }
+                    if (a.equals("Kosgeb")) {
                         new VeriGetirKosgeb().execute();
+                        //Aa
+                    }
+                    if (a.equals("İstanbul Kalkınma Ajansı")) {
+                        new VeriGetirIstkalk().execute();
+                        //Aa
+                    }
+                    if (a.equals("Trakya Kalkınma Ajansı")) {
+                        new VeriGetirTrakya().execute();
+                        //Aa
+                    }
+                    if (a.equals("Güney Marmara Kalkınma Ajansı")) {
+                        new VeriGetirGMarmara().execute();
+                        //Aa
+                    }
+                    if (a.equals("Ankara Kalkınma Ajansı")) {
+                        new VeriGetirAnkara().execute();
+                        //Aa
+                    }
+                    if (a.equals("Bursa-Eskişehir-Bilecik Kalkınma Ajansı")) {
+                        new VeriGetirBursa().execute();
+                        //Aa
+                    }
+                    if (a.equals("Doğu Marmara Kalkınma Ajansı")) {
+                        new VeriGetirDMarmara().execute();
+                        //Aa
+                    }
+                    if (a.equals("İzmir Kalkınma Ajansı")) {
+                        new VeriGetirIzkalk().execute();
+                        //Aa
+                    }
+
+                    if (a.equals("Ahiler Kalkınma Ajansı")) {
+                        new VeriGetirAhika().execute();
+                        //Aa
+                    }
+
+                    if (a.equals("Dicle Kalkınma Ajansı")) {
+                        new VeriGetirDicle().execute();
+                        //Aa
+                    }
+                    if (a.equals("Güney Ege Kalkınma Ajansı")) {
+                        new VeriGetirGEKA().execute();
+                        //Aa
+                    }
+
+                    if (a.equals("Karacadağ Kalkınma Ajansı")) {
+                        new VeriGetirKaracadag().execute();
+                        //Aa
+                    }
+
+                    if (a.equals("İpekyolu Kalkınma Ajansı")) {
+                        new VeriGetirIpekyolu().execute();
+                    }
+                    if (a.equals("Zafer Kalkınma Ajansı")) {
+                        new VeriGetirZafer().execute();
+                        //Aa
+                    }
+                    if (a.equals("Doğu Anadolu Kalkınma Ajansı")) {
+                        new VeriGetirDanadolu().execute();
+                        //Aa
+                    }
+                    if (a.equals("Mevlana Kalkınma Ajansı")) {
+                        new VeriGetirMevlana().execute();
+                        //Aa
+                    }
+                    if (a.equals("Batı Akdeniz Kalkınma Ajansı")) {
+                        new VeriGetirBatıAkd().execute();
+                        //Aa
+                    }
+                    if (a.equals("Serhat Kalkınma Ajansı")) {
+                        new VeriGetirSerhat().execute();
+                        //Aa
+                    }
+                    if (a.equals("Kuzeydoğu Anadolu Kalkınma Ajansı")) {
+                        new VeriGetirKDAnadolu().execute();
+                        //Aa
+                    }
+                    if (a.equals("Doğu Karadeniz Kalkınma Ajansı")) {
+                        new VeriGetirDKaradeniz().execute();
+                        //Aa
+                    }
+                    if (a.equals("Çukurova Kalkınma Ajansı")) {
+                        new VeriGetirCukurova().execute();
+                        //Aa
+                    }
+                    if (a.equals("Doğu Akdeniz Kalkınma Ajansı")) {
+                        new VeriGetirDoguAkdeniz().execute();
+                        //Aa
+                    }
+                    if (a.equals("Batı Karadeniz Kalkınma Ajansı")) {
+                        new VeriGetirBatıKaradeniz().execute();
+                        //Aa
+                    }
+                    if (a.equals("Kuzey Anadolu Kalkınma Ajansı")) {
+                        new VeriGetirKuzeyAnadolu().execute();
+                        //Aa
+                    }
+                    if (a.equals("Orta Karadeniz Kalkınma Ajansı")) {
+                        new VeriGetirOrtaKaradeniz().execute();
+                        //Aa
+                    }
+                    if (a.equals("Avrupa Birliği Destek Programı")) {
+                        new VeriGetirAB().execute();
+                        //Aa
+                    }
+                    if (a.equals("Fırat Kalkınma Ajansı")) {
+                        new VeriGetirFırat().execute();
+                        //Aa
+                    }
+                    if (a.equals("Orta Anadolu Kalkınma Ajansı")) {
+                        new VeriGetirOrtaAnadolu().execute();
+                        //Aa
+                    }
+                    else{
+                        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                String s =  lv.getItemAtPosition( position ).toString();
+                                for(int i=0;i<liste.size();i++)
+                                {
+                                    if(liste.get( i )==s)
+                                    {
+                                        //Intent browserIntent = new Intent( Intent.ACTION_VIEW, Uri.parse( linkliste.get(i ).toString() ) );
+                                        //startActivity( browserIntent );
+                                        Intent browserIntent = new Intent( MainActivity.this,browser.class );
+                                        browserIntent.putExtra( "sayfa",linkliste.get( i ).toString() );
+                                        startActivity( browserIntent );
+                                    }
+                                }
+
+                            }
+                        });
                     }
 
                 }
@@ -2153,10 +2105,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> ca0e793c875a03f7cbd3fafba93057be7978ccc7
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         //menüdeki seçeneklerden birine tıklanıldığında ne açılacak onu belirtiyoruz
