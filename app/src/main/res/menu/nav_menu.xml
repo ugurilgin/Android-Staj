@@ -1,120 +1,289 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item
-        android:id="@+id/action_tubitak"
-        android:icon="@drawable/tubitaklogo"
-        android:title="Tübitak" />
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/action_kosgeb"
         android:icon="@drawable/kosgeb"
         android:title="Kosgeb" />
     <item
         android:id="@+id/action_avrupa"
+        android:icon="@drawable/avrupa"
         android:title="Avrupa Birliği" />
-    <item
-        android:id="@+id/action_ist"
-        android:icon="@drawable/istanbul"
-        android:title="İstanbul Kalkınma Ajansı" />
-    <item
-        android:id="@+id/action_trakya"
-        android:icon="@drawable/trakya"
-        android:title="Trakya Kalkınma Ajansı" />
-    <item
-        android:id="@+id/action_gmarmara"
-        android:icon="@drawable/guneymarmara"
-        android:title="Güney Marmara Kalkınma Ajansı" />
-    <item
-        android:id="@+id/action_izmir"
-        android:icon="@drawable/izmir"
-        android:title="İzmir Kalkınma Ajansı" />
-    <item
-        android:id="@+id/action_gege"
-        android:icon="@drawable/guneyege"
-        android:title="Güney Ege Kalkınma Ajansı" />
-    <item
-        android:id="@+id/action_zafer"
-        android:icon="@drawable/zafer"
-        android:title="Zafer Kalkınma Ajansı" />
-    <item
-        android:id="@+id/action_beb"
-        android:icon="@drawable/bursaeskisehirbilecik"
-        android:title="Bursa-Eskişehir-Bilecik Kalkınma Ajansı" />
-    <item
-        android:id="@+id/action_dmarmara"
-        android:icon="@drawable/dogumarmara"
-        android:title="Doğu Marmara Kalkınma Ajansı" />
-    <item
-        android:id="@+id/action_ankara"
-        android:icon="@drawable/ankara"
-        android:title="Ankara Kalkınma Ajansı" />
-    <item
-        android:id="@+id/action_mevlana"
-        android:icon="@drawable/mevlana"
-        android:title="Mevlana Kalkınma Ajansı" />
-    <item
-        android:id="@+id/action_bakdeniz"
-        android:icon="@drawable/batiakdeniz"
-        android:title="Batı Akdeniz Kalkınma Ajansı" />
-    <item
-        android:id="@+id/action_cukurova"
-        android:icon="@drawable/cukurova"
-        android:title="Çukurova Kalkınma Ajansı" />
-    <item
-        android:id="@+id/action_dakdeniz"
-        android:icon="@drawable/doguakdeniz"
-        android:title="Doğu Akdeniz Kalkınma Ajansı" />
-    <item
-        android:id="@+id/action_ahiler"
-        android:icon="@drawable/ahiler"
-        android:title="Ahiler Kalkınma Ajansı" />
-    <item
-        android:id="@+id/action_oanadolu"
-        android:icon="@drawable/ortaanadolu"
-        android:title="Orta Anadolu Kalkınma Ajansı" />
-    <item
-        android:id="@+id/action_bkaradeniz"
-        android:icon="@drawable/batikaradeniz"
-        android:title="Batı Karadeniz Kalkınma Ajansı" />
-    <item
-        android:id="@+id/action_kanadolu"
-        android:icon="@drawable/kuzeyanadolu"
-        android:title="Kuzey Anadolu Kalkınma Ajansı" />
-    <item
-        android:id="@+id/action_okaradeniz"
-        android:icon="@drawable/ortakaradeniz"
-        android:title="Orta Karadeniz Kalkınma Ajansı" />
-    <item
-        android:id="@+id/action_dkaradeniz"
-        android:icon="@drawable/dogukaradeniz"
-        android:title="Doğu Karadeniz Kalkınma Ajansı" />
-    <item
-        android:id="@+id/action_kdanadolu"
-        android:icon="@drawable/kuzeydoguanadolu"
-        android:title="Kuzey Doğu Anadolu Kalkınma Ajansı" />
-    <item
-        android:id="@+id/action_serhat"
-        android:icon="@drawable/serhat"
-        android:title="Serhat Kalkınma Ajansı" />
-    <item
-        android:id="@+id/action_firat"
-        android:icon="@drawable/firat"
-        android:title="Fırat Kalkınma Ajansı" />
-    <item
-        android:id="@+id/action_danadolu"
-        android:icon="@drawable/doguanadolu"
-        android:title="Doğu Anadolu Kalkınma Ajansı" />
-    <item
-        android:id="@+id/action_ipekyolu"
-        android:icon="@drawable/ipekyolu"
-        android:title="İpek Yolu Kalkınma Ajansı" />
-    <item
-        android:id="@+id/action_karacadag"
-        android:icon="@drawable/karacadag"
-        android:title="Karacadağ Kalkınma Ajansı" />
-    <item
-        android:id="@+id/action_dicle"
-        android:icon="@drawable/dicle"
-        android:title="Dicle Kalkınma Ajansı" />
+    <group android:checkableBehavior="single">
+        <item
+            android:checkable="false"
+            android:checked="false"
+            android:enabled="true"
+            android:icon="@drawable/tubitaklogo"
+            android:title="Tübitak "
+            android:visible="true">
+            <menu>
+                <group
+                    android:id="@+id/menu_top"
+                    android:icon="@drawable/tubitaklogo"
+                    android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/id1"
+                        android:icon="@drawable/tubitaklogo"
+                        android:title="Akademik Destekler" />
+
+                    <item
+                        android:id="@+id/id2"
+                        android:icon="@drawable/tubitaklogo"
+                        android:title="Sanayi Destekleri" />
+                    <item
+                        android:id="@+id/id3"
+                        android:icon="@drawable/tubitaklogo"
+                        android:title="Kamu Destekleri" />
+                    <item
+                        android:id="@+id/id4"
+                        android:icon="@drawable/tubitaklogo"
+                        android:title="Girişimcilik Destekleri" />
+                    <item
+                        android:id="@+id/id5"
+                        android:icon="@drawable/tubitaklogo"
+                        android:title="Bilimsel Etkinlik  Destekleri" />
+                    <item
+                        android:id="@+id/id6"
+                        android:icon="@drawable/tubitaklogo"
+                        android:title="Bilim ve Toplum  Destekleri" />
+
+                </group>
+            </menu>
+        </item>
+    </group>
+
+
+    <group android:checkableBehavior="single">
+        <item
+            android:checkable="false"
+            android:checked="false"
+            android:enabled="true"
+            android:icon="@drawable/tubitaklogo"
+            android:title="Marmara Bölgesi "
+            android:visible="true">
+            <menu>
+                <group
+                    android:id="@+id/menu_top1"
+                    android:icon="@drawable/tubitaklogo"
+                    android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/action_ist"
+                        android:icon="@drawable/istanbul"
+                        android:title="İstanbul Kalkınma Ajansı" />
+                    <item
+                        android:id="@+id/action_trakya"
+                        android:icon="@drawable/trakya"
+                        android:title="Trakya Kalkınma Ajansı" />
+                    <item
+                        android:id="@+id/action_gmarmara"
+                        android:icon="@drawable/guneymarmara"
+                        android:title="Güney Marmara Kalkınma Ajansı" />
+                    <item
+                        android:id="@+id/action_dmarmara"
+                        android:icon="@drawable/dogumarmara"
+                        android:title="Doğu Marmara Kalkınma Ajansı" />
+                </group>
+            </menu>
+        </item>
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:checkable="false"
+            android:checked="false"
+            android:enabled="true"
+            android:icon="@drawable/tubitaklogo"
+            android:title="Ege Bölgesi "
+            android:visible="true">
+            <menu>
+                <group
+                    android:id="@+id/menu_top2"
+                    android:icon="@drawable/tubitaklogo"
+                    android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/action_izmir"
+                        android:icon="@drawable/izmir"
+                        android:title="İzmir Kalkınma Ajansı" />
+                    <item
+                        android:id="@+id/action_gege"
+                        android:icon="@drawable/guneyege"
+                        android:title="Güney Ege Kalkınma Ajansı" />
+                    <item
+                        android:id="@+id/action_zafer"
+                        android:icon="@drawable/zafer"
+                        android:title="Zafer Kalkınma Ajansı" />
+                </group>
+            </menu>
+        </item>
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:checkable="false"
+            android:checked="false"
+            android:enabled="true"
+            android:icon="@drawable/tubitaklogo"
+            android:title="İç Anadolu Bölgesi "
+            android:visible="true">
+            <menu>
+                <group
+                    android:id="@+id/menu_top3"
+                    android:icon="@drawable/tubitaklogo"
+                    android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/action_beb"
+                        android:icon="@drawable/bursaeskisehirbilecik"
+                        android:title="Bursa-Eskişehir-Bilecik Kalkınma Ajansı" />
+                    <item
+                        android:id="@+id/action_ankara"
+                        android:icon="@drawable/ankara"
+                        android:title="Ankara Kalkınma Ajansı" />
+                    <item
+                        android:id="@+id/action_mevlana"
+                        android:icon="@drawable/mevlana"
+                        android:title="Mevlana Kalkınma Ajansı" />
+                    <item
+                        android:id="@+id/action_oanadolu"
+                        android:icon="@drawable/ortaanadolu"
+                        android:title="Orta Anadolu Kalkınma Ajansı" />
+
+                    <item
+                        android:id="@+id/action_ahiler"
+                        android:icon="@drawable/ahiler"
+                        android:title="Ahiler Kalkınma Ajansı" />
+                </group>
+            </menu>
+        </item>
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:checkable="false"
+            android:checked="false"
+            android:enabled="true"
+            android:icon="@drawable/tubitaklogo"
+            android:title="Akdeniz Bölgesi "
+            android:visible="true">
+            <menu>
+                <group
+                    android:id="@+id/menu_top4"
+                    android:icon="@drawable/tubitaklogo"
+                    android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/action_bakdeniz"
+                        android:icon="@drawable/batiakdeniz"
+                        android:title="Batı Akdeniz Kalkınma Ajansı" />
+                    <item
+                        android:id="@+id/action_cukurova"
+                        android:icon="@drawable/cukurova"
+                        android:title="Çukurova Kalkınma Ajansı" />
+                    <item
+                        android:id="@+id/action_dakdeniz"
+                        android:icon="@drawable/doguakdeniz"
+                        android:title="Doğu Akdeniz Kalkınma Ajansı" />
+                </group>
+            </menu>
+        </item>
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:checkable="false"
+            android:checked="false"
+            android:enabled="true"
+            android:icon="@drawable/tubitaklogo"
+            android:title="Karadeniz Bölgesi "
+            android:visible="true">
+            <menu>
+                <group
+                    android:id="@+id/menu_top5"
+                    android:icon="@drawable/tubitaklogo"
+                    android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/action_bkaradeniz"
+                        android:icon="@drawable/batikaradeniz"
+                        android:title="Batı Karadeniz Kalkınma Ajansı" />
+                    <item
+                        android:id="@+id/action_kanadolu"
+                        android:icon="@drawable/kuzeyanadolu"
+                        android:title="Kuzey Anadolu Kalkınma Ajansı" />
+                    <item
+                        android:id="@+id/action_okaradeniz"
+                        android:icon="@drawable/ortakaradeniz"
+                        android:title="Orta Karadeniz Kalkınma Ajansı" />
+                    <item
+                        android:id="@+id/action_dkaradeniz"
+                        android:icon="@drawable/dogukaradeniz"
+                        android:title="Doğu Karadeniz Kalkınma Ajansı" />
+                </group>
+            </menu>
+        </item>
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:checkable="false"
+            android:checked="false"
+            android:enabled="true"
+            android:icon="@drawable/tubitaklogo"
+            android:title="Doğu Anadolu  Bölgesi "
+            android:visible="true">
+            <menu>
+                <group
+                    android:id="@+id/menu_top6"
+                    android:icon="@drawable/tubitaklogo"
+                    android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/action_kdanadolu"
+                        android:icon="@drawable/kuzeydoguanadolu"
+                        android:title="Kuzey Doğu Anadolu Kalkınma Ajansı" />
+                    <item
+                        android:id="@+id/action_serhat"
+                        android:icon="@drawable/serhat"
+                        android:title="Serhat Kalkınma Ajansı" />
+                    <item
+                        android:id="@+id/action_danadolu"
+                        android:icon="@drawable/doguanadolu"
+                        android:title="Doğu Anadolu Kalkınma Ajansı" />
+                </group>
+            </menu>
+        </item>
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:checkable="false"
+            android:checked="false"
+            android:enabled="true"
+            android:icon="@drawable/tubitaklogo"
+            android:title="Güney Doğu Anadolu  Bölgesi "
+            android:visible="true">
+            <menu>
+                <group
+                    android:id="@+id/menu_top7"
+                    android:icon="@drawable/tubitaklogo"
+                    android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/action_firat"
+                        android:icon="@drawable/firat"
+                        android:title="Fırat Kalkınma Ajansı" />
+
+                    <item
+                        android:id="@+id/action_ipekyolu"
+                        android:icon="@drawable/ipekyolu"
+                        android:title="İpek Yolu Kalkınma Ajansı" />
+                    <item
+                        android:id="@+id/action_karacadag"
+                        android:icon="@drawable/karacadag"
+                        android:title="Karacadağ Kalkınma Ajansı" />
+                    <item
+                        android:id="@+id/action_dicle"
+                        android:icon="@drawable/dicle"
+                        android:title="Dicle Kalkınma Ajansı" />
+                </group>
+            </menu>
+        </item>
+    </group>
+
+
+
+
 
 </menu>
