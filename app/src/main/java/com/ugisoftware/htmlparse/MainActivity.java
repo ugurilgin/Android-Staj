@@ -5,6 +5,7 @@ import android.content.ClipData;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
@@ -17,6 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -48,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public ArrayList linkliste= new ArrayList();
     private ArrayAdapter<String> adapter;
     private static String URL="http://www.tubitak.gov.tr/";
+    public ArrayList<Integer> sayac=new ArrayList<>(  );//{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
     private ProgressDialog progressDialog;
     int[] Images={R.drawable.tubitaklogo,R.drawable.tubitaklogo,R.drawable.tubitaklogo,R.drawable.tubitaklogo,R.drawable.tubitaklogo,R.drawable.tubitaklogo};
     @Override
@@ -82,8 +85,45 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
 
 
-
-
+        SharedPreferences sayacim=getSharedPreferences( "Veritabani",MODE_PRIVATE );
+        /*Save
+        SharedPreferences.Editor editor=sayacim.edit();
+        editor.putInt( "tubitak1",yenideger );
+        editor.commit();*/
+        sayac.add( sayacim.getInt( "tubitak1" ,0) );
+        sayac.add( sayacim.getInt( "tubitak2" ,0) );
+        sayac.add( sayacim.getInt( "tubitak3" ,0) );
+        sayac.add( sayacim.getInt( "tubitak4" ,0) );
+        sayac.add( sayacim.getInt( "tubitak5" ,0) );
+        sayac.add( sayacim.getInt( "tubitak6" ,0) );
+        sayac.add( sayacim.getInt( "kosgeb" ,0) );
+        sayac.add( sayacim.getInt( "istkk" ,0) );
+        sayac.add( sayacim.getInt( "tka" ,0) );
+        sayac.add( sayacim.getInt( "gmka" ,0) );
+        sayac.add( sayacim.getInt( "ankara" ,0) );
+        sayac.add( sayacim.getInt( "bursa" ,0) );
+        sayac.add( sayacim.getInt( "dmka" ,0) );
+        sayac.add( sayacim.getInt( "izka" ,0) );
+        sayac.add( sayacim.getInt( "ahiler" ,0) );
+        sayac.add( sayacim.getInt( "dicle" ,0) );
+        sayac.add( sayacim.getInt( "geka" ,0) );
+        sayac.add( sayacim.getInt( "karacadag" ,0) );
+        sayac.add( sayacim.getInt( "ipekyolu" ,0) );
+        sayac.add( sayacim.getInt( "zafer" ,0) );
+        sayac.add( sayacim.getInt( "Doguanadolu" ,0) );
+        sayac.add( sayacim.getInt( "mevlana" ,0) );
+        sayac.add( sayacim.getInt( "BatıAkdeniz" ,0) );
+        sayac.add( sayacim.getInt( "serhat" ,0) );
+        sayac.add( sayacim.getInt( "KuzeyDoguAnd" ,0) );
+        sayac.add( sayacim.getInt( "dogukar" ,0) );
+        sayac.add( sayacim.getInt( "cukurova" ,0) );
+        sayac.add( sayacim.getInt( "daka" ,0) );
+        sayac.add( sayacim.getInt( "bkka" ,0) );
+        sayac.add( sayacim.getInt( "kaka" ,0) );
+        sayac.add( sayacim.getInt( "okka" ,0) );
+        sayac.add( sayacim.getInt( "avrupa" ,0) );
+        sayac.add( sayacim.getInt( "fırat" ,0) );
+        sayac.add( sayacim.getInt( "oaka" ,0) );
 
 
 
@@ -93,7 +133,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         firmalarArrayList.add("Tubitak Girisimcilik Destekleri");
         firmalarArrayList.add("Tubitak Bilimsel Etkinlik Destekleri");
         firmalarArrayList.add("Tubitak Bilim ve Toplum Destekleri");
-
         firmalarArrayList.add("Kosgeb");
         firmalarArrayList.add("Avrupa Birliği");
         firmalarArrayList.add("İstanbul Kalkınma Ajansı");
@@ -111,11 +150,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         firmalarArrayList.add("Doğu Akdeniz Kalkınma Ajansı");
         firmalarArrayList.add("Ahiler Kalkınma Ajansı");
         firmalarArrayList.add("Orta Anadolu Kalkınma Ajansı");
-        firmalarArrayList.add("Batı Karadeniz Kalkınma Ajansı");
         firmalarArrayList.add("Kuzey Anadolu Kalkınma Ajansı");
+        firmalarArrayList.add("Kuzeydoğu Anadolu Kalkınma Ajansı");
         firmalarArrayList.add("Orta Karadeniz Kalkınma Ajansı");
         firmalarArrayList.add("Doğu Karadeniz Kalkınma Ajansı");
-        firmalarArrayList.add("Kuzey Doğu Anadolu Kalkınma Ajansı");
         firmalarArrayList.add("Serhat Kalkınma Ajansı");
         firmalarArrayList.add("Fırat Kalkınma Ajansı");
         firmalarArrayList.add("Doğu Anadolu Kalkınma Ajansı");
@@ -188,150 +226,321 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String a =  lv.getItemAtPosition( position ).toString();
-
+                SharedPreferences sayacim=getSharedPreferences( "Veritabani",MODE_PRIVATE );
                 for (int i = 0; i < liste.size(); i++) {
                     if (a.equals("Tubitak Akademik Destekler")) {
                         new VeriGetirTubitak().execute();
+                        sayac.set( 0,sayac.get( 0 )+1 );
 
-
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "tubitak1",sayac.get( 0 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "tubitak1" ,0);
+                        Log.d("Akademik Destekler", String.valueOf( asd ) );
 
 
                     }
                     if (a.equals("Tubitak Sanayi Destekleri")) {
                         new VeriGetirTubitak1().execute();
-
+                        sayac.set( 1,sayac.get( 1 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "tubitak2",sayac.get( 1 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "tubitak2" ,0);
+                        Log.d("Sanayi Destekleri", String.valueOf( asd ) );
 
                     }
                     if (a.equals("Tubitak Kamu Destekleri")) {
                         new VeriGetirTubitak2().execute();
-
+                        sayac.set( 2,sayac.get( 2 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "tubitak3",sayac.get( 2 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "tubitak3" ,0);
+                        Log.d("Kamu Destekleri", String.valueOf( asd ) );
                     }
                     if (a.equals("Tubitak Girisimcilik Destekleri")) {
                         new VeriGetirTubitak3().execute();
-
+                        sayac.set( 3,sayac.get( 3 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "tubitak4",sayac.get( 3 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "tubitak4" ,0);
+                        Log.d("girisim Destekleri", String.valueOf( asd ) );
                     }
                     if (a.equals("Tubitak Bilimsel Etkinlik Destekleri")) {
                         new VeriGetirTubitak4().execute();
-
+                        sayac.set( 4,sayac.get( 4 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "tubitak5",sayac.get( 4 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "tubitak5" ,0);
+                        Log.d("bilim Destekleri", String.valueOf( asd ) );
                     }
                     if (a.equals("Tubitak Bilim ve Toplum Destekleri")) {
                         new VeriGetirTubitak5().execute();
-
+                        sayac.set( 5,sayac.get( 5 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "tubitak6",sayac.get( 5 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "tubitak6" ,0);
+                        Log.d("toplum Destekleri", String.valueOf( asd ) );
                     }
                     if (a.equals("Kosgeb")) {
                         new VeriGetirKosgeb().execute();
-
+                        sayac.set( 6,sayac.get( 6 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "kosgeb",sayac.get( 6 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "kosgeb" ,0);
+                        Log.d("kosgeb Destekleri", String.valueOf( asd ) );
                     }
                     if (a.equals("İstanbul Kalkınma Ajansı")) {
                         new VeriGetirIstkalk().execute();
-
+                        sayac.set( 7,sayac.get( 7 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "istka",sayac.get( 7 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "istka" ,0);
+                        Log.d("istka Destekleri", String.valueOf( asd ) );
                     }
                     if (a.equals("Trakya Kalkınma Ajansı")) {
                         new VeriGetirTrakya().execute();
-
+                        sayac.set( 8,sayac.get( 8 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "tka",sayac.get( 8 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "tka" ,0);
+                        Log.d("tka Destekleri", String.valueOf( asd ) );
                     }
                     if (a.equals("Güney Marmara Kalkınma Ajansı")) {
                         new VeriGetirGMarmara().execute();
-
+                        sayac.set( 9,sayac.get( 9 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "gmka",sayac.get( 9 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "gmka" ,0);
+                        Log.d("gmka Destekleri", String.valueOf( asd ) );
                     }
                     if (a.equals("Ankara Kalkınma Ajansı")) {
                         new VeriGetirAnkara().execute();
-
+                        sayac.set( 10,sayac.get( 10 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "ankara",sayac.get( 10 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "ankara" ,0);
+                        Log.d("ankara Destekleri", String.valueOf( asd ) );
                     }
                     if (a.equals("Bursa-Eskişehir-Bilecik Kalkınma Ajansı")) {
                         new VeriGetirBursa().execute();
-
+                        sayac.set( 11,sayac.get( 11 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "bursa",sayac.get( 11 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "bursa" ,0);
+                        Log.d("bursa Destekleri", String.valueOf( asd ) );
                     }
                     if (a.equals("Doğu Marmara Kalkınma Ajansı")) {
                         new VeriGetirDMarmara().execute();
-
+                        sayac.set( 12,sayac.get( 12 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "dmka",sayac.get( 12 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "dmka" ,0);
+                        Log.d("dmka Destekleri", String.valueOf( asd ) );
                     }
                     if (a.equals("İzmir Kalkınma Ajansı")) {
                         new VeriGetirIzkalk().execute();
-
+                        sayac.set( 13,sayac.get( 13 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "izka",sayac.get( 13 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "izka" ,0);
+                        Log.d("izka Destekleri", String.valueOf( asd ) );
                     }
 
                     if (a.equals("Ahiler Kalkınma Ajansı")) {
                         new VeriGetirAhika().execute();
-
+                        sayac.set( 14,sayac.get( 14 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "ahiler",sayac.get( 14 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "ahiler" ,0);
+                        Log.d("ahiler Destekleri", String.valueOf( asd ) );
                     }
 
                     if (a.equals("Dicle Kalkınma Ajansı")) {
                         new VeriGetirDicle().execute();
-
+                        sayac.set( 15,sayac.get( 15 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "dicle",sayac.get( 15 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "dicle" ,0);
+                        Log.d("dicle Destekleri", String.valueOf( asd ) );
                     }
                     if (a.equals("Güney Ege Kalkınma Ajansı")) {
                         new VeriGetirGEKA().execute();
-
+                        sayac.set( 16,sayac.get( 16 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "geka",sayac.get(16 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "geka" ,0);
+                        Log.d("geka Destekleri", String.valueOf( asd ) );
                     }
 
                     if (a.equals("Karacadağ Kalkınma Ajansı")) {
                         new VeriGetirKaracadag().execute();
-
+                        sayac.set( 17,sayac.get( 17 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "karacadag",sayac.get( 17 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "karacadag" ,0);
+                        Log.d("karacadag Destekleri", String.valueOf( asd ) );
                     }
 
                     if (a.equals("İpekyolu Kalkınma Ajansı")) {
                          new VeriGetirIpekyolu().execute();
+                        sayac.set( 18,sayac.get( 18 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "ipekyolu",sayac.get( 18 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "ipekyolu" ,0);
+                        Log.d("ipekyolu Destekleri", String.valueOf( asd ) );
                     }
                     if (a.equals("Zafer Kalkınma Ajansı")) {
                         new VeriGetirZafer().execute();
-
+                        sayac.set( 19,sayac.get( 19 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "zafer",sayac.get( 19 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "zafer" ,0);
+                        Log.d("zafer Destekleri", String.valueOf( asd ) );
                     }
                     if (a.equals("Doğu Anadolu Kalkınma Ajansı")) {
                         new VeriGetirDanadolu().execute();
-
+                        sayac.set( 20,sayac.get( 20 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "Doguanadolu",sayac.get( 20 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "Doguanadolu" ,0);
+                        Log.d("Doguanadolu Destekleri", String.valueOf( asd ) );
                     }
                     if (a.equals("Mevlana Kalkınma Ajansı")) {
                         new VeriGetirMevlana().execute();
-
+                        sayac.set( 21,sayac.get( 21 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "mevlana",sayac.get( 21 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "mevlana" ,0);
+                        Log.d("mevlana Destekleri", String.valueOf( asd ) );
                     }
                     if (a.equals("Batı Akdeniz Kalkınma Ajansı")) {
                         new VeriGetirBatıAkd().execute();
-
+                        sayac.set( 22,sayac.get( 22 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "BatıAkdeniz",sayac.get( 22 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "BatıAkdeniz" ,0);
+                        Log.d("BatıAkdeniz Destekleri", String.valueOf( asd ) );
                     }
                     if (a.equals("Serhat Kalkınma Ajansı")) {
                         new VeriGetirSerhat().execute();
-
+                        sayac.set( 23,sayac.get( 23 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "serhat",sayac.get( 23 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "serhat" ,0);
+                        Log.d("serhat Destekleri", String.valueOf( asd ) );
                     }
                     if (a.equals("Kuzeydoğu Anadolu Kalkınma Ajansı")) {
                         new VeriGetirKDAnadolu().execute();
-
+                        sayac.set( 24,sayac.get( 24 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "KuzeyDoguAnd",sayac.get( 24 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "KuzeyDoguAnd" ,0);
+                        Log.d("KuzeyDoguAnd Destekleri", String.valueOf( asd ) );
                     }
                     if (a.equals("Doğu Karadeniz Kalkınma Ajansı")) {
                         new VeriGetirDKaradeniz().execute();
-
+                        sayac.set( 25,sayac.get( 25 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "dogukar",sayac.get( 25 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "dogukar" ,0);
+                        Log.d("dogukar Destekleri", String.valueOf( asd ) );
                     }
                     if (a.equals("Çukurova Kalkınma Ajansı")) {
                         new VeriGetirCukurova().execute();
-
+                        sayac.set( 26,sayac.get( 26 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "cukurova",sayac.get( 26 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "cukurova" ,0);
+                        Log.d("cukurova Destekleri", String.valueOf( asd ) );
                     }
                     if (a.equals("Doğu Akdeniz Kalkınma Ajansı")) {
                         new VeriGetirDoguAkdeniz().execute();
-
+                        sayac.set( 27,sayac.get( 27 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "daka",sayac.get( 27 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "daka" ,0);
+                        Log.d("daka Destekleri", String.valueOf( asd ) );
                     }
                     if (a.equals("Batı Karadeniz Kalkınma Ajansı")) {
                         new VeriGetirBatıKaradeniz().execute();
-
+                        sayac.set( 28,sayac.get( 28 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "bkka",sayac.get( 28 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "bkka" ,0);
+                        Log.d("bkka Destekleri", String.valueOf( asd ) );
                     }
                     if (a.equals("Kuzey Anadolu Kalkınma Ajansı")) {
                         new VeriGetirKuzeyAnadolu().execute();
-
+                        sayac.set( 29,sayac.get(29 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "kaka",sayac.get( 29 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "kaka" ,0);
+                        Log.d("kaka Destekleri", String.valueOf( asd ) );
                     }
                     if (a.equals("Orta Karadeniz Kalkınma Ajansı")) {
                         new VeriGetirOrtaKaradeniz().execute();
-
+                        sayac.set( 30,sayac.get( 30 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "okka",sayac.get( 30 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "okka" ,0);
+                        Log.d("okka Destekleri", String.valueOf( asd ) );
                     }
                     if (a.equals("Avrupa Birliği Destek Programı")) {
                         new VeriGetirAB().execute();
-
+                        sayac.set( 31,sayac.get( 31 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "avrupa",sayac.get( 31 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "avrupa" ,0);
+                        Log.d("avrupa Destekleri", String.valueOf( asd ) );
                     }
                     if (a.equals("Fırat Kalkınma Ajansı")) {
                         new VeriGetirFırat().execute();
-
+                        sayac.set( 32,sayac.get( 32 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "fırat",sayac.get( 32 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "fırat" ,0);
+                        Log.d("fırat Destekleri", String.valueOf( asd ) );
                     }
                     if (a.equals("Orta Anadolu Kalkınma Ajansı")) {
                         new VeriGetirOrtaAnadolu().execute();
-
+                        sayac.set( 33,sayac.get( 33 )+1 );
+                        SharedPreferences.Editor editor=sayacim.edit();
+                        editor.putInt( "oaka",sayac.get( 33 ) );
+                        editor.commit();
+                        int asd=sayacim.getInt( "oaka" ,0);
+                        Log.d("oaka Destekleri", String.valueOf( asd ) );
                     }
                    else {
                         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
