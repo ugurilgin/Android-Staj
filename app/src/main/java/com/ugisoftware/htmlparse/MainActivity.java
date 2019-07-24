@@ -99,34 +99,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         VerilerArrayList.add(  "tubitak4" );
         VerilerArrayList.add( "tubitak5"  );
         VerilerArrayList.add("tubitak6" );
-        VerilerArrayList.add( "kosgeb" );
-        VerilerArrayList.add( "istka"  );
-        VerilerArrayList.add( "tka"  );
-        VerilerArrayList.add(  "gmka" );
-        VerilerArrayList.add( "ankara"  );
-        VerilerArrayList.add( "bursa"  );
-        VerilerArrayList.add( "dmka"  );
-        VerilerArrayList.add("izka"  );
-        VerilerArrayList.add( "Ahiler"  );
-        VerilerArrayList.add(  "dicle" );
-        VerilerArrayList.add( "geka"  );
-        VerilerArrayList.add("karacadag" );
-        VerilerArrayList.add(  "ipekyolu" );
-        VerilerArrayList.add(  "zafer"  );
-        VerilerArrayList.add( "Doguanadolu" );
-        VerilerArrayList.add("mevlana"  );
-        VerilerArrayList.add( "BatıAkdeniz"  );
-        VerilerArrayList.add("serhat"  );
-        VerilerArrayList.add("KuzeyDoguAnd" );
-        VerilerArrayList.add( "dogukar"  );
-        VerilerArrayList.add(  "cukurova" );
-        VerilerArrayList.add( "daka"  );
-        VerilerArrayList.add(  "bkka" );
-        VerilerArrayList.add( "kaka"  );
-        VerilerArrayList.add( "okka" );
-        VerilerArrayList.add( "avrupa"  );
-        VerilerArrayList.add(  "fırat"  );
-        VerilerArrayList.add("oaka"  );
+        VerilerArrayList.add( "kosgeb7" );
+        VerilerArrayList.add( "istka8"  );
+        VerilerArrayList.add( "tka9"  );
+        VerilerArrayList.add(  "gmka10" );
+        VerilerArrayList.add( "ankara11"  );
+        VerilerArrayList.add( "bursa12"  );
+        VerilerArrayList.add( "dmka13"  );
+        VerilerArrayList.add("izka14"  );
+        VerilerArrayList.add( "Ahiler15"  );
+        VerilerArrayList.add(  "dicle16" );
+        VerilerArrayList.add( "geka17"  );
+        VerilerArrayList.add("karacadag18" );
+        VerilerArrayList.add(  "ipekyolu19" );
+        VerilerArrayList.add(  "zafer20"  );
+        VerilerArrayList.add( "Doguanadolu21" );
+        VerilerArrayList.add("mevlana22"  );
+        VerilerArrayList.add( "BatıAkdeniz23"  );
+        VerilerArrayList.add("serhat24"  );
+        VerilerArrayList.add("KuzeyDoguAnd25" );
+        VerilerArrayList.add( "dogukar26"  );
+        VerilerArrayList.add(  "cukurova27" );
+        VerilerArrayList.add( "daka28"  );
+        VerilerArrayList.add(  "bkka29" );
+        VerilerArrayList.add( "kaka30"  );
+        VerilerArrayList.add( "okka31" );
+        VerilerArrayList.add( "avrupa32"  );
+        VerilerArrayList.add(  "fırat33"  );
+        VerilerArrayList.add("oaka34"  );
 
         sayac.add( sayacim.getInt( "tubitak1" ,0) );
         sayac.add( sayacim.getInt( "tubitak2" ,0) );
@@ -134,70 +134,71 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         sayac.add( sayacim.getInt( "tubitak4" ,0) );
         sayac.add( sayacim.getInt( "tubitak5" ,0) );
         sayac.add( sayacim.getInt( "tubitak6" ,0) );
-        sayac.add( sayacim.getInt( "kosgeb" ,0) );
-        sayac.add( sayacim.getInt( "istka" ,0) );
-        sayac.add( sayacim.getInt( "tka" ,0) );
-        sayac.add( sayacim.getInt( "gmka" ,0) );
-        sayac.add( sayacim.getInt( "ankara" ,0) );
-        sayac.add( sayacim.getInt( "bursa" ,0) );
-        sayac.add( sayacim.getInt( "dmka" ,0) );
-        sayac.add( sayacim.getInt( "izka" ,0) );
-        sayac.add( sayacim.getInt( "Ahiler" ,0) );
-        sayac.add( sayacim.getInt( "dicle" ,0) );
-        sayac.add( sayacim.getInt( "geka" ,0) );
-        sayac.add( sayacim.getInt( "karacadag" ,0) );
-        sayac.add( sayacim.getInt( "ipekyolu" ,0) );
-        sayac.add( sayacim.getInt( "zafer" ,0) );
-        sayac.add( sayacim.getInt( "Doguanadolu" ,0) );
-        sayac.add( sayacim.getInt( "mevlana" ,0) );
-        sayac.add( sayacim.getInt( "BatıAkdeniz" ,0) );
-        sayac.add( sayacim.getInt( "serhat" ,0) );
-        sayac.add( sayacim.getInt( "KuzeyDoguAnd" ,0) );
-        sayac.add( sayacim.getInt( "dogukar" ,0) );
-        sayac.add( sayacim.getInt( "cukurova" ,0) );
-        sayac.add( sayacim.getInt( "daka" ,0) );
-        sayac.add( sayacim.getInt( "bkka" ,0) );
-        sayac.add( sayacim.getInt( "kaka" ,0) );
-        sayac.add( sayacim.getInt( "okka" ,0) );
-        sayac.add( sayacim.getInt( "avrupa" ,0) );
-        sayac.add( sayacim.getInt( "fırat" ,0) );
-        sayac.add( sayacim.getInt( "oaka" ,0) );
+        sayac.add( sayacim.getInt( "kosgeb7" ,0) );
+        sayac.add( sayacim.getInt( "istka8" ,0) );
+        sayac.add( sayacim.getInt( "tka9" ,0) );
+        sayac.add( sayacim.getInt( "gmka10" ,0) );
+        sayac.add( sayacim.getInt( "ankara11" ,0) );
+        sayac.add( sayacim.getInt( "bursa12" ,0) );
+        sayac.add( sayacim.getInt( "dmka13" ,0) );
+        sayac.add( sayacim.getInt( "izka14" ,0) );
+        sayac.add( sayacim.getInt( "Ahiler15" ,0) );
+        sayac.add( sayacim.getInt( "dicle16" ,0) );
+        sayac.add( sayacim.getInt( "geka17" ,0) );
+        sayac.add( sayacim.getInt( "karacadag18" ,0) );
+        sayac.add( sayacim.getInt( "ipekyolu19" ,0) );
+        sayac.add( sayacim.getInt( "zafer20" ,0) );
+        sayac.add( sayacim.getInt( "Doguanadolu21" ,0) );
+        sayac.add( sayacim.getInt( "mevlana22" ,0) );
+        sayac.add( sayacim.getInt( "BatıAkdeniz23" ,0) );
+        sayac.add( sayacim.getInt( "serhat24" ,0) );
+        sayac.add( sayacim.getInt( "KuzeyDoguAnd25" ,0) );
+        sayac.add( sayacim.getInt( "dogukar26" ,0) );
+        sayac.add( sayacim.getInt( "cukurova27" ,0) );
+        sayac.add( sayacim.getInt( "daka28" ,0) );
+        sayac.add( sayacim.getInt( "bkka29" ,0) );
+        sayac.add( sayacim.getInt( "kaka30" ,0) );
+        sayac.add( sayacim.getInt( "okka31" ,0) );
+        sayac.add( sayacim.getInt( "avrupa32" ,0) );
+        sayac.add( sayacim.getInt( "fırat33" ,0) );
+        sayac.add( sayacim.getInt( "oaka34" ,0) );
 
 
         firmalarArrayList.add("Tubitak Akademik Destekler");
         firmalarArrayList.add("Tubitak Sanayi Destekleri");
         firmalarArrayList.add("Tubitak Kamu Destekleri");
         firmalarArrayList.add("Tubitak Girisimcilik Destekleri");
-        firmalarArrayList.add("Tubitak Bilimsel Etkinlik Destekleri");
+        firmalarArrayList.add("Tubitak Bilimsel Etkinlik_Destekleri");
         firmalarArrayList.add("Tubitak Bilim ve Toplum Destekleri");
         firmalarArrayList.add("Kosgeb");
-        firmalarArrayList.add("Avrupa Birliği");
         firmalarArrayList.add("İstanbul Kalkınma Ajansı");
         firmalarArrayList.add("Trakya Kalkınma Ajansı");
         firmalarArrayList.add("Güney Marmara Kalkınma Ajansı");
-        firmalarArrayList.add("İzmir Kalkınma Ajansı");
-        firmalarArrayList.add("Güney Ege Kalkınma Ajansı");
-        firmalarArrayList.add("Zafer Kalkınma Ajansı");
+        firmalarArrayList.add("Ankara Kalkınma Ajansı");
         firmalarArrayList.add("Bursa-Eskişehir-Bilecik Kalkınma Ajansı");
         firmalarArrayList.add("Doğu Marmara Kalkınma Ajansı");
-        firmalarArrayList.add("Ankara Kalkınma Ajansı");
+        firmalarArrayList.add("İzmir Kalkınma Ajansı");
+        firmalarArrayList.add("Ahiler Kalkınma Ajansı");
+        firmalarArrayList.add("Dicle Kalkınma Ajansı");
+        firmalarArrayList.add("Güney Ege Kalkınma Ajansı");
+        firmalarArrayList.add("Karacadağ Kalkınma Ajansı");
+        firmalarArrayList.add("İpekyolu Kalkınma Ajansı");
+        firmalarArrayList.add("Zafer Kalkınma Ajansı");
+        firmalarArrayList.add("Doğu Anadolu Kalkınma Ajansı");
         firmalarArrayList.add("Mevlana Kalkınma Ajansı");
-        firmalarArrayList.add("Batı Karadeniz Kalkınma Ajansı");
+        firmalarArrayList.add("Batı Akdeniz Kalkınma Ajansı");
+        firmalarArrayList.add("Serhat Kalkınma Ajansı");
+        firmalarArrayList.add("Kuzeydoğu Anadolu Kalkınma Ajansı");
+        firmalarArrayList.add("Doğu Karadeniz Kalkınma Ajansı");
         firmalarArrayList.add("Çukurova Kalkınma Ajansı");
         firmalarArrayList.add("Doğu Akdeniz Kalkınma Ajansı");
-        firmalarArrayList.add("Ahiler Kalkınma Ajansı");
-        firmalarArrayList.add("Orta Anadolu Kalkınma Ajansı");
+        firmalarArrayList.add("Batı Karadeniz Kalkınma Ajansı");
         firmalarArrayList.add("Kuzey Anadolu Kalkınma Ajansı");
-        firmalarArrayList.add("Kuzeydoğu Anadolu Kalkınma Ajansı");
         firmalarArrayList.add("Orta Karadeniz Kalkınma Ajansı");
-        firmalarArrayList.add("Doğu Karadeniz Kalkınma Ajansı");
-        firmalarArrayList.add("Serhat Kalkınma Ajansı");
+        firmalarArrayList.add("Avrupa Birliği");
         firmalarArrayList.add("Fırat Kalkınma Ajansı");
-        firmalarArrayList.add("Doğu Anadolu Kalkınma Ajansı");
-        firmalarArrayList.add("İpekyolu Kalkınma Ajansı");
-        firmalarArrayList.add("Karacadağ Kalkınma Ajansı");
-        firmalarArrayList.add("Dicle Kalkınma Ajansı");
-        firmalarArrayList.add("Mevlana Kalkınma Ajansı");
+        firmalarArrayList.add("Orta Anadolu Kalkınma Ajansı");
+
 
 
         nav_view = (NavigationView) findViewById(R.id.nav_view);
@@ -224,10 +225,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     { SharedPreferences.Editor editor=sayacim.edit();
         sayac.set( sayacno,sayac.get( sayacno )+1 );
         editor.putInt( isim,sayac.get( sayacno ) );
+        editor.apply();
         editor.commit();
         int asd=sayacim.getInt( isim ,0);
         Log.d(isim, String.valueOf( asd ) );
-
+        diziSiralama();
 
     }
 public void diziSiralama() {
@@ -385,7 +387,7 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="Kosgeb")
                             {
-                                artirmaFonk( j, "kosgeb");
+                                artirmaFonk( j, "kosgeb7");
 
                             }
                         }
@@ -398,10 +400,11 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="İstanbul Kalkınma Ajansı")
                             {
-                                artirmaFonk( j, "istka");
+                                artirmaFonk( j, "istka8");
 
                             }
                         }
+                        diziSiralama();
                     }
                     if (a.equals("Trakya Kalkınma Ajansı")) {
                         new VeriGetirTrakya().execute();
@@ -409,7 +412,7 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="Trakya Kalkınma Ajansı")
                             {
-                                artirmaFonk( j, "tka");
+                                artirmaFonk( j, "tka9");
 
                             }
                         }
@@ -421,10 +424,11 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="Güney Marmara Kalkınma Ajansı")
                             {
-                                artirmaFonk( j, "gmka");
+                                artirmaFonk( j, "gmka10");
 
                             }
                         }
+                        diziSiralama();
                     }
                     if (a.equals("Ankara Kalkınma Ajansı")) {
                         new VeriGetirAnkara().execute();
@@ -432,7 +436,7 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="Ankara Kalkınma Ajansı")
                             {
-                                artirmaFonk( j, "ankara");
+                                artirmaFonk( j, "ankara11");
 
                             }
                         }
@@ -444,7 +448,7 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="Bursa-Eskişehir-Bilecik Kalkınma Ajansı")
                             {
-                                artirmaFonk( j, "bursa");
+                                artirmaFonk( j, "bursa12");
 
                             }
                         }
@@ -456,7 +460,7 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="Doğu Marmara Kalkınma Ajansı")
                             {
-                                artirmaFonk( j, "dmka");
+                                artirmaFonk( j, "dmka13");
 
                             }
                         }
@@ -468,10 +472,11 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="İzmir Kalkınma Ajansı")
                             {
-                                artirmaFonk( j, "izka");
+                                artirmaFonk( j, "izka14");
 
                             }
                         }
+                        diziSiralama();
                     }
 
                     if (a.equals("Ahiler Kalkınma Ajansı")) {
@@ -480,7 +485,7 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="Ahiler Kalkınma Ajansı")
                             {
-                                artirmaFonk( j, "Ahiler");
+                                artirmaFonk( j, "Ahiler15");
 
                             }
                         }
@@ -493,7 +498,7 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="Dicle Kalkınma Ajansı")
                             {
-                                artirmaFonk( j, "dicle");
+                                artirmaFonk( j, "dicle16");
 
                             }
                         }
@@ -505,7 +510,7 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="Güney Ege Kalkınma Ajansı")
                             {
-                                artirmaFonk( j, "geka");
+                                artirmaFonk( j, "geka17");
 
                             }
                         }
@@ -518,7 +523,7 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="Karacadağ Kalkınma Ajansı")
                             {
-                                artirmaFonk( j, "karacadag");
+                                artirmaFonk( j, "karacadag18");
 
                             }
                         }
@@ -531,7 +536,7 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="İpekyolu Kalkınma Ajansı")
                             {
-                                artirmaFonk( j, "ipekyolu");
+                                artirmaFonk( j, "ipekyolu19");
 
                             }
                         }
@@ -543,7 +548,7 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="Zafer Kalkınma Ajansı")
                             {
-                                artirmaFonk( j, "zafer");
+                                artirmaFonk( j, "zafer20");
 
                             }
                         }
@@ -555,7 +560,7 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="Doğu Anadolu Kalkınma Ajansı")
                             {
-                                artirmaFonk( j, "Doguanadolu");
+                                artirmaFonk( j, "Doguanadolu21");
 
                             }
                         }
@@ -567,7 +572,7 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="Mevlana Kalkınma Ajansı")
                             {
-                                artirmaFonk( j, "mevlana");
+                                artirmaFonk( j, "mevlana22");
 
                             }
                         }
@@ -579,7 +584,7 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="Batı Akdeniz Kalkınma Ajansı")
                             {
-                                artirmaFonk( j, "BatıAkdeniz");
+                                artirmaFonk( j, "BatıAkdeniz23");
 
                             }
                         }
@@ -591,7 +596,7 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="Serhat Kalkınma Ajansı")
                             {
-                                artirmaFonk( j, "serhat");
+                                artirmaFonk( j, "serhat24");
 
                             }
                         }
@@ -603,7 +608,7 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="Kuzeydoğu Anadolu Kalkınma Ajansı")
                             {
-                                artirmaFonk( j, "KuzeyDoguAnd");
+                                artirmaFonk( j, "KuzeyDoguAnd25");
 
                             }
                         }
@@ -615,7 +620,7 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="Doğu Karadeniz Kalkınma Ajansı")
                             {
-                                artirmaFonk( j, "dogukar");
+                                artirmaFonk( j, "dogukar26");
 
                             }
                         }
@@ -627,7 +632,7 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="Çukurova Kalkınma Ajansı")
                             {
-                                artirmaFonk( j, "cukurova");
+                                artirmaFonk( j, "cukurova27");
 
                             }
                         }
@@ -639,7 +644,7 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="Doğu Akdeniz Kalkınma Ajansı")
                             {
-                                artirmaFonk( j, "daka");
+                                artirmaFonk( j, "daka28");
 
                             }
                         }
@@ -651,7 +656,7 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="Batı Karadeniz Kalkınma Ajansı")
                             {
-                                artirmaFonk( j, "bkka");
+                                artirmaFonk( j, "bkka29");
 
                             }
                         }
@@ -663,7 +668,7 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="Kuzey Anadolu Kalkınma Ajansı")
                             {
-                                artirmaFonk( j, "kaka");
+                                artirmaFonk( j, "kaka30");
 
                             }
                         }
@@ -675,7 +680,7 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="Orta Karadeniz Kalkınma Ajansı")
                             {
-                                artirmaFonk( j, "okka");
+                                artirmaFonk( j, "okka31");
 
                             }
                         }
@@ -687,7 +692,7 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="Avrupa Birliği Destek Programı")
                             {
-                                artirmaFonk( j, "avrupa");
+                                artirmaFonk( j, "avrupa32");
 
                             }
                         }
@@ -699,7 +704,7 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="Fırat Kalkınma Ajansı")
                             {
-                                artirmaFonk( j, "fırat");
+                                artirmaFonk( j, "fırat33");
 
                             }
                         }
@@ -711,13 +716,13 @@ public void diziSiralama() {
                         {
                             if(firmalarArrayList.get( j )=="Orta Anadolu Kalkınma Ajansı")
                             {
-                                artirmaFonk( j, "oaka");
+                                artirmaFonk( j, "oaka34");
 
                             }
                         }
                         diziSiralama();
                     }
-                   else {
+                   else { diziSiralama();
                         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
