@@ -8,5 +8,5 @@
         android:layout_width="match_parent"
         android:layout_height="194dp"
         android:layout_alignParentTop="true"
-        app:srcCompat="@drawable/tubitaklogo" />
+        app:srcCompat="@drawable/menu" />
 </RelativeLayout>
