@@ -294,7 +294,7 @@ public void diziSiralama() {
        yedekliste.clear();
        linkliste.clear();
        diziSiralama();
-        liste.add( "En Çok Arananlar" );
+
         for (String s : firmalarArrayList){
             if(s.contains(ilanId)) {
                 liste.add( s );
@@ -312,20 +312,7 @@ public void diziSiralama() {
 
                 SharedPreferences sayacim=getSharedPreferences( "Veritabani",MODE_PRIVATE );
                 for (int i = 0; i < liste.size(); i++) {
-                    if (a.equals("En Çok Arananlar")) {
-                        new VeriGetirTubitak().execute();
-                        for(int j=0;j<firmalarArrayList.size();j++)
-                        {
-                            if(firmalarArrayList.get(j )=="Tubitak Akademik Destekler")
-                            {
-                                artirmaFonk( j, "tubitak1");
 
-                            }
-                        }
-
-
-                        diziSiralama();
-                    }
                     if (a.equals("Tubitak Akademik Destekler")) {
                         new VeriGetirTubitak().execute();
                         for(int j=0;j<firmalarArrayList.size();j++)
