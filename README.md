@@ -13,7 +13,7 @@ Tek yapmanız gereken menüden veya arama çubuğundan istenilen programa tıkla
 ```
 # Program Kullanımı
 * Program ilk açılışta Tübitaktaki güncel destekleri listeleyerek açılır. 
-*![logo](/SS/1.png)
+* ![logo](/SS/1.png)
 * Yan Panelde açılır menümüz görüntülenmektedir.
 * Yan taraftaki menü kullanım kullanım kolaylığı sağlamak için Coğrafi Bölgelere ayrılmıştır
 *  ![logo](/SS/6.png)
