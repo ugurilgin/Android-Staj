@@ -1,7 +1,7 @@
 ![logo](/app/src/main/res/drawable/menu.png)
 # AÇIK DESTEK TAKİP
 ```
-Kullanılan Programlar ve Eklentielr
+Kullanılan Programlar ve Eklentiler
 Android Studio
 JSoup
 Navigation View
