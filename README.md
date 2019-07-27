@@ -7,7 +7,7 @@ Tek yapmanız gereken menüden veya arama çubuğundan istenilen programa tıkla
 ```
 # Program Kullanımı
 * Program ilk açılışta Tübitaktaki güncel destekleri listeleyerek açılır.
-![logo](/SS/1.png)
+* ![logo](/SS/1.png)
 # Emeği Geçenler
 * UĞUR ILGIN
 * MUHAMMED ERDEM KAZANCI
