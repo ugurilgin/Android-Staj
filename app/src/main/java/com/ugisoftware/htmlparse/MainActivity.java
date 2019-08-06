@@ -5,6 +5,7 @@ import android.content.ClipData;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.annotation.NonNull;
@@ -17,6 +18,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -36,18 +38,33 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener,SearchView.OnQueryTextListener {
+    /*
+     *
+     * Uğur Ilgın
+     * Muhammed Erdem Kazancı
+     * Ahmet Emre Erdem
+     *
+     * */
     private NavigationView nav_view;
     private Toolbar toolbar;
+    SharedPreferences sayacim;
     private DrawerLayout drawer;
     private ArrayList<String > firmalarArrayList = new ArrayList<>();
+    private ArrayList<String >VerilerArrayList = new ArrayList<>();
     private ListView lv;
     public ArrayList<String> liste= new ArrayList();
+    public ArrayList<String> yedekliste= new ArrayList();
     public ArrayList linkliste= new ArrayList();
     private ArrayAdapter<String> adapter;
+
     private static String URL="http://www.tubitak.gov.tr/";
+    public ArrayList<Integer> sayac=new ArrayList<>(  );//{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+    public ArrayList<Integer> siralisayac=new ArrayList<>(  );
     private ProgressDialog progressDialog;
     int[] Images={R.drawable.tubitaklogo,R.drawable.tubitaklogo,R.drawable.tubitaklogo,R.drawable.tubitaklogo,R.drawable.tubitaklogo,R.drawable.tubitaklogo};
     @Override
@@ -66,8 +83,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 {
                     if(liste.get( i )==s)
                         {
-                            //Intent browserIntent = new Intent( Intent.ACTION_VIEW, Uri.parse( linkliste.get(i ).toString() ) );
-                            //startActivity( browserIntent );
+
                             Intent browserIntent = new Intent( MainActivity.this,browser.class );
                             browserIntent.putExtra( "sayfa",linkliste.get( i ).toString() );
                             startActivity( browserIntent );
@@ -82,47 +98,112 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
 
 
+        sayacim=getSharedPreferences( "Veritabani",MODE_PRIVATE );
 
+        VerilerArrayList.add( "tubitak1"  );
+        VerilerArrayList.add( "tubitak2"  );
+        VerilerArrayList.add( "tubitak3"  );
+        VerilerArrayList.add(  "tubitak4" );
+        VerilerArrayList.add( "tubitak5"  );
+        VerilerArrayList.add("tubitak6" );
+        VerilerArrayList.add( "kosgeb7" );
+        VerilerArrayList.add( "istka8"  );
+        VerilerArrayList.add( "tka9"  );
+        VerilerArrayList.add(  "gmka10" );
+        VerilerArrayList.add( "ankara11"  );
+        VerilerArrayList.add( "bursa12"  );
+        VerilerArrayList.add( "dmka13"  );
+        VerilerArrayList.add("izka14"  );
+        VerilerArrayList.add( "Ahiler15"  );
+        VerilerArrayList.add(  "dicle16" );
+        VerilerArrayList.add( "geka17"  );
+        VerilerArrayList.add("karacadag18" );
+        VerilerArrayList.add(  "ipekyolu19" );
+        VerilerArrayList.add(  "zafer20"  );
+        VerilerArrayList.add( "Doguanadolu21" );
+        VerilerArrayList.add("mevlana22"  );
+        VerilerArrayList.add( "BatıAkdeniz23"  );
+        VerilerArrayList.add("serhat24"  );
+        VerilerArrayList.add("KuzeyDoguAnd25" );
+        VerilerArrayList.add( "dogukar26"  );
+        VerilerArrayList.add(  "cukurova27" );
+        VerilerArrayList.add( "daka28"  );
+        VerilerArrayList.add(  "bkka29" );
+        VerilerArrayList.add( "kaka30"  );
+        VerilerArrayList.add( "okka31" );
+        VerilerArrayList.add( "avrupa32"  );
+        VerilerArrayList.add(  "fırat33"  );
+        VerilerArrayList.add("oaka34"  );
 
-
-
+        sayac.add( sayacim.getInt( "tubitak1" ,0) );
+        sayac.add( sayacim.getInt( "tubitak2" ,0) );
+        sayac.add( sayacim.getInt( "tubitak3" ,0) );
+        sayac.add( sayacim.getInt( "tubitak4" ,0) );
+        sayac.add( sayacim.getInt( "tubitak5" ,0) );
+        sayac.add( sayacim.getInt( "tubitak6" ,0) );
+        sayac.add( sayacim.getInt( "kosgeb7" ,0) );
+        sayac.add( sayacim.getInt( "istka8" ,0) );
+        sayac.add( sayacim.getInt( "tka9" ,0) );
+        sayac.add( sayacim.getInt( "gmka10" ,0) );
+        sayac.add( sayacim.getInt( "ankara11" ,0) );
+        sayac.add( sayacim.getInt( "bursa12" ,0) );
+        sayac.add( sayacim.getInt( "dmka13" ,0) );
+        sayac.add( sayacim.getInt( "izka14" ,0) );
+        sayac.add( sayacim.getInt( "Ahiler15" ,0) );
+        sayac.add( sayacim.getInt( "dicle16" ,0) );
+        sayac.add( sayacim.getInt( "geka17" ,0) );
+        sayac.add( sayacim.getInt( "karacadag18" ,0) );
+        sayac.add( sayacim.getInt( "ipekyolu19" ,0) );
+        sayac.add( sayacim.getInt( "zafer20" ,0) );
+        sayac.add( sayacim.getInt( "Doguanadolu21" ,0) );
+        sayac.add( sayacim.getInt( "mevlana22" ,0) );
+        sayac.add( sayacim.getInt( "BatıAkdeniz23" ,0) );
+        sayac.add( sayacim.getInt( "serhat24" ,0) );
+        sayac.add( sayacim.getInt( "KuzeyDoguAnd25" ,0) );
+        sayac.add( sayacim.getInt( "dogukar26" ,0) );
+        sayac.add( sayacim.getInt( "cukurova27" ,0) );
+        sayac.add( sayacim.getInt( "daka28" ,0) );
+        sayac.add( sayacim.getInt( "bkka29" ,0) );
+        sayac.add( sayacim.getInt( "kaka30" ,0) );
+        sayac.add( sayacim.getInt( "okka31" ,0) );
+        sayac.add( sayacim.getInt( "avrupa32" ,0) );
+        sayac.add( sayacim.getInt( "fırat33" ,0) );
+        sayac.add( sayacim.getInt( "oaka34" ,0) );
 
         firmalarArrayList.add("Tubitak Akademik Destekler");
         firmalarArrayList.add("Tubitak Sanayi Destekleri");
         firmalarArrayList.add("Tubitak Kamu Destekleri");
         firmalarArrayList.add("Tubitak Girisimcilik Destekleri");
-        firmalarArrayList.add("Tubitak Bilimsel Etkinlik Destekleri");
+        firmalarArrayList.add("Tubitak Bilimsel Etkinlik_Destekleri");
         firmalarArrayList.add("Tubitak Bilim ve Toplum Destekleri");
-
         firmalarArrayList.add("Kosgeb");
-        firmalarArrayList.add("Avrupa Birliği");
         firmalarArrayList.add("İstanbul Kalkınma Ajansı");
         firmalarArrayList.add("Trakya Kalkınma Ajansı");
         firmalarArrayList.add("Güney Marmara Kalkınma Ajansı");
-        firmalarArrayList.add("İzmir Kalkınma Ajansı");
-        firmalarArrayList.add("Güney Ege Kalkınma Ajansı");
-        firmalarArrayList.add("Zafer Kalkınma Ajansı");
+        firmalarArrayList.add("Ankara Kalkınma Ajansı");
         firmalarArrayList.add("Bursa-Eskişehir-Bilecik Kalkınma Ajansı");
         firmalarArrayList.add("Doğu Marmara Kalkınma Ajansı");
-        firmalarArrayList.add("Ankara Kalkınma Ajansı");
+        firmalarArrayList.add("İzmir Kalkınma Ajansı");
+        firmalarArrayList.add("Ahiler Kalkınma Ajansı");
+        firmalarArrayList.add("Dicle Kalkınma Ajansı");
+        firmalarArrayList.add("Güney Ege Kalkınma Ajansı");
+        firmalarArrayList.add("Karacadağ Kalkınma Ajansı");
+        firmalarArrayList.add("İpekyolu Kalkınma Ajansı");
+        firmalarArrayList.add("Zafer Kalkınma Ajansı");
+        firmalarArrayList.add("Doğu Anadolu Kalkınma Ajansı");
         firmalarArrayList.add("Mevlana Kalkınma Ajansı");
-        firmalarArrayList.add("Batı Karadeniz Kalkınma Ajansı");
+        firmalarArrayList.add("Batı Akdeniz Kalkınma Ajansı");
+        firmalarArrayList.add("Serhat Kalkınma Ajansı");
+        firmalarArrayList.add("Kuzeydoğu Anadolu Kalkınma Ajansı");
+        firmalarArrayList.add("Doğu Karadeniz Kalkınma Ajansı");
         firmalarArrayList.add("Çukurova Kalkınma Ajansı");
         firmalarArrayList.add("Doğu Akdeniz Kalkınma Ajansı");
-        firmalarArrayList.add("Ahiler Kalkınma Ajansı");
-        firmalarArrayList.add("Orta Anadolu Kalkınma Ajansı");
         firmalarArrayList.add("Batı Karadeniz Kalkınma Ajansı");
         firmalarArrayList.add("Kuzey Anadolu Kalkınma Ajansı");
         firmalarArrayList.add("Orta Karadeniz Kalkınma Ajansı");
-        firmalarArrayList.add("Doğu Karadeniz Kalkınma Ajansı");
-        firmalarArrayList.add("Kuzey Doğu Anadolu Kalkınma Ajansı");
-        firmalarArrayList.add("Serhat Kalkınma Ajansı");
+        firmalarArrayList.add("Avrupa Birliği Destek Programı");
         firmalarArrayList.add("Fırat Kalkınma Ajansı");
-        firmalarArrayList.add("Doğu Anadolu Kalkınma Ajansı");
-        firmalarArrayList.add("İpekyolu Kalkınma Ajansı");
-        firmalarArrayList.add("Karacadağ Kalkınma Ajansı");
-        firmalarArrayList.add("Dicle Kalkınma Ajansı");
-
+        firmalarArrayList.add("Orta Anadolu Kalkınma Ajansı");
 
 
 
@@ -145,8 +226,44 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,liste);
      new VeriGetirTubitak().execute(  );
-        //new VeriGetirTubitak().execute();
     }
+    public  void  artirmaFonk(int sayacno,String isim)
+    { SharedPreferences.Editor editor=sayacim.edit();
+        sayac.set( sayacno,sayac.get( sayacno )+1 );
+        editor.putInt( isim,sayac.get( sayacno ) );
+        editor.apply();
+        editor.commit();
+        int asd=sayacim.getInt( isim ,0);
+        Log.d(isim, String.valueOf( asd ) );
+        diziSiralama();
+
+    }
+public void diziSiralama() {
+    for (int i = 0; i < sayac.size(); i++) {
+        siralisayac.add( sayac.get( i ) );
+    }
+    int n = sayac.size();
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (sayac.get( j ) > sayac.get( j + 1 )) {
+                int temp = sayac.get( j );
+                sayac.set( j, sayac.get( j + 1 ) );
+                sayac.set( j + 1, temp );
+                String gecici=firmalarArrayList.get( j );
+                firmalarArrayList.set( j,firmalarArrayList.get( j+1 ) );
+                firmalarArrayList.set( j+1 ,gecici);
+
+            }
+
+
+        }
+
+    }
+
+    Collections.reverse( sayac );
+    Collections.reverse( firmalarArrayList );
+
+}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -174,7 +291,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void ilanlarArama(final String ilanId) {
 
        liste.clear();
+       yedekliste.clear();
        linkliste.clear();
+       diziSiralama();
 
         for (String s : firmalarArrayList){
             if(s.contains(ilanId)) {
@@ -184,156 +303,433 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         }
+
+
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String a =  lv.getItemAtPosition( position ).toString();
 
+                SharedPreferences sayacim=getSharedPreferences( "Veritabani",MODE_PRIVATE );
                 for (int i = 0; i < liste.size(); i++) {
+
                     if (a.equals("Tubitak Akademik Destekler")) {
                         new VeriGetirTubitak().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get(j )=="Tubitak Akademik Destekler")
+                            {
+                            artirmaFonk( j, "tubitak1");
+
+                            }
+                        }
 
 
-
-
+                        diziSiralama();
                     }
                     if (a.equals("Tubitak Sanayi Destekleri")) {
                         new VeriGetirTubitak1().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Tubitak Sanayi Destekler")
+                            {
+                                artirmaFonk( j, "tubitak2");
 
+                            }
+                        }
 
+                        diziSiralama();
                     }
                     if (a.equals("Tubitak Kamu Destekleri")) {
                         new VeriGetirTubitak2().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Tubitak Kamu Destekleri")
+                            {
+                                artirmaFonk( j, "tubitak3");
 
+                            }
+                        }
+                        diziSiralama();
                     }
                     if (a.equals("Tubitak Girisimcilik Destekleri")) {
                         new VeriGetirTubitak3().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Tubitak Girisimcilik Destekleri")
+                            {
+                                artirmaFonk( j, "tubitak4");
 
+                            }
+                        }
+                        diziSiralama();
                     }
                     if (a.equals("Tubitak Bilimsel Etkinlik Destekleri")) {
                         new VeriGetirTubitak4().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Tubitak Bilimsel Etkinlik Destekleri")
+                            {
+                                artirmaFonk( j, "tubitak5");
 
+                            }
+                        }
+                        diziSiralama();
                     }
                     if (a.equals("Tubitak Bilim ve Toplum Destekleri")) {
                         new VeriGetirTubitak5().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Tubitak Bilim ve Toplum Destekleri")
+                            {
+                                artirmaFonk( j, "tubitak6");
 
+                            }
+                        }
+                        diziSiralama();
                     }
                     if (a.equals("Kosgeb")) {
                         new VeriGetirKosgeb().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Kosgeb")
+                            {
+                                artirmaFonk( j, "kosgeb7");
+
+                            }
+                        }
+                        diziSiralama();
 
                     }
                     if (a.equals("İstanbul Kalkınma Ajansı")) {
                         new VeriGetirIstkalk().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="İstanbul Kalkınma Ajansı")
+                            {
+                                artirmaFonk( j, "istka8");
 
+                            }
+                        }
+                        diziSiralama();
                     }
                     if (a.equals("Trakya Kalkınma Ajansı")) {
                         new VeriGetirTrakya().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Trakya Kalkınma Ajansı")
+                            {
+                                artirmaFonk( j, "tka9");
 
+                            }
+                        }
+                        diziSiralama();
                     }
                     if (a.equals("Güney Marmara Kalkınma Ajansı")) {
                         new VeriGetirGMarmara().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Güney Marmara Kalkınma Ajansı")
+                            {
+                                artirmaFonk( j, "gmka10");
 
+                            }
+                        }
+                        diziSiralama();
                     }
                     if (a.equals("Ankara Kalkınma Ajansı")) {
                         new VeriGetirAnkara().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Ankara Kalkınma Ajansı")
+                            {
+                                artirmaFonk( j, "ankara11");
 
+                            }
+                        }
+                        diziSiralama();
                     }
                     if (a.equals("Bursa-Eskişehir-Bilecik Kalkınma Ajansı")) {
                         new VeriGetirBursa().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Bursa-Eskişehir-Bilecik Kalkınma Ajansı")
+                            {
+                                artirmaFonk( j, "bursa12");
 
+                            }
+                        }
+                        diziSiralama();
                     }
                     if (a.equals("Doğu Marmara Kalkınma Ajansı")) {
                         new VeriGetirDMarmara().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Doğu Marmara Kalkınma Ajansı")
+                            {
+                                artirmaFonk( j, "dmka13");
 
+                            }
+                        }
+                        diziSiralama();
                     }
                     if (a.equals("İzmir Kalkınma Ajansı")) {
                         new VeriGetirIzkalk().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="İzmir Kalkınma Ajansı")
+                            {
+                                artirmaFonk( j, "izka14");
 
+                            }
+                        }
+                        diziSiralama();
                     }
 
                     if (a.equals("Ahiler Kalkınma Ajansı")) {
                         new VeriGetirAhika().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Ahiler Kalkınma Ajansı")
+                            {
+                                artirmaFonk( j, "Ahiler15");
 
+                            }
+                        }
+                        diziSiralama();
                     }
 
                     if (a.equals("Dicle Kalkınma Ajansı")) {
                         new VeriGetirDicle().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Dicle Kalkınma Ajansı")
+                            {
+                                artirmaFonk( j, "dicle16");
 
+                            }
+                        }
+                        diziSiralama();
                     }
                     if (a.equals("Güney Ege Kalkınma Ajansı")) {
                         new VeriGetirGEKA().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Güney Ege Kalkınma Ajansı")
+                            {
+                                artirmaFonk( j, "geka17");
 
+                            }
+                        }
+                        diziSiralama();
                     }
 
                     if (a.equals("Karacadağ Kalkınma Ajansı")) {
                         new VeriGetirKaracadag().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Karacadağ Kalkınma Ajansı")
+                            {
+                                artirmaFonk( j, "karacadag18");
 
+                            }
+                        }
+                        diziSiralama();
                     }
 
                     if (a.equals("İpekyolu Kalkınma Ajansı")) {
                          new VeriGetirIpekyolu().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="İpekyolu Kalkınma Ajansı")
+                            {
+                                artirmaFonk( j, "ipekyolu19");
+
+                            }
+                        }
+                        diziSiralama();
                     }
                     if (a.equals("Zafer Kalkınma Ajansı")) {
                         new VeriGetirZafer().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Zafer Kalkınma Ajansı")
+                            {
+                                artirmaFonk( j, "zafer20");
 
+                            }
+                        }
+                        diziSiralama();
                     }
                     if (a.equals("Doğu Anadolu Kalkınma Ajansı")) {
                         new VeriGetirDanadolu().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Doğu Anadolu Kalkınma Ajansı")
+                            {
+                                artirmaFonk( j, "Doguanadolu21");
 
+                            }
+                        }
+                        diziSiralama();
                     }
                     if (a.equals("Mevlana Kalkınma Ajansı")) {
                         new VeriGetirMevlana().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Mevlana Kalkınma Ajansı")
+                            {
+                                artirmaFonk( j, "mevlana22");
 
+                            }
+                        }
+                        diziSiralama();
                     }
                     if (a.equals("Batı Akdeniz Kalkınma Ajansı")) {
                         new VeriGetirBatıAkd().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Batı Akdeniz Kalkınma Ajansı")
+                            {
+                                artirmaFonk( j, "BatıAkdeniz23");
 
+                            }
+                        }
+                        diziSiralama();
                     }
                     if (a.equals("Serhat Kalkınma Ajansı")) {
                         new VeriGetirSerhat().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Serhat Kalkınma Ajansı")
+                            {
+                                artirmaFonk( j, "serhat24");
 
+                            }
+                        }
+                        diziSiralama();
                     }
                     if (a.equals("Kuzeydoğu Anadolu Kalkınma Ajansı")) {
                         new VeriGetirKDAnadolu().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Kuzeydoğu Anadolu Kalkınma Ajansı")
+                            {
+                                artirmaFonk( j, "KuzeyDoguAnd25");
 
+                            }
+                        }
+                        diziSiralama();
                     }
                     if (a.equals("Doğu Karadeniz Kalkınma Ajansı")) {
                         new VeriGetirDKaradeniz().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Doğu Karadeniz Kalkınma Ajansı")
+                            {
+                                artirmaFonk( j, "dogukar26");
 
+                            }
+                        }
+                        diziSiralama();
                     }
                     if (a.equals("Çukurova Kalkınma Ajansı")) {
                         new VeriGetirCukurova().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Çukurova Kalkınma Ajansı")
+                            {
+                                artirmaFonk( j, "cukurova27");
 
+                            }
+                        }
+                        diziSiralama();
                     }
                     if (a.equals("Doğu Akdeniz Kalkınma Ajansı")) {
                         new VeriGetirDoguAkdeniz().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Doğu Akdeniz Kalkınma Ajansı")
+                            {
+                                artirmaFonk( j, "daka28");
 
+                            }
+                        }
+                        diziSiralama();
                     }
                     if (a.equals("Batı Karadeniz Kalkınma Ajansı")) {
                         new VeriGetirBatıKaradeniz().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Batı Karadeniz Kalkınma Ajansı")
+                            {
+                                artirmaFonk( j, "bkka29");
 
+                            }
+                        }
+                        diziSiralama();
                     }
                     if (a.equals("Kuzey Anadolu Kalkınma Ajansı")) {
                         new VeriGetirKuzeyAnadolu().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Kuzey Anadolu Kalkınma Ajansı")
+                            {
+                                artirmaFonk( j, "kaka30");
 
+                            }
+                        }
+                        diziSiralama();
                     }
                     if (a.equals("Orta Karadeniz Kalkınma Ajansı")) {
                         new VeriGetirOrtaKaradeniz().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Orta Karadeniz Kalkınma Ajansı")
+                            {
+                                artirmaFonk( j, "okka31");
 
+                            }
+                        }
+                        diziSiralama();
                     }
                     if (a.equals("Avrupa Birliği Destek Programı")) {
                         new VeriGetirAB().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Avrupa Birliği Destek Programı")
+                            {
+                                artirmaFonk( j, "avrupa32");
 
+                            }
+                        }
+                        diziSiralama();
                     }
                     if (a.equals("Fırat Kalkınma Ajansı")) {
                         new VeriGetirFırat().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Fırat Kalkınma Ajansı")
+                            {
+                                artirmaFonk( j, "fırat33");
 
+                            }
+                        }
+                        diziSiralama();
                     }
                     if (a.equals("Orta Anadolu Kalkınma Ajansı")) {
                         new VeriGetirOrtaAnadolu().execute();
+                        for(int j=0;j<firmalarArrayList.size();j++)
+                        {
+                            if(firmalarArrayList.get( j )=="Orta Anadolu Kalkınma Ajansı")
+                            {
+                                artirmaFonk( j, "oaka34");
 
+                            }
+                        }
+                        diziSiralama();
                     }
-                   else {
+                   else { diziSiralama();
                         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -341,8 +737,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                                    for (int i = 0; i < liste.size(); i++) {
                                        if (liste.get( i ) == s) {
-                                           //Intent browserIntent = new Intent( Intent.ACTION_VIEW, Uri.parse( linkliste.get(i ).toString() ) );
-                                           //startActivity( browserIntent );
                                            Intent browserIntent = new Intent( MainActivity.this, browser.class );
                                            browserIntent.putExtra( "sayfa", linkliste.get( i ).toString() );
                                            startActivity( browserIntent );
